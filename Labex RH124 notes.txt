@@ -1,0 +1,1077 @@
+linux cheat sheet:
+pwd		-	current directory path
+pwd -P	-	show the actual path of the directory
+ls		-	list
+ls -l	-	long listing format
+ls -a	-	all files
+ls -la	-	combining -l and -a
+ls -R	-	recursive
+ls -ld `dir` 	-	command to view the owner of a directory
+cd		-	change shells current working directory
+cd -	-	previus directory
+cd ..	-	This command uses the .. (two dots) hidden directory to move up one level to the parent directory, without needing to know the exact parent name.
+cd ../	-	You can chain .. to move up multiple levels
+cd ~/	-
+cp		-	Copying Files and Directories
+cp -r 		copys the entire directory
+mv		-	move/rename
+mv -v	-	The -v option for mv displays a detailed output of the command operations, which can be helpful for confirmation.
+rm 		-	remove
+rm -r		The rm -r command traverses each subdirectory first and individually removes their files before removing each directory.
+rm -i	-	interactively prompts for confirmation before deleting each file.
+mkdir	-	make directory
+mkdir -p	The mkdir command's -p (parents) option is very useful for creating any missing parent directories for the requested destination.
+rmdir	-	removes empty directories
+touch	-	create filesm
+hardlink
+	ln		-	create a hard link
+softlink/symbolic link/symlink
+	ln -s	-	create a symbolic link
+cat		-	prints the file
+echo	-	a built-in shell utility used to print text, strings, or variables directly to the terminal standard output.
+date 	-	privides current date
+>		-	operator redirects the standard output of a command to a specified file. If the file does not exist, it will be created. If the file already exists, its contents will be overwritten.
+>>		-	operator redirects the standard output of a command to a specified file, appending the new content to the end of the file. If the file does not exist, it will be created.
+2>		-	redirect error messages
+2>&1	-	combined stdout and stderr
+	&>	-	shorthand for combining stdout and stderr to a file
+wc -l	-	count the number of lines, used to connect commands in a pipeline. It redirects the standard output (stdout) of the command on its left to the standard input (stdin) of the command on its right.
+find	-	search and locate files and directories within a file system hierarchy based on user-specified conditions.
+stderr	-	error string
+stdout 	-	ouytput string
+|				-	pipeline - first argument's results is used in the next argument.
+grep `arg`		-	searches for `arg`
+grep -v `arg`	-	excludes `arg`
+
+sort			-	sort lines of text
+uniq			-	report or omit repeated lines
+
+cat `fruits.txt` | sort | uniq		-	first sorts the lines, then uniq removes duplicate adjacent lines.
+tee				-	It reads standard input, writes it to standard output, and simultaneously writes it to one or more files
+	ls -l | tee `arg`	-list the files and save the output to `arg` while also displaying it on the screen.
+tee -a			-	append output to a file
+	echo "arg-text" | tee -a `arg`
+
+------------------------------------------------
+Vim controls:
+--------
+	h 		- left
+	j 		- down
+	k 		- up
+	l 		- right
+
+--------
+	:w	-	save
+	:q	-	quit Vim
+	:wq	-	save and quit
+	:q! -	quit without saving
+
+--------
+	esc - return to normal mode
+	i 		- Insert mode
+	shift+V	- visual line mode:
+		Y	- "yank", copy the selected line.
+		p	- Put, Paste the yanked line below the current line
+		kk	- dd, double d to delete the entire line
+		u	- undo your last change
+
+------------------------------------------------
+Setting a Local Variable
+	$	-	access the value of a variable, you prepend its name with a $ sign.
+	"{arg}"	-	delimit the variable name
+	set - list all currently set shell variables and fucntions
+		`set | less`
+	unset-	remove a variable
+	export	-	make a variable an environment variable.
+		`export EDITOR=vim`	-	This sets the EDITOR environment variable, which many programs use to determine your preferred text editor.
+		`export -n EDITOR`	-	Unexporting a Variable: You can unexport a variable without unsetting it using export -n. This makes it a local variable again.
+			export -n		-	?
+	env	-	list only the environment variables.
+		`env | grep EDITOR`
+		
+	Shell Aliases
+		Creating an Alias:				-	alias ll='ls -l'
+		Using an Alias: 				-	ll
+		Listing Aliases:				-	alias
+		Creating a More Complex Alias:	-	alias myip='ip a | grep "inet " | grep -v "127.0.0.1" | awk "{print \$2}" | cut -d/ -f1'
+		testing alias
+			myip
+			
+		Unsetting an Alias:				-	unalias ll
+			alias
+
+=================================================
+users and groups:
+	id	-	show information about the currently logged-in user
+		displays the user ID (UID), primary group ID (GID), and all groups the user belongs to.
+		`id root`
+	ls -ld `dir` 	-	view the owner of a directory, rather than the contents of that directory
+	
+	ps -au	-	view processes
+		a option shows all processes with a terminal
+		u option displays the user that is associated with a process
+	
+	cat /etc/passwd	-	file contains account information for every user
+	cat /etc/group	-	file contains account information for every group
+
+======================================================================
+superuser access:
+	su	-	switch to the root user
+		-	-	the hyphern(-) option ensures that you get a login shell	
+			after entering password you will log into root@host
+		exit	-	exits the root shell and return.
+	sudo	-	run a single command with root privileges without switching to the root shell.
+	sudo -i	-	switch to the root account.
+		preferred over `su -` because it provides a more secure way to run commands with elevated privileges
+		still using your own user account but with root privileges
+		commands are logged to your account
+	visudo-	if multiple users have access to sudoers, should use `visudo`
+		/etc/sudoers	-	main configuration file for the sudo command
+		defines which users or groups can run wich commands with elevated privileges
+		
+======================================================================
+Create and Modify Local User Accounts:
+	sudo useradd `usr`	-	creates a new user with a UID greater than or equal to 1000, creates a home directory, and sets the default shell to /bin/bash. You need sudo privileges to run this command
+	sudo passwd `usr`	-	creates password for user
+	sudo usermod		-	change various properties of a user
+		-c
+		-L	-	lock
+		-U	-	unlock
+		-r	-	remove the user and their home directory
+	sudo userdel `usr`	-	removes the user's entry from /etc/passwd but leaves their home directory intact
+	
+======================================================================
+Manage Local Group Accounts:
+	groupadd	- assigns the next available GID from the range specified in /etc/login.defs. You need sudo privileges to run this command.
+		-gained-	specify a particular GID for the group
+		
+	groupmod	-
+		-a	-	append
+		-n	-	change the name of a group
+		-G	-	change the GID of a group
+		
+	sudo usermod -aG developers userA
+		Add userA to the developers group as a secondary group. Use the -a (append) and -G (groups) options with usermod.
+	sudo usermod -aG developers,qa_team userB
+		Add userB to both developers and qa_team groups as secondary groups.
+			
+	groupdel	-	remove a group
+		You cannot delete a group if it is the primary group for any user.
+Configure User Password Policies:
+	/etc/shadow
+		 stores encrypted password information and password aging parameters for user accounts. This file is highly sensitive and is only readable by the root user.
+	chage
+		chage -l `arg`			-	the -l (list) to display current password aging information
+		0E 						-	set an absolute account expiration date
+		sudo chage -E -1 `arg`	-	removes accounts expiration date
+		
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+================================================================================================================
+
+*	Any string of zero or more characters.	*.txt matches all files ending with .txt.
+	Using *:
+		Lists all files ending with .txt
+?	Any single character.	file?.txt matches file1.txt, fileA.txt, etc.
+	Using ?:
+		List files that have exactly one character before .log:
+			`ls data/file?.log`
+			
+=====================================================================================================
+[abc...]	Any one character in the enclosed class.	file[12].txt matches file1.txt or file2.txt.
+	Using [] for character sets:
+		List files that start with report_ and have either 2023 or 2024 in their name
+[!abc...]	Any one character not in the enclosed class.	file[!1].txt matches fileA.txt but not file1.txt.
+	Using {} for brace expansion:
+		List files starting with file and ending with .txt or .log
+Brace expansion generates arbitrary strings. It's useful for creating lists of files or directories with similar names without typing each one individually.
+	Comma-separated list:
+		`touch data/report_{jan,feb,mar}.txt`
+	range of numbers or letters:
+		`touch data/doc{1..3}.txt`
+	Create directories:
+		`mkdir data/chapter{A..C}`
+[[:alpha:]]	Any alphabetic character.	file[[:alpha:]].txt matches fileA.txt.
+[[:digit:]]	Any single digit from 0 to 9.
+
+====================================================================================================
+man pages - manual
+curl	-	used to transfer data from or to a server.
+free	-	command is used to display memory usage information.
+groff - This command is used for document formatting
+/ 	-		search forward (down) for a string.
+N 	-		repeat the previous search forward (down)
+Shift + N -	epeat the previous search backward (up)
+Search for man Pages by Keyword
+`man -k`	-	description of command
+`man -K` 	-	
+	enter to view curent pages
+	ctrl-d to skip current pan page and move to next.
+	ctrl-c quit search entirely and return to cli
+
+=====================================================================================================
+The tilde (~) character expands to the current user's home directory (/home/labex). When followed by a username, it expands to that user's home directory.
+	`echo ~`
+Variable Expansion:
+Shell variables store values that can be expanded in commands. You define a variable using VARNAME=value and access its value using $VARNAME or ${VARNAME}.
+```
+MY_DIR=data
+echo "My directory is: $MY_DIR"
+```
+Command substitution allows you to use the output of a command as part of another command. This is done by enclosing the command in $(command) or backticks `command`. The $(command) syntax is generally preferred as it can be nested.
+`touch data/log_$(date +%Y-%m-%d).txt`
+protecting arguments from expansion:
+Backslash (\): Escapes the next single character.
+Single quotes (''): Prevent all shell expansion within the quotes.
+Double quotes (""): Prevent most shell expansion, but allow variable expansion ($VAR) and command substitution ($()).
+
+====================================================================================================
+redirect standard output files:
+0: Standard Input (stdin) - Typically from the keyboard.
+1: Standard Output (stdout) - Typically to the terminal screen.
+2: Standard Error (stderr) - Typically to the terminal screen for error messages.
+Pipelines:
+ls | wc -l					-	ls command lists the files, and its output (each file name on a new line) is fed as input to wc -l, which then counts these lines, effectively telling you how many files/directories are in the current location.
+ls -l /usr/bin | less		-	lists all files in /usr/bin with detailed information. This output is then sent to less, allowing you to scroll through it page by page.
+									Press q to exit less.
+ps aux		-	lists all running processes.
+grep `word`	-	displays only linkes containing `word`
+ps aux | grep bash			-	list all processes running on the system using ps aux and then filter for processes related to bash.
+grep -v 	-
+sort 		-	sort lines of text
+uniq 		-	report or omit repeated lines
+tee 		-	reads standard input, writes it to standard output, and simultaneously writes it to one or more files.
+
+=======================================================================
+vim:
+normal mode	-	esc key
+insert mode	-	i
+visual mode	-	shift+v
+command_line Mode (ex Mode)
+	y to "yank" (copy) the selected line.
+	p to "put" (paste) the yanked line below the current line.
+	dd (double d) to delete the entire line.
+	u To undo your last change
+:wq 	-	quit
+:w	-	Save file
+:q	-	quit
+`vim my_document.txt` 		- Open a new file named my_document.txt using vim.
+export 
+env 
+unset 
+set 
+alias 
+myip
+
+
+
+
+================================================================================
+================================================================================
+================================================================================
+================================================================================
+================================================================================
+================================================================================
+
+LINUX FILE & DIRECTORY MANAGEMENT REFERENCE NOTESDIRECTORY NAVIGATION & INSPECTIONpwd [OPTIONS]
+
+Print the current working directory.
+-L                  Display logical working directory (preserves symlinks).
+-P                  Display physical working directory (resolves symlinks).ls [OPTIONS] [FILE/DIR...]
+List directory contents.
+-a, --all           List all files, including hidden files (starts with '.').
+-A, --almost-all    List all files including hidden, but exclude '.' and '..'.
+-l                  Use long listing format (permissions, links, owner, group,
+size, modification date/time).
+-la / -al           Combine long listing with all hidden entries.
+-R, --recursive     Recursively list contents of all subdirectories.
+-i, --inode         Print the filesystem index/inode number for each file.
+-h, --human-readable  Print human-readable sizes (K, M, G) with -l.
+-d, --directory     List directory entry itself rather than its contents.
+-t                  Sort results by modification time, newest first.
+-r, --reverse       Reverse current sorting order.cd [DIRECTORY]
+Change the current working directory.
+cd                  Navigate to current user's home directory ($HOME).
+cd ~                Navigate to current user's home directory.
+cd ~username        Navigate to the specified user's home directory.
+cd -                Switch back to the previous directory ($OLDPWD).
+cd ..               Move up one level to parent directory.
+cd ../..            Move up two parent levels.
+cd -P               Navigate resolving physical path without symlinks.FILE & DIRECTORY MANAGEMENTtouch [OPTIONS] FILE...
+Create empty files or update file timestamps.
+-a                  Update access time only.
+-m                  Update modification time only.
+-c, --no-create     Do not create files if they do not already exist.
+-d          Set timestamp using a specified date/time string.
+-r <REF_FILE>       Apply timestamps from a reference file.mkdir [OPTIONS] DIRECTORY...
+Create new directories.
+-p, --parents       Create nested parent directories without throwing errors.
+-v, --verbose       Print a message confirmation for each created directory.
+-m            Set explicit octal permissions mode (e.g., 755).rmdir [OPTIONS] DIRECTORY...
+Remove empty directories.
+-p, --parents       Remove empty parent directory chain recursively.
+-v, --verbose       Display an informational line for each removed folder.
+--ignore-fail-on-non-empty
+Suppress warnings if a target directory contains files.rm [OPTIONS] FILE/DIR...
+Remove files or directory hierarchies (permanent deletion).
+-r, -R, --recursive Recursively remove directory trees and all nested contents.
+-i                  Prompt for interactive confirmation before each deletion.
+-I                  Prompt once before deleting >3 files or recursive passes.
+-f, --force         Force deletion without prompt; ignore nonexistent files.
+-v, --verbose       Explain what is being deleted.COPYING, MOVING & RENAMINGcp [OPTIONS] SOURCE DEST
+cp [OPTIONS] SOURCE... DIRECTORY
+Copy files and directories.
+-r, -R, --recursive Recursively copy full directory trees.
+-i, --interactive   Prompt for confirmation before overwriting an existing file.
+-f, --force         Remove destination file if unopenable, then retry copy.
+-u, --update        Copy only if source is newer than destination or missing.
+-p                  Preserve permissions, ownership, and timestamp metadata.
+-a, --archive       Archive mode (-dR --preserve=all); preserves everything.
+-v, --verbose       Print verbose progress for copied files.mv [OPTIONS] SOURCE DEST
+mv [OPTIONS] SOURCE... DIRECTORY
+Move or rename files and directories.
+-i, --interactive   Prompt before overwriting an existing destination target.
+-f, --force         Overwrite existing destinations without prompts.
+-n, --no-clobber    Do not overwrite existing destination files.
+-u, --update        Move only if source is newer than target or target is missing.
+-v, --verbose       Print 'source' -> 'destination' status messages.LINKS & INODESln [OPTIONS] TARGET LINK_NAME
+Create links between files.Hard Links (Default syntax: 'ln target link'):
+- Creates an additional directory entry pointing directly to the same inode.
+- Edits in one are reflected immediately in the other.
+- Data persists until the last hard link is removed.
+- Check link count via column 2 of 'ls -l'.
+- Verify identical inode numbers via 'ls -i'.
+- Limitation: Regular files only; cannot span across separate filesystems.Symbolic Links (Option: 'ln -s target link'):
+- Creates a standalone shortcut file pointing to the target path string.
+- Permissions column starts with 'l' (e.g., lrwxrwxrwx).
+- Can span separate filesystems and point to directories.
+- Target deletion leaves a broken/dangling link.Options for ln:
+-s, --symbolic      Create a symbolic (soft) link instead of a hard link.
+-f, --force         Remove existing destination files before making link.
+-i, --interactive   Prompt before overwriting existing destination files.
+-v, --verbose       Display confirmation message for created links.SHELL EXPANSIONS & QUOTINGPattern Matching (Globbing):              Matches zero or more characters.
+              Example: *.txt, *file*
+?                   Matches exactly one single character.
+Example: file?.log
+[...]               Matches any single character listed inside brackets.
+Example: file[12].txt, report_[2][0][2][34].*
+[!...]              Matches any single character NOT listed inside brackets.
+Example: file[!1].txt
+[a-z] / [0-9]       Matches a continuous range of letters or digits.
+[[:alpha:]]         Matches any alphabetic character.
+[[:digit:]]         Matches any numeric digit (0-9).Brace Expansion:
+{a,b,c}             Expands to arbitrary comma-separated list items.
+Example: report_{jan,feb,mar}.txt
+{START..END}        Expands to sequential ranges (numbers or characters).
+Example: doc{1..3}.txt -> doc1.txt doc2.txt doc3.txt
+Example: chapter{A..C} -> chapterA chapterB chapterCTilde Expansion:
+~                   Expands to the current user's home directory ($HOME).
+~username           Expands to a specific user's home directory (e.g., ~root).Variable Expansion & Command Substitution:
+$VAR / ${VAR}       Expands to the stored environment or shell variable value.$(COMMAND)          Executes COMMAND in a subshell and substitutes stdout.
+Example: touch log_$(date +%Y-%m-%d).txt
+Example: echo "Count: $(ls data | wc -l)"
+COMMAND           Legacy backtick syntax for command substitution.Quoting Rules:
+\ (Backslash)       Escapes following character literally (e.g., echo $HOME).
+' ' (Single Quotes) Preserves literal value of all enclosed characters; disables
+all shell expansions and variable interpolations.
+" " (Double Quotes) Preserves whitespace and literal characters, but permits
+variable expansions ($VAR) and command substitutions ($()).
+
+============================================================================================================================================
+============================================================================================================================================
+RHEL / LINUX MAN PAGES: NAVIGATION & SEARCH REFERENCE
+
+OVERVIEW & BASIC COMMAND SYNTAX
+
+man [SECTION] COMMAND
+Open the reference manual for a specified command, utility, or system topic.
+(Man pages are rendered via a pager, typically 'less').
+
+Examples:
+man curl              Open the manual for the curl command.
+man free              Open the manual for the free command.
+man 1 passwd          Open the user command man page for passwd (section 1).
+man 5 passwd          Open the file format man page for /etc/passwd (section 5).
+
+Standard Man Page Sections:
+Section 1: User Commands and executable programs
+Section 2: System calls (kernel functions)
+Section 3: Library calls (C library functions)
+Section 4: Special files (devices found in /dev)
+Section 5: File formats and configuration files (e.g., /etc/passwd)
+Section 6: Games and screensavers
+Section 7: Miscellaneous conventions, standards, and macros
+Section 8: System administration commands and root daemons
+
+================================================================================
+2. INTERNAL NAVIGATION KEYS (INSIDE A MAN PAGE)
+
+Scrolling & Movement:
+Spacebar / PageDown   Scroll forward (down) one full screen.
+PageUp                Scroll backward (up) one full screen.
+DownArrow / Enter     Scroll forward (down) one line at a time.
+UpArrow               Scroll backward (up) one line at a time.
+d                     Scroll forward (down) one half-screen.
+u                     Scroll backward (up) one half-screen.
+
+Jumping:
+g                     Jump directly to the start (first line) of the man page.
+G / Shift+g           Jump directly to the end (last line) of the man page.
+g             Jump directly to line number .
+
+Exiting:
+q                     Exit the pager and return to the shell prompt.
+
+================================================================================
+3. SEARCHING WITHIN AN OPEN MAN PAGE
+
+Pattern Search Syntax:
+/pattern              Search forward (downwards) for "pattern".
+?pattern              Search backward (upwards) for "pattern".
+
+Search Navigation:
+n                     Repeat search in the same direction (next match).
+N / Shift+n           Repeat search in the opposite direction (previous match).
+
+Search Tips:
+
+Searches are case-sensitive by default (depending on less configuration).
+
+Matches are highlighted automatically on the screen.
+
+Press Enter to execute the pattern query after typing /pattern or ?pattern.
+
+================================================================================
+4. KEYWORD & DESCRIPTION SEARCH (APPROPOS SEARCH)
+
+man -k KEYWORD
+Search the short descriptions and header titles of all man pages for KEYWORD.
+(Equivalent to the 'apropos' command).
+
+Syntax & Aliases:
+man -k 
+apropos 
+
+Examples:
+man -k curl           List manual pages containing "curl" in name/summary.
+man -k memory         Search for commands related to memory management.
+(e.g., free (1), pmap (1), vmstat (8)).
+
+Output Structure:
+ () - 
+Example:
+curl (1)             - transfer a URL
+
+================================================================================
+5. FULL-TEXT SEARCH ACROSS ALL MAN PAGES
+
+man -K KEYWORD
+Search for KEYWORD within the full body text of every available man page.
+Note: This is a recursive, resource-heavy search; best used as a last resort.
+
+Interactive Controls During 'man -K':
+When a match is found, man stops and prompts:
+--Man-- next: command(section) [ view (return) | skip (Ctrl-D) | quit (Ctrl-C) ]
+
+Enter / Return        Open and view the matching man page.
+Ctrl-D                Skip the current match and continue search to next file.
+Ctrl-C                Abort the search completely and return to the shell.
+
+Comparison:
+man -k (lowercase)    Fast search limited to titles and 1-line summaries.
+man -K (uppercase)    Deep, slower search inspecting the entire content text.
+
+=============================================================
+Construct and Understand Command Pipelines
+In this step, you will learn about command pipelines, a powerful feature in the Linux shell that allows you to chain multiple commands together. The output of one command becomes the input of the next, enabling complex data processing and manipulation.
+
+The pipe operator | (vertical bar) is used to connect commands in a pipeline. It redirects the standard output (stdout) of the command on its left to the standard input (stdin) of the command on its right.
+
+Basic Pipelines
+Let's start with a simple example to understand how pipelines work.
+
+Ensure you are in your ~/project directory.
+
+cd ~/project
+ Explain Code
+[labex@host project]$
+ Explain Code
+First, let's list the files in the current directory.
+
+ls
+ Explain Code
+combined_output.log
+combined_output_shorthand.log
+current_datetime.txt
+errors.log
+file_list.txt
+line_count.txt
+ Explain Code
+Now, let's pipe the output of ls to the wc -l command, which counts the number of lines it receives.
+
+ls | wc -l
+ Explain Code
+6
+ Explain Code
+The ls command lists the files, and its output (each file name on a new line) is fed as input to wc -l, which then counts these lines, effectively telling you how many files/directories are in the current location.
+
+Let's try another common use case: piping ls -l to less for paginated output. This is useful when a command produces too much output to fit on a single screen.
+
+ls -l /usr/bin | less
+ Explain Code
+total 200000
+-rwxr-xr-x 1 root root 12345 Jan XX HH:MM [filename]
+... (press 'q' to quit less) ...
+ Explain Code
+The ls -l /usr/bin command lists all files in /usr/bin with detailed information. This output is then sent to less, allowing you to scroll through it page by page. Press q to exit less.
+
+Filtering Output with grep
+The grep command is often used in pipelines to filter lines that match a specific pattern.
+
+Let's list all processes running on the system using ps aux and then filter for processes related to bash.
+
+ps aux | grep bash
+ Explain Code
+labex     1234  0.0  0.1  12345  6789 ?        Ss   HH:MM   0:00 /usr/bin/bash
+labex     5678  0.0  0.0   9876  5432 pts/0    S+   HH:MM   0:00 grep bash
+ Explain Code
+The ps aux command lists all running processes. Its output is piped to grep bash, which then displays only the lines containing the word "bash". You might see two lines: one for your current bash shell and one for the grep command itself.
+
+To exclude the grep command from the output, you can use grep -v (invert match) or refine your pattern. Let's try grep -v grep.
+
+ps aux | grep bash | grep -v grep
+ Explain Code
+labex     1234  0.0  0.1  12345  6789 ?        Ss   HH:MM   0:00 /usr/bin/bash
+ Explain Code
+Now, only the actual bash process is shown.
+
+Using sort and uniq
+sort is used to sort lines of text, and uniq is used to report or omit repeated lines. They are often used together.
+
+Let's create a file with some unsorted, repeated words.
+
+echo -e "apple\nbanana\napple\norange\nbanana" > fruits.txt
+ Explain Code
+View the content of fruits.txt.
+
+cat fruits.txt
+ Explain Code
+apple
+banana
+apple
+orange
+banana
+ Explain Code
+Now, let's sort the lines in fruits.txt.
+
+cat fruits.txt | sort
+ Explain Code
+apple
+apple
+banana
+banana
+orange
+ Explain Code
+To get only the unique sorted words, pipe the output of sort to uniq.
+
+cat fruits.txt | sort | uniq
+ Explain Code
+apple
+banana
+orange
+ Explain Code
+This pipeline first sorts the lines, then uniq removes duplicate adjacent lines.
+
+The tee Command
+The tee command is special in pipelines. It reads standard input, writes it to standard output, and simultaneously writes it to one or more files. It's like a "T" junction in a pipe, allowing data to flow in two directions.
+
+Let's list the files and save the output to ls_output.txt while also displaying it on the screen.
+
+ls -l | tee ls_output.txt
+ Explain Code
+total 24
+-rw-r--r-- 1 labex labex 123 Jan XX HH:MM combined_output.log
+-rw-r--r-- 1 labex labex 123 Jan XX HH:MM combined_output_shorthand.log
+-rw-r--r-- 1 labex labex 123 Jan XX HH:MM current_datetime.txt
+-rw-r--r-- 1 labex labex 123 Jan XX HH:MM errors.log
+-rw-r--r-- 1 labex labex 123 Jan XX HH:MM file_list.txt
+-rw-r--r-- 1 labex labex 123 Jan XX HH:MM fruits.txt
+-rw-r--r-- 1 labex labex 123 Jan XX HH:MM line_count.txt
+-rw-r--r-- 1 labex labex 0 Jan XX HH:MM ls_output.txt
+ Explain Code
+You will see the ls -l output on your terminal, and a file named ls_output.txt will be created with the same content.
+
+Verify the content of ls_output.txt.
+
+cat ls_output.txt
+ Explain Code
+total 24
+-rw-r--r-- 1 labex labex 123 Jan XX HH:MM combined_output.log
+... (same as above) ...
+ Explain Code
+You can also use tee -a to append the output to a file.
+
+echo "--- End of list ---" | tee -a ls_output.txt
+ Explain Code
+--- End of list ---
+ Explain Code
+The line "--- End of list ---" is printed to the terminal and appended to ls_output.txt.
+
+Check the updated ls_output.txt.
+
+cat ls_output.txt
+ Explain Code
+total 24
+... (previous ls -l output) ...
+--- End of list ---
+ Explain Code
+Pipelines are incredibly versatile and form the backbone of many powerful shell scripts and one-liner commands. By combining simple commands, you can perform complex data transformations efficiently.
+
+Continue
+
+labby
+Labby
+Inspect Result
+Verify fruits.txt is created and sorted unique output is correct
+Verify ls_output.txt contains expected content
+Continue
+
+labby
+Labby
+Edit Text Files with Vim Basics
+In this step, you will learn the fundamental operations of Vim, a powerful and widely used text editor in the Linux environment. Vim operates in different modes, which can be a bit challenging for beginners, but mastering the basics will significantly boost your productivity.
+
+Vim is a modal editor, meaning it has different modes for different tasks:
+
+Normal Mode (Command Mode): This is the default mode when you open Vim. In this mode, keystrokes are interpreted as commands (e.g., moving the cursor, deleting text, copying text).
+Insert Mode: In this mode, anything you type is inserted into the file. You enter Insert Mode from Normal Mode by pressing i (insert at cursor), a (append after cursor), o (open new line below), etc. To return to Normal Mode, press Esc.
+Visual Mode: This mode allows you to select blocks of text for operations like copying, cutting, or deleting. You enter Visual Mode from Normal Mode by pressing v (character-wise), Shift+V (line-wise), or Ctrl+V (block-wise). Press Esc to return to Normal Mode.
+Command-Line Mode (Ex Mode): This mode is used for executing commands that typically start with a colon (:), such as saving (:w), quitting (:q), or searching (/). You enter this mode from Normal Mode by pressing :.
+Opening and Basic Navigation
+Ensure you are in your ~/project directory.
+
+cd ~/project
+ Explain Code
+[labex@host project]$
+ Explain Code
+Open a new file named my_document.txt using vim.
+
+vim my_document.txt
+ Explain Code
+Your terminal will now display the Vim interface. You are in Normal Mode.
+
+In Normal Mode, you can navigate using the arrow keys or h (left), j (down), k (up), l (right). Since the file is empty, there's not much to navigate yet.
+
+Insert Mode: Adding Text
+To start typing, you need to enter Insert Mode. Press i (for insert).
+You should see -- INSERT -- at the bottom left of your terminal, indicating you are in Insert Mode.
+
+Type the following lines:
+
+This is the first line.
+This is the second line.
+This is the third line.
+ Explain Code
+To exit Insert Mode and return to Normal Mode, press the Esc key.
+The -- INSERT -- indicator should disappear.
+
+Saving and Quitting
+In Normal Mode, to save the file, type :w and press Enter.
+
+:w
+ Explain Code
+You should see my_document.txt [New] 3L, 60B written at the bottom, confirming the save.
+
+To quit Vim, type :q and press Enter.
+
+:q
+ Explain Code
+You will be returned to your shell prompt.
+
+Verify the content of my_document.txt using cat.
+
+cat my_document.txt
+ Explain Code
+This is the first line.
+This is the second line.
+This is the third line.
+ Explain Code
+Editing Existing Files
+Open my_document.txt again.
+
+vim my_document.txt
+ Explain Code
+In Normal Mode, move your cursor to the beginning of the second line (using j or arrow keys).
+
+Press Shift+V to enter Visual Line Mode. The entire second line will be highlighted.
+
+Press y to "yank" (copy) the selected line.
+
+Move your cursor to the end of the third line (using j or arrow keys).
+
+Press p to "put" (paste) the yanked line below the current line.
+The second line will now appear again as the fourth line.
+
+Now, let's delete a line. Move your cursor to the fourth line (the one you just pasted).
+
+Press dd (double d) to delete the entire line.
+
+To undo your last change, press u. The deleted line will reappear.
+
+To save and quit in one command, type :wq and press Enter.
+
+:wq
+ Explain Code
+Verify the content of my_document.txt again.
+
+cat my_document.txt
+ Explain Code
+This is the first line.
+This is the second line.
+This is the third line.
+This is the second line.
+ Explain Code
+The file should now have four lines, with the second line duplicated.
+
+Discarding Changes
+Sometimes you make changes and decide you don't want to save them.
+
+Open my_document.txt again.
+
+vim my_document.txt
+ Explain Code
+Enter Insert Mode by pressing i.
+
+Add a new line at the end:
+
+This line should not be saved.
+ Explain Code
+Press Esc to return to Normal Mode.
+
+Try to quit using :q.
+
+:q
+ Explain Code
+Vim will warn you: E37: No write since last change (add ! to override). This means you have unsaved changes.
+
+To quit without saving, type :q! and press Enter.
+
+:q!
+ Explain Code
+You will be returned to the shell prompt, and your changes will be discarded.
+
+Verify the content of my_document.txt.
+
+cat my_document.txt
+ Explain Code
+This is the first line.
+This is the second line.
+This is the third line.
+This is the second line.
+ Explain Code
+The last line you added should not be present.
+
+You have now covered the very basic operations in Vim: opening files, inserting text, navigating, saving, quitting, and discarding changes. These are the essential skills to get started with Vim.
+
+Continue
+
+labby
+Labby
+Inspect Result
+Verify my_document.txt exists and contains expected content
+Continue
+
+labby
+Labby
+Configure and Use Shell Variables and Aliases
+In this step, you will learn how to configure and use shell variables and aliases. These are powerful features that allow you to customize your shell environment, store data, and create shortcuts for frequently used commands, significantly improving your command-line efficiency.
+
+Shell Variables
+Shell variables are named entities that store data. They can store numbers, text, or other data that can be used by the shell or by programs executed within the shell.
+
+Ensure you are in your ~/project directory.
+
+cd ~/project
+ Explain Code
+[labex@host project]$
+ Explain Code
+Setting a Local Variable: Let's create a simple variable named MY_MESSAGE.
+
+MY_MESSAGE="Hello, LabEx!"
+ Explain Code
+Note that there are no spaces around the = sign.
+
+Accessing a Variable: To access the value of a variable, you prepend its name with a $ sign.
+
+echo $MY_MESSAGE
+ Explain Code
+Hello, LabEx!
+ Explain Code
+Variable Expansion with Braces: Sometimes, you need to clearly delimit the variable name, especially when it's followed by other characters. Use curly braces {} for this.
+
+echo "The message is: ${MY_MESSAGE}."
+ Explain Code
+The message is: Hello, LabEx!.
+ Explain Code
+If you omit the braces, the shell might interpret MY_MESSAGE. as the variable name, which doesn't exist.
+
+Listing All Set Variables: You can use the set command to list all currently set shell variables and functions. This output can be very long, so it's often piped to less.
+
+set | less
+ Explain Code
+BASH=/usr/bin/bash
+BASHOPTS=checkwinsize:cmdhist:complete_fullquote:expand_aliases:extglob:extquote:force_fignore:histappend:interactive_comments:progcomp:promptvars:sourcepath
+... (press 'q' to quit less) ...
+ Explain Code
+Press q to exit less.
+
+Unsetting a Variable: To remove a variable, use the unset command.
+
+unset MY_MESSAGE
+ Explain Code
+Verify that the variable is no longer set.
+
+echo $MY_MESSAGE
+ Explain Code
+ Explain Code
+You should see an empty line, indicating the variable is unset.
+
+Environment Variables
+Environment variables are a special type of shell variable that are inherited by child processes. This means that any program or script launched from your current shell will have access to these variables. They are typically used to configure the environment for applications.
+
+Setting an Environment Variable: Use the export command to make a variable an environment variable.
+
+export EDITOR=vim
+ Explain Code
+This sets the EDITOR environment variable, which many programs use to determine your preferred text editor.
+
+Listing Environment Variables: Use the env command to list only the environment variables.
+
+env | grep EDITOR
+ Explain Code
+EDITOR=vim
+ Explain Code
+Unexporting a Variable: You can unexport a variable without unsetting it using export -n. This makes it a local variable again.
+
+export -n EDITOR
+ Explain Code
+Verify it's no longer an environment variable.
+
+env | grep EDITOR
+ Explain Code
+ Explain Code
+You should see no output. However, it's still a local variable:
+
+echo $EDITOR
+ Explain Code
+vim
+ Explain Code
+To completely remove it, use unset.
+
+unset EDITOR
+ Explain Code
+Shell Aliases
+Aliases are shortcuts for commands. They allow you to define a new command that expands to a longer command or a sequence of commands. This is very useful for frequently used commands with many options.
+
+Creating an Alias: Let's create an alias for ls -l to make it shorter.
+
+alias ll='ls -l'
+ Explain Code
+Note the single quotes around the command to ensure it's treated as a single string.
+
+Using an Alias: Now, you can simply type ll instead of ls -l.
+
+ll
+ Explain Code
+total 24
+-rw-r--r-- 1 labex labex 123 Jan XX HH:MM combined_output.log
+... (output of ls -l) ...
+ Explain Code
+Listing Aliases: Use the alias command without any arguments to see all defined aliases.
+
+alias
+ Explain Code
+alias ll='ls -l'
+ Explain Code
+You might see other default aliases depending on your shell configuration.
+
+Creating a More Complex Alias: You can also create aliases for commands with arguments or multiple commands.
+
+alias myip='ip a | grep "inet " | grep -v "127.0.0.1" | awk "{print \$2}" | cut -d/ -f1'
+ Explain Code
+Here, myip will show your primary IP address. Note the \$2 to escape the $ sign so it's passed to awk and not interpreted by the shell when the alias is defined.
+
+Test the myip alias.
+
+myip
+ Explain Code
+172.17.0.2
+ Explain Code
+(Your IP address may vary)
+
+Unsetting an Alias: To remove an alias, use the unalias command.
+
+unalias ll
+ Explain Code
+Verify that the alias is removed.
+
+alias
+ Explain Code
+alias myip='ip a | grep "inet " | grep -v "127.0.0.1" | awk "{print \$2}" | cut -d/ -f1'
+ Explain Code
+ll should no longer be in the list.
+
+Shell variables and aliases are temporary and will be lost when you close your terminal session. To make them permanent, you need to add them to your shell's 
+configuration files (e.g., ~/.bashrc or ~/.profile), which will be covered in more advanced topics.
+
+Continue
+
+labby
+Labby
+Inspect Result
+Verify MY_MESSAGE variable was set and unset
+Verify ll alias was created and unset
+Continue
+
+labby
+Labby
+Summary
+In this lab, you learned fundamental Linux command-line skills essential for managing text files and the shell environment. You began by mastering output redirection, 
+specifically using > to overwrite files and >> to append content, allowing you to capture 
+command results for logging or further processing. You also explored redirecting standard error (2>) and combining standard output and error (&>) to manage all command 
+output effectively.
+
+Furthermore, you gained proficiency in constructing and understanding command pipelines using the | operator, enabling you to chain commands and process data 
+sequentially. You were introduced to basic text editing with Vim, covering essential commands for inserting, saving, and quitting files. Finally, you learned how to 
+configure and use shell variables for storing data and creating aliases to simplify frequently used commands, enhancing your command-line efficiency and customization.
+================================================================================
+================================================================================
+================================================================================
+================================================================================
+================================================================================
+================================================================================
+
+LINUX PIPELINES, REDIRECTION, VIM & SHELL ENVIRONMENT REFERENCE NOTESI/O STREAMS & REDIRECTION OPERATORS
+
+Standard Streams:
+Standard Input  (stdin)  : File Descriptor 0
+Standard Output (stdout) : File Descriptor 1
+Standard Error  (stderr) : File Descriptor 2Redirection Operators:FILE              
+Redirect stdout to FILE (overwrites existing content).FILE             
+Append stdout to FILE (preserves existing content).
+2> FILE             Redirect stderr to FILE (captures error messages only).
+2>> FILE            Append stderr to FILE.
+&> FILE             Redirect both stdout and stderr together to FILE (shorthand).
+FILE 2>&1         	Redirect stdout to FILE, then direct stderr to stdout.
+< FILE              Redirect stdin to read from FILE instead of keyboard.================================================================================
+2. COMMAND PIPELINES & TEXT PROCESSING UTILITIESThe Pipe Operator (|):
+Connects the standard output (stdout) of the command on the left directly
+to the standard input (stdin) of the command on the right:
+COMMAND_A | COMMAND_B | COMMAND_CCore Pipeline Utilities:wc [OPTIONS] [FILE...]
+Print newline, word, and byte counts.
+-l                Count lines / newlines only.
+-w                Count words.
+-c                Count bytes.
+-m                Count characters.less [OPTIONS] [FILE...]
+Interactive terminal pager for viewing long stream output.
+q                 Quit pager.
+Space / PageDown  Scroll down one page.
+PageUp            Scroll up one page.
+/PATTERN          Search forward inside output.grep [OPTIONS] PATTERN [FILE...]
+Search for patterns in lines of text.
+-v, --invert-match
+Select non-matching lines (exclude matches).
+-i, --ignore-case Ignore case distinctions in patterns and input.
+-n, --line-number Prefix each matching line with its 1-based line number.
+-c, --count       Suppress normal output; print a count of matching lines.
+-E, --extended-regexp
+Interpret PATTERN as an extended regular expression.sort [OPTIONS] [FILE...]
+Sort lines of text files.
+-r, --reverse     Reverse the result of comparisons.
+-n, --numeric-sort
+Compare according to numerical value.
+-u, --unique      With sort alone, output only the first of an equal run.
+-k POS1[,POS2]    Start a key at POS1, end it at POS2 (field sorting).uniq [OPTIONS] [INPUT [OUTPUT]]
+Report or omit repeated lines (requires adjacent/sorted input).
+-c, --count       Prefix lines by the number of occurrences.
+-d, --repeated    Only print duplicate lines.
+-u, --unique      Only print unique lines (never duplicated).
+-i, --ignore-case Ignore differences in case when comparing.tee [OPTIONS] [FILE...]
+Read from stdin, write to stdout AND files simultaneously.
+-a, --append      Append to the given FILEs; do not overwrite.
+-i, --ignore-interrupts
+Ignore interrupt signals (SIGINT).================================================================================
+3. VIM TEXT EDITOR BASICSModal Architecture:
+Normal Mode        : Default mode for navigation, text manipulation, commands.
+Insert Mode        : Active typing mode for entering text.
+Visual Mode        : Text block selection mode (character, line, block).
+Command-Line Mode  : Ex-command interface (commands starting with ':').Mode Switching & Entering Insert Mode:
+Esc                 Return to Normal Mode from any other mode.
+i                   Insert text before the cursor.
+a                   Append text after the cursor.
+o                   Open a new line below current line and switch to Insert.
+O                   Open a new line above current line and switch to Insert.Visual Selection Modes (from Normal Mode):
+v                   Start character-wise Visual Mode.
+Shift+v / V         Start line-wise Visual Mode (highlights entire lines).
+Ctrl+v              Start block-wise (column) Visual Mode.Navigation in Normal Mode:
+h, j, k, l          Move cursor: Left (h), Down (j), Up (k), Right (l).
+Arrow keys          Alternative cursor movement.
+0                   Jump to start of current line.
+$                   Jump to end of current line.
+gg                  Jump to first line of the file.
+G / Shift+g         Jump to last line of the file.Editing Commands (Normal Mode):
+y                   Yank (copy) selected text (or press 'yy' for current line).
+p                   Put (paste) yanked/deleted text after the current cursor line.
+P                   Put (paste) yanked/deleted text before the current cursor line.
+dd                  Delete (cut) entire current line.
+dw                  Delete word from cursor to next space.
+u                   Undo the last operation.
+Ctrl+r              Redo the last undone operation.Command-Line Mode (Ex Mode) - Type ':' in Normal Mode:
+:w                  Write (save) changes to disk.
+:q                  Quit Vim (fails if unsaved modifications exist).
+:wq                 Write and quit in a single operation.
+:q!                 Force quit, discarding all unsaved changes.
+:w FILE             Save current buffer under a specified filename.================================================================================
+4. SHELL VARIABLES & ENVIRONMENT CONFIGURATIONLocal Shell Variables:
+Definition          NAME="value" (CRITICAL: No spaces around '=').
+Access              $NAME or${NAME}
+Brace notation      ${VAR}_suffix prevents ambiguity with adjacent characters.
+Listing             set | less (lists all active variables and functions).
+Removal             unset NAMEEnvironment Variables (Inherited by Child Processes):
+export VAR=VALUE    Set and promote a variable to an environment variable.
+export VAR          Promote an existing local variable into the environment.
+env                 Display current exported environment variables only.
+export -n VAR       Unexport variable (demotes back to local shell variable).
+unset VAR           Completely remove the environment/local variable.Common Environment Variables:
+$HOME               Path to current user's home directory.
+$USER               Current logged-in username.$SHELL              Path to active login shell interpreter.
+$PATH               Colon-separated list of directories searched for executables.$EDITOR             Preferred default text editor (e.g., vim, nano).================================================================================
+5. SHELL ALIASESPurpose:
+Defines shorthand shortcuts for longer commands or sequences.
+(Temporary per session unless persisted in ~/.bashrc or ~/.bash_profile).Command Syntax:
+alias               List all currently defined aliases in current shell.
+alias NAME='COMMAND'
+Create an alias mapping NAME to execute COMMAND.
+unalias NAME        Remove the specified alias definition.
+unalias -a          Remove all alias definitions in the current session.Examples:
+alias ll='ls -l'
+alias la='ls -la'
+alias rm='rm -i'    (Safety alias prompting before deletion)
+alias myip='ip a | grep "inet " | grep -v "127.0.0.1" | awk "{print $2}" | cut -d/ -f1'
+Note: Use '$' within double-quoted aliases to prevent early evaluation by the shell.
