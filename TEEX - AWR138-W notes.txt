@@ -1,5 +1,5 @@
 ***************************************************************************************
-************************************Layered Defence************************************
+*********************************** Layered Defence ***********************************
 ***************************************************************************************
 Firewalls
 	firewall	-	a device that is designed to prevent unwanted, potentially malicious network traffic from reaching a particular computer or computer network.
@@ -231,6 +231,7 @@ Intrusion Detection Systems
 			Phorm developed software that used DPI but to profile Internet Traffic for advertising and other purposes.
 				the International Telecommunications Union (ITU) approved the latest requirements for DPI in working item Y.2779.
 		recent malicious behaviour will undoubtedly encourage more tech groups to consider DPI as legitimate
+
 		Ex. the most common methods of defeating an IDS by concealing malicious attacks inside IP fragments.
 			when network receives IP packet thats too large, it fragments the packet into smaller fragments.
 				these are reassembled when they are received by the destination 
@@ -246,4 +247,46 @@ Intrusion Detection Systems
 			the vulnerability allows the attacker to execute code of their choice upon transmitting a HTTP "user agent" value of more than 50 characters AND a "query string" that is longer than 1500 bytes.
 				because the total amount of data being transmitted is grater than 1450 byte limit for a single TCP segment
 			the attacker's system and server are broken up into atleast 2 TCP segments
-			
+
+			EX 1
+				IDS using a proxy-like deep packet inspection scheme buffers all packets associated with HTTP transaction.
+					when all packets have been received the system examins the transaction, allowing it to discover the suspiciously long query in combination with the long user agent value
+			EX 2
+				IDS using a deep packet inspection that is lacking a proxy-like component might miss this attack.
+					IDS examins each TCP setment and because long user agent string and extra- long query string are located in different segments, the attack will go unnoticed.
+			IDS's with Proxy-like functionality enjoy increased security, they also represent a network bottleneck and may impact network performance.
+	Host-Based IDS
+		in a host based IDS, computers have software packages installed that examin the current state of the computers on which they are running:
+			CPU Load, Network Traffic(incomming and outgoing), file integrity, log files, etc.
+		anything running locally on the computer can be observed by a host-based IDS.
+
+		EX. the different symptoms that might be exibited on a computer thats been compromised by a hacker or for of malware:
+			Systems running slwly, Program crashes and other add behaviors
+			unexpected events, like seldom-used program observed in the background.
+			new processes running on the system.
+	Centralized IDS monitoring
+		IDS products are capable of reporting suspicious events to a central server. this way all suspicious activity in in one place and more meaning ful reports can be generated with this info.
+		EX.
+			most system admins would be intrested to learn that half of the systems on the network simultaneously begin exibiting the same strange behavior.
+		Manufacturers that produce IDS systems, or organizations that offer centralized management offer these services:
+			Network-Based IDS, Host-Based Software, and Centralized Monitoring
+	Centralized IDS Monitoring Management
+		all three work in concert to prevent and alert network administrators of intrusion attempts.
+			a way to reduce the admin overhead required by an organization thats trying to manage a network-based IDS or several hundred computers all running a host-based IDS
+				IDSs are frequently capable of running in a stand-alone manner.
+	Intrusion Detection Strategies (IDS)
+		hast-based and network-based use these detection strategies:
+			Signature (Rule) Detection, Anomaly Detection, Heuristic Detection
+	Signature (Rule) Detection - Signatures are profiles of some malicious activities (virus or worm, penetration attempt, etc.) that should be stopped.
+		IDS is pre-configured with a large list of signatures. if the IDS observes network traffic that matches a signature it will respond in a preprogrammed way.
+			must update definition files
+				same with Anti-Virus Products, the signature files for a signature-based IDS need to be kept up-to-date in order to defend against the latest techniques used by hackers.
+		Pros
+			low false alarm rate, quick identification, vary accurate at detecting, based on known signatures.
+		Cons
+			False Negative Attacks	-	signature-based detection knows about attacks that it has been programmed to recognize.and new or unheard of attack will probably pass by a signature-based IDS.
+			False Positive Attacks
+				no two networks are configured equally, "normal" activity is diferent for every network. telltale sighns of an attack on one network might not be a attack on another.
+				Most Signature-based IDS products come with a built-in database of common attack signatures. when first placed online it hasnt tuned to the organization's traffic, resulting in false positives.
+					this same situation happens whenever a signature database is updated and new rules are added; some period of adkustment is frequently needed.
+	Anomaly Detection
