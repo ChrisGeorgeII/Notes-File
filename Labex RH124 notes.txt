@@ -1,233 +1,301 @@
 linux cheat sheet:
-pwd		-	current directory path
-pwd -P	-	show the actual path of the directory
-ls		-	list
-ls -l	-	long listing format
-ls -a	-	all files
-ls -la	-	combining -l and -a
-ls -R	-	recursive
-ls -ld `dir` 	-	command to view the owner of a directory
-cd		-	change shells current working directory
-cd -	-	previus directory
-cd ..	-	This command uses the .. (two dots) hidden directory to move up one level to the parent directory, without needing to know the exact parent name.
-cd ../	-	You can chain .. to move up multiple levels
-cd ~/	-
-cp		-	Copying Files and Directories
-cp -r 		copys the entire directory
-mv		-	move/rename
-mv -v	-	The -v option for mv displays a detailed output of the command operations, which can be helpful for confirmation.
-rm 		-	remove
-rm -r		The rm -r command traverses each subdirectory first and individually removes their files before removing each directory.
-rm -i	-	interactively prompts for confirmation before deleting each file.
-mkdir	-	make directory
-mkdir -p	The mkdir command's -p (parents) option is very useful for creating any missing parent directories for the requested destination.
-rmdir	-	removes empty directories
-touch	-	create filesm
+pwd   - current directory path
+pwd -P  - show the actual path of the directory
+ls    - list
+ls -l - long listing format
+ls -a - all files
+ls -la  - combining -l and -a
+ls -R - recursive
+ls -ld `dir`  - command to view the owner of a directory
+cd    - change shells current working directory
+cd -  - previus directory
+cd .. - This command uses the .. (two dots) hidden directory to move up one level to the parent directory, without needing to know the exact parent name.
+cd ../  - You can chain .. to move up multiple levels
+cd ~/ -
+cp    - Copying Files and Directories
+cp -r     copys the entire directory
+mv    - move/rename
+mv -v - The -v option for mv displays a detailed output of the command operations, which can be helpful for confirmation.
+rm    - remove
+rm -r   The rm -r command traverses each subdirectory first and individually removes their files before removing each directory.
+rm -i - interactively prompts for confirmation before deleting each file.
+mkdir - make directory
+mkdir -p  The mkdir command's -p (parents) option is very useful for creating any missing parent directories for the requested destination.
+rmdir - removes empty directories
+touch - create filesm
 hardlink
-	ln		-	create a hard link
+  ln    - create a hard link
 softlink/symbolic link/symlink
-	ln -s	-	create a symbolic link
-cat		-	prints the file
-echo	-	a built-in shell utility used to print text, strings, or variables directly to the terminal standard output.
-date 	-	privides current date
->		-	operator redirects the standard output of a command to a specified file. If the file does not exist, it will be created. If the file already exists, its contents will be overwritten.
->>		-	operator redirects the standard output of a command to a specified file, appending the new content to the end of the file. If the file does not exist, it will be created.
-2>		-	redirect error messages
-2>&1	-	combined stdout and stderr
-	&>	-	shorthand for combining stdout and stderr to a file
-wc -l	-	count the number of lines, used to connect commands in a pipeline. It redirects the standard output (stdout) of the command on its left to the standard input (stdin) of the command on its right.
-find	-	search and locate files and directories within a file system hierarchy based on user-specified conditions.
-stderr	-	error string
-stdout 	-	ouytput string
-|				-	pipeline - first argument's results is used in the next argument.
-grep `arg`		-	searches for `arg`
-grep -v `arg`	-	excludes `arg`
+  ln -s - create a symbolic link
+cat   - prints the file
+echo  - a built-in shell utility used to print text, strings, or variables directly to the terminal standard output.
+date  - privides current date
+>   - operator redirects the standard output of a command to a specified file. If the file does not exist, it will be created. If the file already exists, its contents will be overwritten.
+>>    - operator redirects the standard output of a command to a specified file, appending the new content to the end of the file. If the file does not exist, it will be created.
+2>    - redirect error messages
+2>&1  - combined stdout and stderr
+  &>  - shorthand for combining stdout and stderr to a file
+wc -l - count the number of lines, used to connect commands in a pipeline. It redirects the standard output (stdout) of the command on its left to the standard input (stdin) of the command on its right.
+find  - search and locate files and directories within a file system hierarchy based on user-specified conditions.
+stderr  - error string
+stdout  - ouytput string
+|       - pipeline - first argument's results is used in the next argument.
+grep `arg`    - searches for `arg`
+grep -v `arg` - excludes `arg`
 
-sort			-	sort lines of text
-uniq			-	report or omit repeated lines
+sort      - sort lines of text
+uniq      - report or omit repeated lines
 
-cat `fruits.txt` | sort | uniq		-	first sorts the lines, then uniq removes duplicate adjacent lines.
-tee				-	It reads standard input, writes it to standard output, and simultaneously writes it to one or more files
-	ls -l | tee `arg`	-list the files and save the output to `arg` while also displaying it on the screen.
-tee -a			-	append output to a file
-	echo "arg-text" | tee -a `arg`
+cat `fruits.txt` | sort | uniq    - first sorts the lines, then uniq removes duplicate adjacent lines.
+tee       - It reads standard input, writes it to standard output, and simultaneously writes it to one or more files
+  ls -l | tee `arg` -list the files and save the output to `arg` while also displaying it on the screen.
+tee -a      - append output to a file
+  echo "arg-text" | tee -a `arg`
 
 ------------------------------------------------
 Vim controls:
 --------
-	h 		- left
-	j 		- down
-	k 		- up
-	l 		- right
+  h     - left
+  j     - down
+  k     - up
+  l     - right
 
 --------
-	:w	-	save
-	:q	-	quit Vim
-	:wq	-	save and quit
-	:q! -	quit without saving
+  :w  - save
+  :q  - quit Vim
+  :wq - save and quit
+  :q! - quit without saving
 
 --------
-	esc - return to normal mode
-	i 		- Insert mode
-	shift+V	- visual line mode:
-		Y	- "yank", copy the selected line.
-		p	- Put, Paste the yanked line below the current line
-		kk	- dd, double d to delete the entire line
-		u	- undo your last change
+  esc - return to normal mode
+  i     - Insert mode
+  shift+V - visual line mode:
+    Y - "yank", copy the selected line.
+    p - Put, Paste the yanked line below the current line
+    kk  - dd, double d to delete the entire line
+    u - undo your last change
 
 ------------------------------------------------
 Setting a Local Variable
-	$	-	access the value of a variable, you prepend its name with a $ sign.
-	"{arg}"	-	delimit the variable name
-	set - list all currently set shell variables and fucntions
-		`set | less`
-	unset-	remove a variable
-	export	-	make a variable an environment variable.
-		`export EDITOR=vim`	-	This sets the EDITOR environment variable, which many programs use to determine your preferred text editor.
-		`export -n EDITOR`	-	Unexporting a Variable: You can unexport a variable without unsetting it using export -n. This makes it a local variable again.
-			export -n		-	?
-	env	-	list only the environment variables.
-		`env | grep EDITOR`
-		
-	Shell Aliases
-		Creating an Alias:				-	alias ll='ls -l'
-		Using an Alias: 				-	ll
-		Listing Aliases:				-	alias
-		Creating a More Complex Alias:	-	alias myip='ip a | grep "inet " | grep -v "127.0.0.1" | awk "{print \$2}" | cut -d/ -f1'
-		testing alias
-			myip
-			
-		Unsetting an Alias:				-	unalias ll
-			alias
+  $ - access the value of a variable, you prepend its name with a $ sign.
+  "{arg}" - delimit the variable name
+  set - list all currently set shell variables and fucntions
+    `set | less`
+  unset-  remove a variable
+  export  - make a variable an environment variable.
+    `export EDITOR=vim` - This sets the EDITOR environment variable, which many programs use to determine your preferred text editor.
+    `export -n EDITOR`  - Unexporting a Variable: You can unexport a variable without unsetting it using export -n. This makes it a local variable again.
+      export -n   - ?
+  env - list only the environment variables.
+    `env | grep EDITOR`
+    
+  Shell Aliases
+    Creating an Alias:        - alias ll='ls -l'
+    Using an Alias:         - ll
+    Listing Aliases:        - alias
+    Creating a More Complex Alias:  - alias myip='ip a | grep "inet " | grep -v "127.0.0.1" | awk "{print \$2}" | cut -d/ -f1'
+    testing alias
+      myip
+      
+    Unsetting an Alias:       - unalias ll
+      alias
 
 =================================================
 users and groups:
-	id	-	show information about the currently logged-in user
-		displays the user ID (UID), primary group ID (GID), and all groups the user belongs to.
-		`id root`
-	ls -ld `dir` 	-	view the owner of a directory, rather than the contents of that directory
-	
-	ps -au	-	view processes
-		a option shows all processes with a terminal
-		u option displays the user that is associated with a process
-	
-	cat /etc/passwd	-	file contains account information for every user
-	cat /etc/group	-	file contains account information for every group
+  id  - show information about the currently logged-in user
+    displays the user ID (UID), primary group ID (GID), and all groups the user belongs to.
+    `id root`
+  ls -ld `dir`  - view the owner of a directory, rather than the contents of that directory
+  
+  ps -au  - view processes
+    a option shows all processes with a terminal
+    u option displays the user that is associated with a process
+  
+  cat /etc/passwd - file contains account information for every user
+  cat /etc/group  - file contains account information for every group
 
 ======================================================================
 superuser access:
-	su	-	switch to the root user
-		-	-	the hyphern(-) option ensures that you get a login shell	
-			after entering password you will log into root@host
-		exit	-	exits the root shell and return.
-	sudo	-	run a single command with root privileges without switching to the root shell.
-	sudo -i	-	switch to the root account.
-		preferred over `su -` because it provides a more secure way to run commands with elevated privileges
-		still using your own user account but with root privileges
-		commands are logged to your account
-	visudo-	if multiple users have access to sudoers, should use `visudo`
-		/etc/sudoers	-	main configuration file for the sudo command
-		defines which users or groups can run wich commands with elevated privileges
-		
+  su  - switch to the root user
+    - - the hyphern(-) option ensures that you get a login shell  
+      after entering password you will log into root@host
+    exit  - exits the root shell and return.
+  sudo  - run a single command with root privileges without switching to the root shell.
+  sudo -i - switch to the root account.
+    preferred over `su -` because it provides a more secure way to run commands with elevated privileges
+    still using your own user account but with root privileges
+    commands are logged to your account
+  visudo- if multiple users have access to sudoers, should use `visudo`
+    /etc/sudoers  - main configuration file for the sudo command
+    defines which users or groups can run wich commands with elevated privileges
+    
 ======================================================================
 Create and Modify Local User Accounts:
-	sudo useradd `usr`	-	creates a new user with a UID greater than or equal to 1000, creates a home directory, and sets the default shell to /bin/bash. You need sudo privileges to run this command
-	sudo passwd `usr`	-	creates password for user
-	sudo usermod		-	change various properties of a user
-		-c
-		-L	-	lock
-		-U	-	unlock
-		-r	-	remove the user and their home directory
-	sudo userdel `usr`	-	removes the user's entry from /etc/passwd but leaves their home directory intact
-	
+  sudo useradd `usr`  - creates a new user with a UID greater than or equal to 1000, creates a home directory, and sets the default shell to /bin/bash. You need sudo privileges to run this command
+  sudo passwd `usr` - creates password for user
+  sudo usermod    - change various properties of a user
+    -c
+    -L  - lock
+    -U  - unlock
+    -r  - remove the user and their home directory
+  sudo userdel `usr`  - removes the user's entry from /etc/passwd but leaves their home directory intact
+  
 ======================================================================
 Manage Local Group Accounts:
-	groupadd	- assigns the next available GID from the range specified in /etc/login.defs. You need sudo privileges to run this command.
-		-gained-	specify a particular GID for the group
-		
-	groupmod	-
-		-a	-	append
-		-n	-	change the name of a group
-		-G	-	change the GID of a group
-		
-	sudo usermod -aG developers userA
-		Add userA to the developers group as a secondary group. Use the -a (append) and -G (groups) options with usermod.
-	sudo usermod -aG developers,qa_team userB
-		Add userB to both developers and qa_team groups as secondary groups.
-			
-	groupdel	-	remove a group
-		You cannot delete a group if it is the primary group for any user.
+  groupadd  - assigns the next available GID from the range specified in /etc/login.defs. You need sudo privileges to run this command.
+    -gained-  specify a particular GID for the group
+    
+  groupmod  -
+    -a  - append
+    -n  - change the name of a group
+    -G  - change the GID of a group
+    
+  sudo usermod -aG developers userA
+    Add userA to the developers group as a secondary group. Use the -a (append) and -G (groups) options with usermod.
+  sudo usermod -aG developers,qa_team userB
+    Add userB to both developers and qa_team groups as secondary groups.
+      
+  groupdel  - remove a group
+    You cannot delete a group if it is the primary group for any user.
 Configure User Password Policies:
-	/etc/shadow
-		 stores encrypted password information and password aging parameters for user accounts. This file is highly sensitive and is only readable by the root user.
-	chage
-		chage -l `arg`			-	the -l (list) to display current password aging information
-		0E 						-	set an absolute account expiration date
-		sudo chage -E -1 `arg`	-	removes accounts expiration date
-		
-			
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+  /etc/shadow
+     stores encrypted password information and password aging parameters for user accounts. This file is highly sensitive and is only readable by the root user.
+  chage
+    chage -l `arg`      - the -l (list) to display current password aging information
+    0E            - set an absolute account expiration date
+    sudo chage -E -1 `arg`  - removes accounts expiration date
+Interpret Linux File System Permissions with ls -l
+  ls -l `FILE`
+  chomod:
+    chmod go-w `FILE`         - remove write permission for the Group and Others.
+    chmod u+x `FILE`          - adds execute permission for the owner (u). used on scripts to make them executable.
+    chmod o-w `FILE`          - removes write permission from others(o) from directory.
+    chmod a=rw,g=r,o=r `FILE` - set the permissions for all (owner, group, others). owner gets read/write, group gets read, and others get read.
+      EX. A simpler way to achieve rw-r--r-- would be chmod u=rw,go=r:
+        chmod u=rw,go=r ~/project/my_files/document.txt
+    chmod a+x executable for everyone
+change file permissions with chmod (Octal Mode)
+  Octal Mode - a concise way to represent permissions, where each permission is assigned a numerical value
+    read: 4
+    write: 2
+    execute: 1
+    no permission: 0
+    To determine the octal value for a set of permissions (user, group, or others), you sum the values of the permissions granted.
+      chmod OGO FILE
+        O: Octal value for owner permissions
+        G: octal value for group permissions
+        O: Octal Value for others permissions
+          ex. - to set the permissions of Document.txt to rw-r--r--:
+                chmod 644 ~/project/my_files/document.txt
+          ex2.  - executable only by the owner, while keeping read/write for owner, and read-only for group and others.
+                  chmod 744 ~/project/my_files/document.txt
+Change File Ownership with chown
+  chown - to change the owner and group of files and directories.
+      `sudo chown `USER` `FILE``  - change the owner
+      `sudo chown labex:devs `FILE``  -  change both the owner and the group simultaneously using the owner:group syntax
+      `sudo chown -R developer:devs `FILE``  -  change the ownership of an entire directory tree
+      `sudo chown :devs `FILE``   -  change only the group ownership using chown :NEW_GROUP FILE(s). This is equivalent to using the chgrp command.
+Understand and Apply Special Permissions (SUID, SGID, Sticky Bit)
+  sudo chmod u+s
+  sudo chmod g+s `DIR`  set SGID bit on directory
+
+
+
+
+
+
+
+
+
+
+  ls -l `FILE`   - view detailed permissions of the document
+                  provides a log list format including file permissions, owner, group, size, and modification date.
+    Ex. 
+      -rw-rw-r-- 1 labex labex 0 Jun  6 17:36 /home/labex/project/my_files/document.txt
+        first character (-) indicates the file type:
+          - - means its a regular file
+          d - means its a directory
+          l - means its a symbolic link
+        the next nine characters are divided into 3 sets of 3:
+          rw-: permissions for the owner (labex). r(read), w(write), -(no execute)
+          rw-: permissions for the group (labex). r(read), w(write), -(no execute)
+          r--: permissions for others. r(read), w(write), -(no execute)
+        labex user and users in the labex group can read and write to document.txt while all other users can only read.
+  when using ls -l on a directory, it lists the contents of the directory. to view permissions of directory itself you need to use the -d option with ls -l
+    ls -ld ~/project/my_files
+      Ex. - drwxrwxr-x 2 labex labex 4096 Jun  6 17:36 /home/labex/project/my_files
+            first character (d) indicates its a directory
+            rwx: permissions for owner (labex). r(read), w(write), x(execute).
+            rwx: permissions for group (labex). r(read), w(write), x(execute).
+            r-x: permissions for others. r(read), (no write), x(execute).
+      for directories:
+        r (read) allows listing the contents of the directory.
+        w (write) allows creating, deleting, or renaming files within the directory.
+        x (execute) allows entering the directory (using cd) and accessing its files and subdirectories.
+change file permissions with chmod (Symbolic Mode)
+  Symbolic mode: - uses letters and symbo0ld to represent permission changes, making it intuitive to add, remove, or set specific permissions.
+  chmod WHO OPERATION PERMISSIONS FILE
+    WHO:        - specifies who the permission change applies to.
+                    U: user (owner), g: group, o: others, a: all (user, group, and others)
+    OPERATION   - specifies how to modify the permissions.
+                    +: add a permission, -: remove a permission, =: Set permissions exactly as specified, overriding existing ones.
+    PERMISSIONS - Specifies the permission type
+                  r: read, w: write, x: execute
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 ================================================================================================================
 
-*	Any string of zero or more characters.	*.txt matches all files ending with .txt.
-	Using *:
-		Lists all files ending with .txt
-?	Any single character.	file?.txt matches file1.txt, fileA.txt, etc.
-	Using ?:
-		List files that have exactly one character before .log:
-			`ls data/file?.log`
-			
+* Any string of zero or more characters.  *.txt matches all files ending with .txt.
+  Using *:
+    Lists all files ending with .txt
+? Any single character. file?.txt matches file1.txt, fileA.txt, etc.
+  Using ?:
+    List files that have exactly one character before .log:
+      `ls data/file?.log`
+      
 =====================================================================================================
-[abc...]	Any one character in the enclosed class.	file[12].txt matches file1.txt or file2.txt.
-	Using [] for character sets:
-		List files that start with report_ and have either 2023 or 2024 in their name
-[!abc...]	Any one character not in the enclosed class.	file[!1].txt matches fileA.txt but not file1.txt.
-	Using {} for brace expansion:
-		List files starting with file and ending with .txt or .log
+[abc...]  Any one character in the enclosed class.  file[12].txt matches file1.txt or file2.txt.
+  Using [] for character sets:
+    List files that start with report_ and have either 2023 or 2024 in their name
+[!abc...] Any one character not in the enclosed class.  file[!1].txt matches fileA.txt but not file1.txt.
+  Using {} for brace expansion:
+    List files starting with file and ending with .txt or .log
 Brace expansion generates arbitrary strings. It's useful for creating lists of files or directories with similar names without typing each one individually.
-	Comma-separated list:
-		`touch data/report_{jan,feb,mar}.txt`
-	range of numbers or letters:
-		`touch data/doc{1..3}.txt`
-	Create directories:
-		`mkdir data/chapter{A..C}`
-[[:alpha:]]	Any alphabetic character.	file[[:alpha:]].txt matches fileA.txt.
-[[:digit:]]	Any single digit from 0 to 9.
+  Comma-separated list:
+    `touch data/report_{jan,feb,mar}.txt`
+  range of numbers or letters:
+    `touch data/doc{1..3}.txt`
+  Create directories:
+    `mkdir data/chapter{A..C}`
+[[:alpha:]] Any alphabetic character. file[[:alpha:]].txt matches fileA.txt.
+[[:digit:]] Any single digit from 0 to 9.
 
 ====================================================================================================
 man pages - manual
-curl	-	used to transfer data from or to a server.
-free	-	command is used to display memory usage information.
+curl  - used to transfer data from or to a server.
+free  - command is used to display memory usage information.
 groff - This command is used for document formatting
-/ 	-		search forward (down) for a string.
-N 	-		repeat the previous search forward (down)
-Shift + N -	epeat the previous search backward (up)
+/   -   search forward (down) for a string.
+N   -   repeat the previous search forward (down)
+Shift + N - epeat the previous search backward (up)
 Search for man Pages by Keyword
-`man -k`	-	description of command
-`man -K` 	-	
-	enter to view curent pages
-	ctrl-d to skip current pan page and move to next.
-	ctrl-c quit search entirely and return to cli
+`man -k`  - description of command
+`man -K`  - 
+  enter to view curent pages
+  ctrl-d to skip current pan page and move to next.
+  ctrl-c quit search entirely and return to cli
 
 =====================================================================================================
 The tilde (~) character expands to the current user's home directory (/home/labex). When followed by a username, it expands to that user's home directory.
-	`echo ~`
+  `echo ~`
 Variable Expansion:
 Shell variables store values that can be expanded in commands. You define a variable using VARNAME=value and access its value using $VARNAME or ${VARNAME}.
 ```
@@ -247,31 +315,31 @@ redirect standard output files:
 1: Standard Output (stdout) - Typically to the terminal screen.
 2: Standard Error (stderr) - Typically to the terminal screen for error messages.
 Pipelines:
-ls | wc -l					-	ls command lists the files, and its output (each file name on a new line) is fed as input to wc -l, which then counts these lines, effectively telling you how many files/directories are in the current location.
-ls -l /usr/bin | less		-	lists all files in /usr/bin with detailed information. This output is then sent to less, allowing you to scroll through it page by page.
-									Press q to exit less.
-ps aux		-	lists all running processes.
-grep `word`	-	displays only linkes containing `word`
-ps aux | grep bash			-	list all processes running on the system using ps aux and then filter for processes related to bash.
-grep -v 	-
-sort 		-	sort lines of text
-uniq 		-	report or omit repeated lines
-tee 		-	reads standard input, writes it to standard output, and simultaneously writes it to one or more files.
+ls | wc -l          - ls command lists the files, and its output (each file name on a new line) is fed as input to wc -l, which then counts these lines, effectively telling you how many files/directories are in the current location.
+ls -l /usr/bin | less   - lists all files in /usr/bin with detailed information. This output is then sent to less, allowing you to scroll through it page by page.
+                  Press q to exit less.
+ps aux    - lists all running processes.
+grep `word` - displays only linkes containing `word`
+ps aux | grep bash      - list all processes running on the system using ps aux and then filter for processes related to bash.
+grep -v   -
+sort    - sort lines of text
+uniq    - report or omit repeated lines
+tee     - reads standard input, writes it to standard output, and simultaneously writes it to one or more files.
 
 =======================================================================
 vim:
-normal mode	-	esc key
-insert mode	-	i
-visual mode	-	shift+v
+normal mode - esc key
+insert mode - i
+visual mode - shift+v
 command_line Mode (ex Mode)
-	y to "yank" (copy) the selected line.
-	p to "put" (paste) the yanked line below the current line.
-	dd (double d) to delete the entire line.
-	u To undo your last change
-:wq 	-	quit
-:w	-	Save file
-:q	-	quit
-`vim my_document.txt` 		- Open a new file named my_document.txt using vim.
+  y to "yank" (copy) the selected line.
+  p to "put" (paste) the yanked line below the current line.
+  dd (double d) to delete the entire line.
+  u To undo your last change
+:wq   - quit
+:w  - Save file
+:q  - quit
+`vim my_document.txt`     - Open a new file named my_document.txt using vim.
 export 
 env 
 unset 
@@ -978,7 +1046,7 @@ Append stdout to FILE (preserves existing content).
 2> FILE             Redirect stderr to FILE (captures error messages only).
 2>> FILE            Append stderr to FILE.
 &> FILE             Redirect both stdout and stderr together to FILE (shorthand).
-FILE 2>&1         	Redirect stdout to FILE, then direct stderr to stdout.
+FILE 2>&1           Redirect stdout to FILE, then direct stderr to stdout.
 < FILE              Redirect stdin to read from FILE instead of keyboard.================================================================================
 2. COMMAND PIPELINES & TEXT PROCESSING UTILITIESThe Pipe Operator (|):
 Connects the standard output (stdout) of the command on the left directly
@@ -1075,3 +1143,697 @@ alias la='ls -la'
 alias rm='rm -i'    (Safety alias prompting before deletion)
 alias myip='ip a | grep "inet " | grep -v "127.0.0.1" | awk "{print $2}" | cut -d/ -f1'
 Note: Use '$' within double-quoted aliases to prevent early evaluation by the shell.
+
+**************************************************************************************************************************
+**************************************************************************************************************************
+***************************************************************************************************************************
+Introduction
+In this lab, you will gain a comprehensive understanding of managing Linux file system permissions, a critical skill for any RHEL administrator. You will learn to interpret file permissions using ls -l, modify them with chmod in both symbolic and octal modes, and change file ownership using chown. Furthermore, you will explore and apply special permissions like SUID, SGID, and the Sticky Bit, and configure default permissions effectively with umask. This hands-on experience will equip you with the necessary knowledge to secure and control access to files and directories in a Linux environment.
+
+labby
+Labby
+Great! Let me prepare the lab VM for you. While it's being set up, you can start reviewing the first step of this lab.
+
+labby
+Labby
+Interpret Linux File System Permissions with ls -l
+In this step, you will learn how to interpret Linux file system permissions using the ls -l command. Understanding file permissions is crucial for managing access to files and directories in a Linux environment.
+
+Every file and directory in Linux has associated permissions that determine who can read, write, or execute it. These permissions are divided into three categories:
+
+User (owner): The permissions for the file's owner.
+Group: The permissions for users who are members of the file's group.
+Others: The permissions for all other users on the system.
+Each category can have three types of permissions:
+
+Read (r): Allows viewing the contents of a file or listing the contents of a directory.
+Write (w): Allows modifying the contents of a file or creating/deleting files within a directory.
+Execute (x): Allows running an executable file or entering a directory.
+Let's start by creating a new directory and a file within your ~/project directory to observe their default permissions.
+
+First, create a directory named my_files:
+
+mkdir ~/project/my_files
+ Explain Code
+Next, create an empty file named document.txt inside the my_files directory:
+
+touch ~/project/my_files/document.txt
+ Explain Code
+Now, use the ls -l command to view the detailed permissions of the document.txt file. The ls -l command provides a long listing format, including file permissions, owner, group, size, and modification date.
+
+ls -l ~/project/my_files/document.txt
+ Explain Code
+You should see output similar to this:
+
+-rw-rw-r-- 1 labex labex 0 Jun  6 17:36 /home/labex/project/my_files/document.txt
+ Explain Code
+Let's break down the first part of the output, -rw-rw-r--.:
+
+The first character (-) indicates the file type.
+- means it's a regular file.
+d means it's a directory.
+l means it's a symbolic link.
+The next nine characters are divided into three sets of three:
+rw-: Permissions for the owner (labex). r (read), w (write), - (no execute).
+rw-: Permissions for the group (labex). r (read), w (write), - (no execute).
+r--: Permissions for others. r (read), - (no write), - (no execute).
+This means the labex user (owner) and users in the labex group can read and write to document.txt, while all other users can only read it.
+
+Now, let's examine the permissions of the my_files directory itself. When using ls -l on a directory, it lists the contents of the directory. To view the permissions of the directory itself, you need to use the -d option with ls -l.
+
+ls -ld ~/project/my_files
+ Explain Code
+You should see output similar to this:
+
+drwxrwxr-x 2 labex labex 4096 Jun  6 17:36 /home/labex/project/my_files
+ Explain Code
+Let's interpret the permissions drwxrwxr-x.:
+
+The first character (d) indicates it's a directory.
+rwx: Permissions for the owner (labex). r (read), w (write), x (execute).
+rwx: Permissions for the group (labex). r (read), w (write), x (execute).
+r-x: Permissions for others. r (read), - (no write), x (execute).
+For directories:
+
+r (read) allows listing the contents of the directory.
+w (write) allows creating, deleting, or renaming files within the directory.
+x (execute) allows entering the directory (using cd) and accessing its files and subdirectories.
+This means the labex user and users in the labex group can list, create/delete files, and enter the my_files directory. Other users can list and enter the directory, but cannot create or delete files within it.
+
+Continue
+
+labby
+Labby
+Inspect Result
+Verify my_files directory exists
+Verify document.txt file exists
+Continue
+
+labby
+Labby
+Change File Permissions with chmod (Symbolic Mode)
+In this step, you will learn how to change file permissions using the chmod command in symbolic mode. Symbolic mode uses letters and symbols to represent permission changes, making it intuitive to add, remove, or set specific permissions.
+
+The chmod command in symbolic mode follows the syntax: chmod WHO OPERATION PERMISSIONS FILE.
+
+WHO: Specifies who the permission change applies to.
+u: user (owner)
+g: group
+o: others
+a: all (user, group, and others)
+OPERATION: Specifies how to modify the permissions.
++: Add a permission.
+-: Remove a permission.
+=: Set permissions exactly as specified, overriding existing ones.
+PERMISSIONS: Specifies the permission type.
+r: read
+w: write
+x: execute
+Let's continue working with the ~/project/my_files/document.txt file and ~/project/my_files directory created in the previous step.
+
+First, let's remove write permission for the group and others from document.txt. Recall that its current permissions are -rw-rw-r--.
+
+chmod go-w ~/project/my_files/document.txt
+ Explain Code
+Now, verify the change using ls -l:
+
+ls -l ~/project/my_files/document.txt
+ Explain Code
+The output should now show:
+
+-rw-r--r-- 1 labex labex 0 Jun  6 17:36 /home/labex/project/my_files/document.txt
+ Explain Code
+Notice that the w (write) permission for the group and others has been removed.
+
+Next, let's add execute permission for the owner (u) to document.txt. This is often done for scripts to make them executable.
+
+chmod u+x ~/project/my_files/document.txt
+ Explain Code
+Verify the change:
+
+ls -l ~/project/my_files/document.txt
+ Explain Code
+The output should now be:
+
+-rwxr--r-- 1 labex labex 0 Jun  6 17:36 /home/labex/project/my_files/document.txt
+ Explain Code
+The owner now has execute permission (x).
+
+Now, let's practice with the ~/project/my_files directory. Its current permissions are drwxrwxr-x. Let's remove write permission for others (o) from the directory.
+
+chmod o-w ~/project/my_files
+ Explain Code
+Verify the change:
+
+ls -ld ~/project/my_files
+ Explain Code
+The output should now show:
+
+drwxr-xr-x 2 labex labex 4096 Jun  6 17:36 /home/labex/project/my_files
+ Explain Code
+Wait, why did the o-w not change the output? This is because the o (others) already did not have write permission. The r-x for others means read and execute, but no write. This demonstrates that chmod only applies changes if they are different from the current state.
+
+Let's try setting permissions exactly. We will set the permissions for document.txt to rw-r--r-- for all (owner, group, others). This means owner gets read/write, group gets read, and others get read.
+
+chmod a=rw,g=r,o=r ~/project/my_files/document.txt
+ Explain Code
+Verify the change:
+
+ls -l ~/project/my_files/document.txt
+ Explain Code
+The output should now be:
+
+-rw-r--r-- 1 labex labex 0 Jun  6 17:36 /home/labex/project/my_files/document.txt
+ Explain Code
+This command a=rw,g=r,o=r is a bit redundant as a=rw would apply rw to all, then g=r would set group to r (overriding the w from a=rw), and o=r would set others to r (overriding the w from a=rw). A simpler way to achieve rw-r--r-- would be chmod u=rw,go=r. Let's try that.
+
+chmod u=rw,go=r ~/project/my_files/document.txt
+ Explain Code
+Verify the change:
+
+ls -l ~/project/my_files/document.txt
+ Explain Code
+The output should still be:
+
+-rw-r--r-- 1 labex labex 0 Jun  6 17:36 /home/labex/project/my_files/document.txt
+ Explain Code
+Finally, let's make document.txt executable for everyone.
+
+chmod a+x ~/project/my_files/document.txt
+ Explain Code
+Verify the change:
+
+ls -l ~/project/my_files/document.txt
+ Explain Code
+The output should now be:
+
+-rwxr-xr-x 1 labex labex 0 Jun  6 17:36 /home/labex/project/my_files/document.txt
+ Explain Code
+Continue
+
+labby
+Labby
+Inspect Result
+Verify document.txt has rwxr-xr-x permissions
+Verify my_files directory has drwxrwxr-x permissions
+Continue
+
+labby
+Labby
+Change File Permissions with chmod (Octal Mode)
+In this step, you will learn how to change file permissions using the chmod command in octal (numeric) mode. Octal mode is a concise way to represent permissions, where each permission (read, write, execute) is assigned a numerical value.
+
+The numerical values for permissions are:
+
+Read (r): 4
+Write (w): 2
+Execute (x): 1
+No permission (-): 0
+To determine the octal value for a set of permissions (user, group, or others), you sum the values of the permissions granted.
+
+For example:
+
+rwx (read, write, execute) = 4 + 2 + 1 = 7
+rw- (read, write, no execute) = 4 + 2 + 0 = 6
+r-x (read, no write, execute) = 4 + 0 + 1 = 5
+r-- (read, no write, no execute) = 4 + 0 + 0 = 4
+--- (no permissions) = 0 + 0 + 0 = 0
+The chmod command in octal mode uses a three-digit number, where each digit represents the permissions for the owner, group, and others, respectively. The syntax is: chmod OGO FILE.
+
+O: Octal value for owner permissions.
+G: Octal value for group permissions.
+O: Octal value for others permissions.
+Let's continue working with ~/project/my_files/document.txt and ~/project/my_files.
+
+First, let's set the permissions of document.txt to rw-r--r--.
+
+Owner: rw- = 6
+Group: r-- = 4
+Others: r-- = 4
+So, the octal value will be 644.
+
+chmod 644 ~/project/my_files/document.txt
+ Explain Code
+Verify the change:
+
+ls -l ~/project/my_files/document.txt
+ Explain Code
+The output should now be:
+
+-rw-r--r-- 1 labex labex 0 Jun  6 00:48 /home/labex/project/my_files/document.txt
+ Explain Code
+Next, let's make document.txt executable only by the owner, while keeping read/write for owner, and read-only for group and others. This means the owner will have rwx (7), group r-- (4), and others r-- (4). The octal value will be 744.
+
+chmod 744 ~/project/my_files/document.txt
+ Explain Code
+Verify the change:
+
+ls -l ~/project/my_files/document.txt
+ Explain Code
+The output should now be:
+
+-rwxr--r-- 1 labex labex 0 Jun  6 00:48 /home/labex/project/my_files/document.txt
+ Explain Code
+Now, let's change the permissions of the ~/project/my_files directory. Its current permissions are drwxr-xr-x. Let's set its permissions to rwxr-x---.
+
+Owner: rwx = 7
+Group: r-x = 5
+Others: --- = 0
+So, the octal value will be 750.
+
+chmod 750 ~/project/my_files
+ Explain Code
+Verify the change:
+
+ls -ld ~/project/my_files
+ Explain Code
+The output should now show:
+
+drwxr-x--- 2 labex labex 26 Jun  6 00:48 /home/labex/project/my_files
+ Explain Code
+This means the owner (labex) has full permissions (read, write, execute), the group (labex) can read and execute (enter) the directory, and others have no permissions at all.
+
+Finally, let's create a new executable script file to demonstrate setting execute permissions directly.
+
+echo '#!/bin/bash' > ~/project/my_script.sh
+echo 'echo "Hello from my script!"' >> ~/project/my_script.sh
+ Explain Code
+By default, new files are not executable. Let's check its permissions:
+
+ls -l ~/project/my_script.sh
+ Explain Code
+You will likely see permissions like -rw-r--r--. To make it executable for the owner and group, but not others, we want rwxrwx---.
+
+Owner: rwx = 7
+Group: rwx = 7
+Others: --- = 0
+So, the octal value will be 770.
+
+chmod 770 ~/project/my_script.sh
+ Explain Code
+Verify the change:
+
+ls -l ~/project/my_script.sh
+ Explain Code
+The output should now be:
+
+-rwxrwx--- 1 labex labex 41 Jun  6 00:52 /home/labex/project/my_script.sh
+ Explain Code
+Now you can execute the script:
+
+~/project/my_script.sh
+ Explain Code
+You should see the output:
+
+Hello from my script!
+ Explain Code
+Continue
+
+labby
+Labby
+Inspect Result
+Verify document.txt has rwxr--r-- permissions
+Verify my_files directory has drwxr-x--- permissions
+Continue
+
+labby
+Labby
+Fantastic!
+It's time for the next step.
+
+labby
+Labby
+Change File Ownership with chown
+In this step, you will learn how to change the owner and group of files and directories using the chown command. This is a crucial administrative task, as only the root user can change the owner of a file. The labex user has sudo privileges, which will allow you to perform these actions.
+
+The basic syntax for chown is: chown [OPTIONS] NEW_OWNER[:NEW_GROUP] FILE(s).
+
+Let's start by creating a new user and group that we can use to demonstrate ownership changes. Since this environment is container-based, we will create a simple user and group for demonstration purposes.
+
+First, create a new group named devs:
+
+sudo groupadd devs
+ Explain Code
+Next, create a new user named developer and add them to the devs group. We will create a system user without a home directory or login shell for this demonstration.
+
+sudo useradd -r -g devs -s /sbin/nologin developer
+ Explain Code
+Now, let's change the owner of ~/project/my_files/document.txt from labex to developer.
+
+sudo chown developer ~/project/my_files/document.txt
+ Explain Code
+Verify the change using ls -l:
+
+ls -l ~/project/my_files/document.txt
+ Explain Code
+The output should now show developer as the owner:
+
+-rwxr--r-- 1 developer labex 0 Jun  6 00:48 /home/labex/project/my_files/document.txt
+ Explain Code
+Notice that the group ownership (labex) remained unchanged.
+
+You can also change both the owner and the group simultaneously using the owner:group syntax. Let's change the owner of document.txt back to labex and its group to devs.
+
+sudo chown labex:devs ~/project/my_files/document.txt
+ Explain Code
+Verify the change:
+
+ls -l ~/project/my_files/document.txt
+ Explain Code
+The output should now show labex as the owner and devs as the group:
+
+-rwxr--r-- 1 labex devs 0 Jun  6 00:48 /home/labex/project/my_files/document.txt
+ Explain Code
+The chown command also supports the -R (recursive) option, which allows you to change the ownership of an entire directory tree. Let's change the owner of the ~/project/my_files directory and all its contents to developer, and the group to devs.
+
+sudo chown -R developer:devs ~/project/my_files
+ Explain Code
+Verify the change for the directory:
+
+ls -ld ~/project/my_files
+ Explain Code
+The output should reflect the new ownership:
+
+drwxr-x--- 2 developer devs 26 Jun  6 00:48 /home/labex/project/my_files
+ Explain Code
+Note that after changing the directory ownership to developer:devs, the labex user can no longer access the file inside the directory because the directory permissions are drwxr-x--- (owner and group have access, but others don't), and labex is neither the owner (developer) nor a member of the group (devs). If you try to list the file now:
+
+ls -l ~/project/my_files/document.txt
+ Explain Code
+You will get a "Permission denied" error. This demonstrates how ownership and permissions work together to control access.
+
+You can also change only the group ownership using chown :NEW_GROUP FILE(s). This is equivalent to using the chgrp command. Let's change the group of ~/project/my_script.sh to devs.
+
+sudo chown :devs ~/project/my_script.sh
+ Explain Code
+Verify the change:
+
+ls -l ~/project/my_script.sh
+ Explain Code
+The output should show devs as the group owner, while labex remains the file owner:
+
+-rwxrwx--- 1 labex devs 41 Jun  6 00:52 /home/labex/project/my_script.sh
+ Explain Code
+Finally, let's clean up by changing the ownership back to labex:labex and then removing the developer user and devs group.
+
+sudo chown -R labex:labex ~/project/my_files
+sudo userdel developer
+sudo groupdel devs
+ Explain Code
+Continue
+
+labby
+Labby
+Inspect Result
+Verify document.txt owner is labex and group is labex
+Verify my_files directory owner is labex and group is labex
+Continue
+
+labby
+Labby
+Understand and Apply Special Permissions (SUID, SGID, Sticky Bit)
+In this step, you will explore special permissions in Linux: SUID (Set User ID), SGID (Set Group ID), and the Sticky Bit. These permissions provide enhanced control over file execution and directory behavior.
+
+Special permissions are represented by an additional digit in the octal permission mode, placed before the standard three digits (owner, group, others).
+
+SUID (Set User ID):
+Octal value: 4
+Effect on files: When an executable file with SUID is run, it executes with the permissions of the file's owner, not the user who ran it. This is commonly used for programs that need elevated privileges to perform certain tasks, like the passwd command (which needs to write to /etc/shadow, a file owned by root).
+In ls -l output: An s appears in place of the owner's x (execute) permission. If the owner does not have execute permission, an uppercase S appears.
+SGID (Set Group ID):
+Octal value: 2
+Effect on files: Similar to SUID, but the executable runs with the permissions of the file's group owner.
+Effect on directories: Files and subdirectories created within an SGID-enabled directory inherit the group ownership of that directory, rather than the primary group of the user who created them. This is very useful for shared directories where all files should belong to a specific group.
+In ls -l output: An s appears in place of the group's x (execute) permission. If the group does not have execute permission, an uppercase S appears.
+Sticky Bit:
+Octal value: 1
+Effect on files: No effect.
+Effect on directories: Users can create files in the directory, but they can only delete or rename files that they own. This prevents users from deleting or moving other users' files in a shared directory (e.g., /tmp).
+In ls -l output: A t appears in place of others' x (execute) permission. If others do not have execute permission, an uppercase T appears.
+Let's demonstrate these special permissions.
+
+SUID Example
+We'll create a simple C program that attempts to read a restricted file.
+
+First, create a file that only root can read:
+
+sudo touch ~/project/secret_data.txt
+sudo chmod 600 ~/project/secret_data.txt
+sudo chown root:root ~/project/secret_data.txt
+ Explain Code
+Verify its permissions:
+
+ls -l ~/project/secret_data.txt
+ Explain Code
+Output:
+
+-rw------- 1 root root 0 Jun  6 17:36 /home/labex/project/secret_data.txt
+ Explain Code
+Now, create a C program read_secret.c that tries to read this file:
+
+nano ~/project/read_secret.c
+ Explain Code
+Paste the following code into read_secret.c:
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main() {
+    FILE *fp;
+    char buffer[256];
+
+    printf("Attempting to read /home/labex/project/secret_data.txt...\n");
+
+    fp = fopen("/home/labex/project/secret_data.txt", "r");
+    if (fp == NULL) {
+        perror("Error opening file");
+        return 1;
+    }
+
+    while (fgets(buffer, sizeof(buffer), fp) != NULL) {
+        printf("%s", buffer);
+    }
+
+    fclose(fp);
+    printf("Successfully read file.\n");
+    return 0;
+}
+ Explain Code
+Save and exit nano (Ctrl+S, Ctrl+X).
+
+Compile the program:
+
+gcc ~/project/read_secret.c -o ~/project/read_secret
+ Explain Code
+Now, try to run it as labex:
+
+~/project/read_secret
+ Explain Code
+You should see an "Error opening file: Permission denied" message, as labex does not have read access to secret_data.txt.
+
+Now, let's make read_secret owned by root and set the SUID bit.
+
+sudo chown root:root ~/project/read_secret
+sudo chmod u+s ~/project/read_secret
+ Explain Code
+Verify the permissions:
+
+ls -l ~/project/read_secret
+ Explain Code
+Output:
+
+-rwsr-xr-x 1 root root 17704 Jun  6 01:02 /home/labex/project/read_secret
+ Explain Code
+Notice the s in the owner's permission set. Now, run the program again as labex:
+
+~/project/read_secret
+ Explain Code
+This time, it should successfully read the file (though it's empty, so no content will be printed, but the "Successfully read file." message indicates success). This is because the SUID bit made the program run with root's permissions.
+
+SGID Example (on Directory)
+Let's create a shared directory and a new group.
+
+sudo groupadd shared_group
+sudo mkdir ~/project/shared_dir
+sudo chown labex:shared_group ~/project/shared_dir
+sudo chmod 770 ~/project/shared_dir
+ Explain Code
+Now, set the SGID bit on shared_dir:
+
+sudo chmod g+s ~/project/shared_dir
+ Explain Code
+Verify the permissions:
+
+ls -ld ~/project/shared_dir
+ Explain Code
+Output:
+
+drwxrws--- 2 labex shared_group 6 Jun  6 01:02 /home/labex/project/shared_dir
+ Explain Code
+Notice the s in the group's permission set.
+
+Now, create a file inside shared_dir:
+
+touch ~/project/shared_dir/new_file.txt
+ Explain Code
+Check the ownership of new_file.txt:
+
+ls -l ~/project/shared_dir/new_file.txt
+ Explain Code
+Output:
+
+-rw-r--r-- 1 labex shared_group 0 Jun  6 01:02 /home/labex/project/shared_dir/new_file.txt
+ Explain Code
+Even though labex's primary group is labex, the new_file.txt inherited the shared_group group ownership from shared_dir due to the SGID bit.
+
+Sticky Bit Example
+The /tmp directory is a classic example of a directory with the sticky bit set. Let's create a similar directory.
+
+sudo mkdir ~/project/public_upload
+sudo chmod 1777 ~/project/public_upload
+ Explain Code
+The 1 in 1777 is the octal value for the sticky bit. 777 grants full permissions to owner, group, and others.
+
+Verify the permissions:
+
+ls -ld ~/project/public_upload
+ Explain Code
+Output:
+
+drwxrwxrwt 2 root root 6 Jun  6 01:02 /home/labex/project/public_upload
+ Explain Code
+Notice the t in others' permission set.
+
+Now, let's simulate another user creating a file in this directory. Since we only have labex user, we'll create a file as labex and then try to delete it after changing its ownership to root (simulating another user).
+
+Create a file as labex:
+
+touch ~/project/public_upload/labex_file.txt
+ Explain Code
+Change its ownership to root:
+
+sudo chown root:root ~/project/public_upload/labex_file.txt
+ Explain Code
+Now, try to delete labex_file.txt as labex:
+
+rm ~/project/public_upload/labex_file.txt
+ Explain Code
+You will see a prompt asking if you want to remove the write-protected file, and after confirming with y, you'll get an "Operation not permitted" error. This is because the sticky bit prevents users from deleting files they don't own within that directory, even though labex has write permission on the public_upload directory. Only root or the owner of labex_file.txt (root in this case) can delete it.
+
+To clean up, you'll need sudo to remove labex_file.txt:
+
+sudo rm ~/project/public_upload/labex_file.txt
+ Explain Code
+Cleaning Up
+Remove the created files and directories, and the user/group:
+
+sudo rm -f ~/project/secret_data.txt ~/project/read_secret.c ~/project/read_secret
+sudo rm -rf ~/project/shared_dir ~/project/public_upload
+sudo groupdel shared_group
+ Explain Code
+Continue
+
+labby
+Labby
+Inspect Result
+Verify secret_data.txt is removed
+Verify shared_dir is removed
+Continue
+
+labby
+Labby
+Configure Default Permissions with umask
+In this final step, you will learn about umask, which controls the default permissions assigned to newly created files and directories. The umask (user file-creation mode mask) is a bitmask that removes permissions from the maximum possible permissions.
+
+The maximum permissions for a new file are 666 (rw-rw-rw-), meaning read and write for everyone. New files typically do not get execute permissions by default for security reasons.
+The maximum permissions for a new directory are 777 (rwxrwxrwx), meaning read, write, and execute for everyone.
+
+The umask value is subtracted from these maximum permissions to determine the actual default permissions.
+
+To view your current umask value, simply type umask:
+
+umask
+ Explain Code
+You will likely see 0002 or 0022. In this environment, it's 0022 for labex user.
+
+A umask of 0022 means:
+
+The first 0 is for special permissions (SUID, SGID, Sticky Bit), which are not affected by umask by default.
+The second 0 means no permissions are removed from the owner.
+The third 2 means the write permission (value 2) is removed from the group.
+The fourth 2 means the write permission (value 2) is removed from others.
+Let's calculate the default permissions with a umask of 0022:
+
+For files (max 666):
+
+Owner: 6 - 0 = 6 (rw-)
+Group: 6 - 2 = 4 (r--)
+Others: 6 - 2 = 4 (r--)
+Resulting file permissions: 644 (rw-r--r--)
+For directories (max 777):
+
+Owner: 7 - 0 = 7 (rwx)
+Group: 7 - 2 = 5 (r-x)
+Others: 7 - 2 = 5 (r-x)
+Resulting directory permissions: 755 (rwxr-xr-x)
+Let's test this. Create a new file and directory:
+
+touch ~/project/new_file_umask.txt
+mkdir ~/project/new_dir_umask
+ Explain Code
+Check their permissions:
+
+ls -l ~/project/new_file_umask.txt
+ls -ld ~/project/new_dir_umask
+ Explain Code
+You should see permissions like -rw-r--r-- for the file and drwxr-xr-x for the directory, confirming the 0022 umask effect.
+
+Now, let's change the umask to 0077. This umask will remove all group and others permissions.
+
+umask 0077
+ Explain Code
+Verify the umask has changed:
+
+umask
+ Explain Code
+Output:
+
+0077
+ Explain Code
+Now, let's calculate the default permissions with a umask of 0077:
+
+For files (max 666):
+
+Owner: 6 - 0 = 6 (rw-)
+Group: 6 - 7 = -1 (effectively 0, ---)
+Others: 6 - 7 = -1 (effectively 0, ---)
+Resulting file permissions: 600 (rw-------)
+For directories (max 777):
+
+Owner: 7 - 0 = 7 (rwx)
+Group: 7 - 7 = 0 (---)
+Others: 7 - 7 = 0 (---)
+Resulting directory permissions: 700 (rwx------)
+Let's test this new umask. Create another new file and directory:
+
+touch ~/project/restricted_file.txt
+mkdir ~/project/restricted_dir
+ Explain Code
+Check their permissions:
+
+ls -l ~/project/restricted_file.txt
+ls -ld ~/project/restricted_dir
+ Explain Code
+You should now see permissions like -rw------- for the file and drwx------ for the directory.
+
+The umask setting is typically configured in shell initialization files (like ~/.bashrc or /etc/profile) to apply automatically when a user logs in. For this lab, the umask change is temporary and only applies to the current terminal session.
+
+To revert the umask to its default for the labex user, you can simply set it back to 0022:
+
+umask 0022
+ Explain Code
+Finally, clean up the files and directories created in this step:
+
+rm ~/project/new_file_umask.txt ~/project/restricted_file.txt
+rmdir ~/project/new_dir_umask ~/project/restricted_dir
