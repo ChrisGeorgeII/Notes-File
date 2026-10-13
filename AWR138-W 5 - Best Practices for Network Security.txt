@@ -313,7 +313,7 @@ Voice Services Security
   the client software used with these services (Skype, Zoom, Webex, Google, Talk, or GoToMeeting) provide easy to use options for features such as:
     Remote Screen Sharing, Remote Control of a Computer, File Transfers, Publishing Video Content, Chat Sessions, Recording and Logging of Sessions
   Security Risks
-    principle reason applications used to carry real-time comnmmunications present a security risk to the organization. because these application usually traverse firewalls.
+    principle reason applications used to carry real-time commmunications present a security risk to the organization. voice services do not present a security risk because these applications usually traverse firewalls.
       concept of traversal meaning theat the application communicates with 3rd party via central source using standard ports common to most internet traffic.
         realtime communication services use a decentralized model for comunicaion, relies on peer-to-peer networks rather than single central source for routing all communications.
           Ex. all networks allow users to connect to 3rd party entities using TCP port 80.
@@ -370,53 +370,214 @@ Best Practices
       other principles and best practices for safe network operations are:
         Separation of dudties, Policies vs. Procedures, and Acceptable Use Policies
 
-    Separation of Duties
-      power and authority should be distributed among as many people as is practical.
-      there have been countless examples of one individual, vested with too much power or authority has been able to abuse the system for personal gain.
-      whenever possible it is crucial for critical duties to be assigned to multiple personnel. or when this is not possible require multiple administrators to be part of the process
-      Separation of Duties Guideline
-        which tasks should be distributed to different administrators?
-          departments are managed in unique ways, particularly in smaller organizations. organizations themselves decide on how duties should be divided.
-          Ex. Basic guideline:
-            make sure that auditing and managing are done by two different people
-              auditor is responsible for the examination of data (usually log files) that may contain evidence of wrongdoing.
-                if the person responsible for auditing aso has the authourity to configure the network, there is undeniably a potential for abuse.
-            it would also be ill-advised to make the same person an administrator as well as the auditor.
+  Separation of Duties
+    power and authority should be distributed among as many people as is practical.
+    there have been countless examples of one individual, vested with too much power or authority has been able to abuse the system for personal gain.
+    whenever possible it is crucial for critical duties to be assigned to multiple personnel. or when this is not possible require multiple administrators to be part of the process
+    Separation of Duties Guideline
+      which tasks should be distributed to different administrators?
+        departments are managed in unique ways, particularly in smaller organizations. organizations themselves decide on how duties should be divided.
+        Ex. Basic guideline:
+          make sure that auditing and managing are done by two different people
+            auditor is responsible for the examination of data (usually log files) that may contain evidence of wrongdoing.
+              if the person responsible for auditing aso has the authourity to configure the network, there is undeniably a potential for abuse.
+          it would also be ill-advised to make the same person an administrator as well as the auditor.
 
-    Policy and Procedures
-      Policy and procedures, sometimes there is confusion surrounding these terms:
-        Policy - a written guideline used to govern the execution of activities, or to convey rules and regulations.
-          policies very rarely deal with specific details, but instead embrace a "high level" view of a topic. when written correctly, policies are designed to last many years with minor modifications.
-        Procedure - a published document that provides highly detailed instructions to be used when performing a certain task.
-          Because procedures discuss highly detailed and specific information, they must be updated and modified frequently.
+  Policy and Procedures
+    Policy and procedures, sometimes there is confusion surrounding these terms:
+      Policy - a written guideline used to govern the execution of activities, or to convey rules and regulations.
+        policies very rarely deal with specific details, but instead embrace a "high level" view of a topic. when written correctly, policies are designed to last many years with minor modifications.
+      Procedure - a published document that provides highly detailed instructions to be used when performing a certain task.
+        Because procedures discuss highly detailed and specific information, they must be updated and modified frequently.
 
-    Acceptable Use Policy
-      End users represent the weakest point in any information defense scheme.
-        Users can be tricked by attackers, leading to damage.
-        Users can be emotional, causing them to willfully damage systems.
-        Users can be careless, leading to accidental damage of equipment.
-        Users may decide to use systems in such a way that does not harm equipment, but instead threatens the organization with civil or criminal penalties.
-      Acceptable Use Policies and Technology
-        Acceptable Use Policy (AUP) can spell out the appropriate use of a particular resource within an organization.
-          separate AUPs for computer use, internet access, and email use, or a unified AUP that addresses proper conduct for all these systems.
-        well written acceptable use policy used in conjunction with available technology is considered a best practice in network protection.
+  Acceptable Use Policy
+    End users represent the weakest point in any information defense scheme.
+      Users can be tricked by attackers, leading to damage.
+      Users can be emotional, causing them to willfully damage systems.
+      Users can be careless, leading to accidental damage of equipment.
+      Users may decide to use systems in such a way that does not harm equipment, but instead threatens the organization with civil or criminal penalties.
+    Acceptable Use Policies and Technology
+      Acceptable Use Policy (AUP) can spell out the appropriate use of a particular resource within an organization.
+        separate AUPs for computer use, internet access, and email use, or a unified AUP that addresses proper conduct for all these systems.
+      well written acceptable use policy used in conjunction with available technology is considered a best practice in network protection.
 
-    Goals for Acceptable Use Policies
-      most technical controls used to secure clients from atack are well known to administrators (patch anagement, user of firewalls, and anti-virus software).
-        each offers a differnt layer of defense, with every layer representing another obstacle that an attacker must overcome in order to infect the system.
-      Protection of Personnel
-        it is important for AUP to ensure there are forms of protection afforded to useers.
-        Ex. - libel and slander are 2 damaging forms of attack that dont impact technology assets at all, but can have devastating impacts on people.
-          Identity theft may be another item spelled out by the AUP, though this topic is often addressed in other policies regarding personal safety and professional conduct
-        it is important to be sure employees adhere to regulations. an employee who is injured as a result of employment may try to take legal action against the organization.
-      Protection of Resources
-        most end users understand physical computers there using constitute resources, so the y dont damage them.
-        users do not recognize a computer's software as a resource.
-        Successful AUP must be written in such a way to ensure users understand and can identify all of the resources within the organization, both hidden and physical.
-        administrators remember the following resources. there valuable and require protection just as a piece of hardware does:
-          Bandwidth, Time ("CPU" and "wall clock"), Storage Space
-      Protection of Reputation
-        its important to ensure that employees and other staff understand ramifications of what they do 
-          realize that the organization could be held liable if a representative (employee, staff member, Etc.) uses the organization's equipment to harm another person or group.
-        organization could be held liable, for viruses and DDoS atacks that might be launched from your network, but also potentially for any slander or libel that is distributed using your systems.
-        
+  Goals for Acceptable Use Policies
+    most technical controls used to secure clients from atack are well known to administrators (patch anagement, user of firewalls, and anti-virus software).
+      each offers a differnt layer of defense, with every layer representing another obstacle that an attacker must overcome in order to infect the system.
+    Protection of Personnel
+      it is important for AUP to ensure there are forms of protection afforded to useers.
+      Ex. - libel and slander are 2 damaging forms of attack that dont impact technology assets at all, but can have devastating impacts on people.
+        Identity theft may be another item spelled out by the AUP, though this topic is often addressed in other policies regarding personal safety and professional conduct
+      it is important to be sure employees adhere to regulations. an employee who is injured as a result of employment may try to take legal action against the organization.
+    Protection of Resources
+      most end users understand physical computers there using constitute resources, so the y dont damage them.
+      users do not recognize a computer's software as a resource.
+      Successful AUP must be written in such a way to ensure users understand and can identify all of the resources within the organization, both hidden and physical.
+      administrators remember the following resources. there valuable and require protection just as a piece of hardware does:
+        Bandwidth, Time ("CPU" and "wall clock"), Storage Space
+    Protection of Reputation
+      its important to ensure that employees and other staff understand ramifications of what they do 
+        realize that the organization could be held liable if a representative (employee, staff member, Etc.) uses the organization's equipment to harm another person or group.
+      organization could be held liable, for viruses and DDoS atacks that might be launched from your network, but also potentially for any slander or libel that is distributed using your systems.
+
+  Patch Management - the process of gegulating the installation of patches on a system
+    tools are available to assist proper management of system patches.early 2000s show the need for effective and timely patch management.
+      large amounts of time lost due to incompatible patches being carelessly deployed demonstrated the need for careful patch management.
+    competing priorities, security urgency and operational stability must be balanced when determining which patches to deploy.
+      NIST SP 800-40
+        emphasize the importance of clearly defined organizational roles in this process.
+      Security Personell or Information System Security Officers (ISSOs)
+        assess the risk of priority of patches, system administrators are responsible for testing, deploying, and monitoring updates with established procedures.
+      these roles help minimize operational impact while reducing exposure to emerging threats, including Zero-Day Vulnerabilities.
+
+  Windows Operating Systems
+    all supported windows OS are configured to download and install software updates from a microsoft maintained contral repository of updates.
+      systems conect to the update server (Windows Update). the system will scan for available updates that have not been installed locally. if any ar efound they are downloaded and (depending on the configuration of the local system) are installed
+      updates may be downloaded by prompting the user to start the install procedure in the case of large updates like Service Packs.
+    Windows Server Updates
+      not always effective for larger organizations beacuse:
+        they are forced to allow each system on the network to connect to the internet.
+        they have reduced control over the downloadeing and installation of software updates.
+      on-premises solutions (Windows Server Update Service (WSUS) gave organizations control over software updates by functioning as a private update server.
+        modern cybersecurity needs have let the development of dynamic, cloud-based solutions.
+      instead of using a local server to distribute patches, organizations are turning to services like Azure Update Manager and Microsoft Intune for more comprehensive and flexible patch management.
+    Azure Update Manager provideds a unified platform to manage updates for both Windows and Linux machines across on-premises, Azure, even multi-cloud environments.
+      offers a centralized dashboard to monitor update compliance, deploy updates, and schedule automated patch deployments, reducing the manual effor tand potential for human error.
+        streamlines the process by removing the dependency on a Log Analytics workspace that was previously required, offering a more integrated experience.
+      organizations embracing a modern, mobile workforce, Microsoft Intune offers a cloud-based endpoint management solution.
+    Intune manages updates for a variety of devices including those running Windows, iOS and Android, a significant advantage for companies with diverse range of endpoints.
+      allowing the configuration of update policies to control how and when updates are applied, 
+        crucial for managing remote and mobile devices without requiring them to connect to a on-premises network.
+    Azure Update Manager and Intune provide the scalability, automation, and broader device support necessary for a modern cybersecurity strategy.
+
+  Windows Deployment
+    Windows Server Update Service (WSUS) is designed to server a wide variey of updates to an organization's systems,
+      Operating System updates, as well as updates for client software (Office) and infrastructure servers (web or mail servers) can be served by the WSUS.
+    WSUS can be configured and run in countless ways WSUS can be connected to an Active Directory deployment, or is capable of operating in a stand-alone fashion.
+    WSUS can be deployed in many ways, 2 common types of deployment: Simple and Computer Groups.
+      "Simple" WSUS Development
+        1st. most basic form of deployment is referred to by Microsoft as "simple." WSUS server functions as a replacement for the normal Windows Update service provided by Microsoft.
+          WSUS server resides in the Corporate Firewall, meaning that computers that should not have access to the internet can still download and install software updates.
+          WSUS server will connect to the windows update site at regular interval (as little as once per hour, up to once per day) and download any available upadtes.
+            Microsoft refers to this process as synchronizing
+            after synchronization, WSUS automatically serves the necessary updates to client computers (or other servers) when requested.
+      "Computer Group" WSUS Development
+        other common alternative for patch deployment is to organize systems into what Microsoft refers to as "Computer Groups."
+        Computer groups are collections or logically related systems with similar update needs.
+          Ex. organization might have the following computer groups: Desktop Computers, Internal Servers (Databases, Intranet, Etc.), Public servers (Web, Mail, Etc.)
+          each group clearly has different roles and different update needs.
+            organization might choose to be aggressive when deploying patches for public servers, thes servers can be reached by anyone over the internet.
+            organizations, when deploying updates for internal servers, recognize that the se systems have reduced vulnerability due to inaccessibility from the internet.
+          Ex. Microsoft Update > Cloud > Firewall > WSUS > Clients
+        All Computers and Unassigned Group
+          after installation WSUS launches with 2 preconfigured groups: All Computers Group and the Unassigned Group.
+            Computers that contact the WSUS server will be placed in both groups by default.
+          should take care when assingning patches and updates to the All Computers group as "All Computers" means exactly what it says: all computers
+          Ex. Microsoft Update > Cloud > Firewall > WSUS > All Computers Group/Unassigned Group
+
+  Cloud-Native Update Deployment
+    Microsoft Intune and Azure Update Manager are designed to server a wide variety of updates to an organization's systems.
+    Client device updates for Windows, iOS, and Android, as well as OS and software updates for servers, can be managed by these cloud-native services.
+    Intune and Azure Update Manager can be configured in numerous ways. 
+      designed to integrate with Microsoft Entra ID (formerly Azure Active Directory) but also capable of managing standalone and hybrid environments.
+
+  Linux Strategies
+    Patch management strategies in Linux can be divided in 2 different categories: Free and Commercial
+    Free patch management strategies take advantage of open source and freely available utilities. utilities seen in commercial update packages (linux and Windows) can be replicated using these utilities,
+      may be more overhead involved.
+    Commercial patch management approaches, on the other hand, offer many "bells nad whistles," though they come at a price.
+    Linux Free Patch Management
+      Windows workstations feature an update client, so does Linux Systems:
+        going by different names (YUM, APT, Etc.) 
+        work in slightly different manners (packages, debs, Etc.)
+        Basic Operation is the same: they download software from repositories and install it automatically.
+      linux users may be familiar with these utilities as a way to install new software, they are also used to update existing packages.
+      these utilities can scan for any other software packages that must accompany the new software. required packages are known as dependencies.
+      common update managers can be configured (Cron, or some other service) to scan the update server on regular intervals and download updated software.
+        all major packages can be configured to download updates from a specific update server, rather than the default srever.
+      Linux Free Patch Management: Updates
+        its possible to configure a linux update client to run on regular intervals, automatically downloading and installing updates that are found.
+        Local Update Server is a vital feature for many of the commercial products (Windows, macOS, and commercial Linux offerings). most popular distributions provide ways to easily set up your own repository on local network.
+          repository will on a regularly scheduled interval, download updates from the main repository and make available on local network.
+            same with update client, precise steps for doing this are distribution-specific
+              recommended to consult the documention of particular Linux distribution for more information.
+                dependencies within a software release for Linux can be quite complex and difficult to map by hand.
+                  failure to post all required dependencies wil lcause an update to fail.
+          for administrators who will try to selectively publish updates to their private repositories
+            updates must always be throughly tested to ensure that alll of the required dependencies have also been posted.
+      Linux Free Patch Management: Dependencies
+        developers of Linux try to reuse code whenever possible with hopes of increasing reiability and reducing development time and cost.
+          a developer believes other programers might have a need for this code.
+            when constructed in this way the developer is creating a link between their program and the library; 
+              without the library, the developer's application has no hope of fucntioning correctly. known as Dependency
+          Managing dependencies can become a very diffecult and time-consuming task in linux, particularly when done by hand.
+          newly released patches for applications will require updates to other dependent libraries (or the installation of new libraries) in order to work properly.
+          automated management, installation and updating of dependencies awre among the original motivators behind YUM and APT.
+      Commercial Patching Alternatives
+        organizations that run Linux as desktop operating systems will invest in a commercial version of Linux.
+          vendors offer commercial flavors of Linux including Red Hat Enterprise Linux (sold by Red Hat), SUSE Enterprise Linux (sold by Novell), and Mandriva Linux (sold by Mandriva).
+        commercial Linus Distributions feature some sort of patch or upgrade management systems; particularly for offerings by Red Hat and Novel.
+        the purchase of advanced update and management functionality may cost additional money, unlike offereing for Windows and macOS.
+
+  Berkely Software Distribution
+    Perkely Software distribution (BSD) patch distributions generally seek to provide the most stable and secure operating system possible.
+      stability and security have come at the expense of usability. why BSD today finds itself deployed in server situations.
+    nework adminstrators are protective and conservative with server patching than thay are with patching of desktop workstations.
+      automatic update functionality found in Windows and many Linux Distributions is not nearly as evolved in BSD environemtns.
+        like Linux, there is may differnt versions of BSD (FreeBSD, OpenBSD, NetBSD, Etc.), making a comprehensive one-size-fits-all description of updating BSD next to impossible.
+
+  Berkely Software Distribution vs. Linux
+    BSD Differs from linux:
+      Ports - where linux might refer to software packages as RPMs or debs, BSD refers to these as "ports" (not confused with TCP ports). 
+        Ports on BSD are exclusively downloaded as source code, must be compiled prior to instalation, accomplished thourhg a shell script that is distributed with the software known as makefile.
+      Patching Stratiges
+        Similar approaches in linux can be applied to BSD. a variety of distribution specific update clients that can be used to replicate Yum or APT functionality.
+        IT administrators prefer to manage their BSD systems manually, as to be completely sure of current state of servers.
+          best option for keeping BSD systems up-to-date. subscribing to appropritate email mailing list is necessary when adopting this strategy.
+
+  Apple macOS
+    amacOS is derived from BSD, merits special attention. macOS is a highly common desktop operating system.
+      apple has added significant functionality onto the OS to provide administrators the ability to manage updates in simalar ways to windows WSUS.
+      Applie's version of WSUS is known as Software Update Server (SUS). free of charge but requires a licensed copy of macOS Server.
+      apple SUS allows administrators to decide if and when updates are published to local clients, allowing through testing of patches prior to deploment.
+
+*******************************************************************************************
+Business Continuity
+  Business Continuity
+    every organization should develop a business continuity or continuity of operations plan (COOP)
+      business continuity plan provides processes and procedures for an organization to recover operations and continue providing services to its customers after an incident or disaster
+        by helping to ensure the mission-critical or essential business operations are minimally interupted.
+      modern ransomware target backup systems, organizations must incorporate protections suchas immutable backups, offline (cold) storage, and other safeguards to maintain the Integrity element of the CIA triad.
+        ensuring backup integrity is now a central priority in any effective continuity and recovery strategy.
+
+  Business Continuity Plan
+    business continuity pland should include:
+      Determination of threats, risks and hazards
+      list of essential or critical business fucntions.
+      inventory of processes, assets and resources that support essential functions.
+      list of essential personnel and contact information.
+      roles and responsibilities.
+      activation plan.
+      delegantion of authorities.
+      alternate procedures.
+      alternate facilities.
+      supplier and customer information.
+      alternate suppliers.
+      plan for employee training and exercise.
+      IT disaster recovery plan.
+
+    ID Disaster Recovery
+      organizations hould also develop a plan for IT disaster recovery
+      IT Disaster Recovery plan focuses on the IT aspect of the organization and provides processes and procedures for protecting and recovering disrupted systems and networks as well as lost or corrupted data.
+      Disaster Recovery plans
+        IT Disaster Recovery Plan should include:
+          List of Essential It personnel and contact information
+          Roles and reesponsibilities.
+          Activation plan.
+          List of critical software, hardware, and networks.
+          Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO) for data, software, hardware, and networks.
+          back-up, redundancy and recovery staregies
+          Alternate facilities (hot site warm site or cold site)
+          Plan for employee training and exercise.
+          ransomware recovery strategies, including immutable and offline backups.
+          
