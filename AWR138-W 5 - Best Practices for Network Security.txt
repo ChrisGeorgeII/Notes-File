@@ -1,0 +1,422 @@
+*********************************************************************************************
+**************************** Best Practices for Network Security ****************************
+*********************************************************************************************
+
+  *******************************************************************************************
+  Network Security
+
+    Network Security
+      Defense in depth - a concept where multiple security measures are set in place in order to provide a better system of successful attack prevention.
+      Buffer Overflow - where an attacker deliberately feeds more data into a program's memory buffer than it can handle, causing the excess to overwrite adjacent memory.
+        this can corrupt data, crash the system, or allow the attacker to run malicious code.
+        other stratigies include SQL injection and similar direct exploits designed to target the victim's systems outright.
+      if hackers could bypass the perimeter, through overlooked vulnerabilities or alternative entry points, could  reach the target (database or server) with little resistance.
+      attackers shift from frontal assults to exploiting side channels for access.
+
+    Network Client Security: Malware
+      client workstations on corporate network are the common points of entry for hackers seeking to get in an organization's network.
+        through a variety of means to get malware installed on employee computers, hackers can use the software as a launching pad for further attacks.
+        where traditional malware was used for distruction or gaining fame, modern hackers developed malware that could be as part of a larger coordinated attack.
+        Malware
+          Egress - Egress (outbound) filtering is the protection that ensures a network does not transmit invalid or malicious traffic to another network.
+          malware is an effective attack vector because most computer networks are configured.
+          most networks feature SPI firewall, a fairly robust form of defense.
+            SPI firewalls weakness is the lack of filtering on outgoing network traffic.
+              on networks the outgoing network traffic is completely unfiltered.
+            networks that employ egresss filtering is usually a simple inspection of the requested port.
+          Malware Ex.
+            if hackers could get a program installed on the systems inside the firewall, the software would almost certainly be able to "phone home" for more instructions from the hacker.
+              communication between infected system and hacker's control server would be over TCP connection, bypassing traditional firewalls.
+              since its a TCP connection hat the protected system initiated, SPI firewall would have no way to recognize it as malicious.
+                how messages move from infected system allowing attackers to bypass the protective firewall.:
+                  Attacker Server > The Internet > SPI Firewall > Intranet.
+
+    Blended Malware Threats
+      malware offering have utilized blended threats, using a combination of malware types to access their target and carry out their malicious intent
+      these threats enable hackers to disrupt key services, steal money, and obtain confidential personal information, combining 3 or more of the folling malware:
+        Viruses
+        Worms
+        Rootkits
+        Trojans
+        Malware
+        VPN
+        Botnets
+        Spyware
+      Blended Malware Threat Advantages
+        Blended threat style worm advantages:
+          No single control can effectively combad blended threats
+          networks where virus scanners and firrewalls can halt traditional worms, 
+            blended threats might still gain entry because of social engineering tactics (infected emails, Trojan downlaods, Etc.)
+          when an attackers goal is to gain entry to as many networks as possible, blended threats represent the best chance for success.
+        with the help of anti-virus packages and firewalls (network and host-based), blended threats are not as successful.
+
+    Browser Exploits
+      atackers have begun targeting the single most frequently used application on a computer: the internet browser.
+      browsers have vulnerabilities that can be exploited, allowing attackers to execute program code on the victim's system.
+        the goal of attacker utilizing a browser exploit to distribute malware is to lure unsuspecting users to malicious websites.
+          Framework of an attack:
+            basic frameworks of such an attack:
+              1st. attacker constructs a malicious webpage, crafted to take advantage of a flaw (vulnerability) in a browser
+                Ex. vulnerability was discovered in JavaScript interpreter for browser X. 
+                  attacker constructs a page that includes JS code that exploits that vulnerability, infecting the systems of any visitor  with an unpatched browser.
+              2nd. attacker must find some way to lure visitors to the crafted webpage.
+              3rd. after user with vulnerable browser visits the webpage, attacker issues commands to be downloaded remotely by the malware that is installed on the visitor's system.
+          Cross-Site Scripting
+            attackers who wanted to distribute malware via browser exploits attampted to lure victims to infected websites. typically featuring claims of free downloads of software, music, movies, and other (adult) content.
+              users looking to download were highly motivated and frequently ignored error messages displayed by their browsers that should have served as a warnining for bad things.
+            after "warez" sites failed to lure people, attackers began to use a techniques known as cross-site scripting to infect traditional users on otherwise safe websites.
+            Cross-site scripting occurs when an attacker posts HTML code redirecting users to an infected website on an innocent or non malicious site.
+            Cross Site Scripting Ex. - atacker access the message board of the local newspaper and post a discussion topic. 
+              <iframe src="http://malicious.website.cn/browser.exploit.page.html" width="1" height="1">
+              visitors to the discussion board would download the attacker's message, victim's browser would execute the line, instructing the browser to visit the specified URL
+                executing any browser exploits that page might feature.
+              this attack causes the user to be completely ignorant of the fact that the browser ever visited the malicious site.
+              websites automatically remove most HTML from posts prior to posting them to discussion boards.
+          Hijack Websites
+            attackers seeking to execute browser exploits would hijack innocent websites and use them as a means of distribution.
+              attackers would target innocent websites and attampt to break into them, if gain entry they would modify the HTML of pages served from that site.
+            attacker's action might go unnoticed by owners of website for long periods of time.
+              meanwhile any visitor to that site would be directed to the malicious site.
+
+    Defending Against Attacks on Network Clients
+      Best Methods of defencse against attacks that target network clients grouped in 2 categories: Technology controls nad policies.
+      Technical controls used to secure clients from attack: Patch Management, use of Firewalls, and Anti-Virus Software.
+        each offers a different layer of defence:
+          Patch Management  most reliable and best control against the trhreats to clients is the judicious use of patch management.
+            many current generation of attacks against clients are predicated upon software vulnerabilities, applying patches from venders is the best way to remove these vulnerabilities.
+            applying patches from vendors is the best way to remove vulnerabilities. once patched, a vulnerability can no longer be exploited, making that workstation impervious to that type of attack.
+          Firewalls
+            with traditional firewalls, complexity of modern threats requires a more advanced approach.
+              todays strategy moves beyond a simple perimeter to a comprehensive model built on Next-Generation Firewalls (NGFWs) and Zero Trust principles.
+            Next-Generation Firewalls (NGFWs)
+              NGFWs provide advanced threat protection by operating at the application layer, Key Capabilities include:
+                Deep Packet Inspection (DPI): Examining the actual content of data packets for malicious code, not just the headers.
+                Intrusion Prevention Systems (IPS): proactively detecting and blocking known cyberattacks.
+                Application& User Awareness: Enforcing security policies based on specific applications and user identities, not IP addresses.
+            Zero-Trust Architecture
+              Zero-Trust Architecture (ZTA) is a strategic shift that assumes the network is always hostile, " never trust, always verify" a philosophy that is built on several key principles:
+                Continuous Verification: Every Access request is authenticated and authorized, regardless of whether it originates from inside or outside the network.
+                Least Privilege Access: Users are only given access to the resources absolutely necessary for their roles, minimizing the potential damage from compromised account
+                Microsegmentation: the network is broken down into small, isolated zones to prevent attackers from moving freely within the network if a breach occurs.
+          Endpoint and Extended Detection Response
+            Endpoint Detection and Response (EDR) and Extended Detection and Response (XDR), analyze behavior to find and stop malicious activity from bhoth known and unknown malware.
+              necessary because attackers constantly develop new ways to bypass older, signature-based defenses. Antivirus is not longer a sufficient strategy to secure client workstations.
+
+    Policy Controls
+      policies combined with some way of enforcing them can cut down on number of ways in which a user's computer is vulnerable to attack.
+    FilterAdministrator Privileges
+      organizations with little IT support funding may enable computer users to possess admin level privileges over personal computers. can lead to wide variety of problems.
+      implementing strict controls to filter or limit administrator privileges helps reduce the risk of accidental misconfigurations, malware installations, and aunauthorized software changes.
+      by ensuring elevated privileges are granted when absolutely necessary, organizations can maintain stronger system integrity and security.
+      Vulnerabilities mitigated by this poilicy
+        users with admin privileges may choose to install dangerous software, disable firewalls, anti-virus, or other security packages due to incompatibilities with other applications like video games.
+        well-meaning users change computer settings in a effort to fix problems or to optimize performance and/or security. removing admin privileges, admin can prevent system changes from occuring.
+          users without admin privileges are unable to install software, preventing them from installing applications that might pose legal or operational problems for organization.
+            also unable to change sensitive system settings and are unable to disable or alter security software thats been installed by admin.
+      Why the Policy Isn't Always Enforced
+        by ensuring users cant modify sensitive settings on their systems, organizations are placing grater burden on IT department.
+          if employee has a legitimate need for a new application to be installed on their system, IT department is responsible for installing it.
+            some large organizations with understaffed IT departments choose to place employees on the honor system, providing written policies that are not enforced with technological controls.
+              Employees are told not to perform actions on the system, but are still given the authority to do so.
+            organizations view the computer as an employment benefit and permit the employee to use the computer in whatever maner the wish, provided no laws are broken.
+              organizations are making a value judgment wher they feel the cost of maintaining/repairing security incidents are outweighed by the benefit of providing this service to their employees.
+
+    Filter Employee Internet Access
+      Web Filtering, most employees immediately think of a control put in place by managers seeking to ensure that everyone is constantly working.
+        being one application of a web filter, another security-related advantage is blocking malware.
+          filtering employee internet access, organization can prevent visits to malicious or high-risk websites that may host harmful content, reducing the chances of infections and data breaches.
+          Vulnerabilities Mitigated by this Policy
+            Malware targeting desktop computers often be delivered through websites. employees visit these sites without realizing theyr dangerous, downloading pages designed to exploit weaknesses in web browsers.
+              if browser hasnt been updates with security patches, malware can install itself on the computer 
+                unless antivirus program stops it, which does not always happen. limiting websites employees can visit helps reduce the risk because attackers often compromise legitimate sites to spread malware.
+            web filtering doesnt have to be all or nothing; organizations allow safe recreationsl sites through to maintain trust and avoid appearing overly restrictive.
+            some web filtering tools block access at the DNS level, wher others rely on blacklists (banned sites) or whitelists (approved sites)
+            advanced systems use artificial intelligence to scan pages in real time as they load, blkocking harmful content before it reaches the user.
+            theses tools must be placed either logically or physically between company computers and the internet to be effective.
+          Why the Policy Isn't Always Enforced
+            most managers experiecne some concern that the filtering could harm the employer/employee relationship.
+              administrative burden: legitimate sites that become blacklisted must be dealt with, a process that typically requires manual intervention from the administrator.
+
+    Disallow Unauthorized Use of Computer Equipment
+      employees use their computers in an unauthorized way, becomming difficult to predict exactly how each employee use the computer, mking it hard to assess the security of this unauthorized use.
+      organizations should have clear policies in place that explicitly disallow unauthorized use of computer equipment, ensuring employees understand that such actions may lead to disiplinary measures
+        helping maintain control over system access and reduces potential security risks.
+      Vulnerabilities Mitigated by this Policy
+        its impossible to construct a list of vulnerabilities mitigated by the enforcement of this policy, its mostly a defense against the unknown.
+          Ex. its easy to anticipate an employee watching movies or TV shows from computer, didnt occur to management that another employee might utilize this computer to run an illegal gambling ring.
+          admin see this policy as a control against both technical and legal vulnerabilities. by enforcing strict guidelines on computer usage, the organization protects itself from any wrong doing by its employees, that could expose it to liability if organizational equipment is used.
+      Why the Policy Isnt Always Enforced
+        Most Organizations have an Acceptable Use Policy (AUP) in place.
+          Employees are required to read the policy and sign a statement acknowledging it before they can use a company computer, these policies often fail when it comes to enforcement.
+        technical and automated controls help, but cannot guarantee compliance with rules on computer usage.
+          to ensure policies are followed periodic audits of employee computers are necessary, but these audits require significant time and effort from the IT team.
+
+  Automatic Software Patching
+    software products can have the capability to check for downoad and install software updates, provided by the software vendor. 
+      many offer automatic patching, applying these updates un the background without requiring user intervention.
+        ensuring systems remain protected against newly discovered vulnerabilities as quickly as possible.
+    Vulnerabilities Mitigated by this Policy
+      in this age of zero-day exploits and malware that avoids traditional anti-virus detection, patch management is the most crucial activity necessary to avoid compromise by an attacker.
+        these defects make the system running that software vulnerable to attack.
+        the best way to ensure systems are kept as secure as possible is to diligently apply software patches as quickly as possible following release by the software vendor. 
+          in order to help with that, the majority of software (Windows, macOS, Un*x, Etc.) feature "Automatic Updates", which will automatically downlaod and install all relevant patches for a computer.
+            applications like web browsers, office productivity suites (Microsoft Office, Open Office, Lotus, Etc.) feature automatic update fucntionality.
+    Why the Policy Isn't Always Enforced
+      smaller organizations whose networks are relatively simple, the best course of action is to allow automatic updates to function. this is an issue for organizations with more complex network configurations.
+        plenty of examples where a patch caused more problems than it solved
+          many companies have altered their policies, dictating that patches should not be deployed on the network at large until they have been throughly tested internally.
+            unfortunately by blocking the automatic update process, some products must be updated manually, representing yet another investment of time and energy for IT staff.
+      Many OS found in enterprise environements (windows and Un*x OSs) feature the ability to override updates downloaded from the server.
+        instead of checking with the update server, the computer checks the internally hosted downloaded server.
+          allowing the automatic update functionality to operate normally, downloading new updatees as they are added to the (internal) server. 
+            allowing IT staff to test and verify patches prior to installing to systems.
+
+    Limit Remote Equipment Use
+      Ex. - many organizations have network filters set up to ensure that data being downloaded from internet to the organizations network is scanned for viruses and malware, 
+        blocking any potentially troubling items before they can reach the network.
+          an employee who takes a company laptop home and places it on home network, effectively bypassing these controls.
+            malware that infects the laptop while on home network will be able to spread to other systems on the organization's network as soon as the employee returns to work with the systems.
+              policies should be put in place to minimizae the number of ways that information can bypass existing security controls.
+                Ex. disabling the USB ports on a computer seems drastic but such a measure can increase security.
+      Vulnerabilities mitigated by this policy
+        the goal of any policy concerning "remote computing" or "files transmitted from home" is designed to prevent malware from entering an organization's network throuh side channels.
+        countless instances of employees unknowingly transmitting malware on flash drives, SD cards and other soldid state memory devices,
+        crafting a policy that does not overly interfere with an employee's ability to get work done can be difficult, through the goal is to close any side doors that malware can skip through to infect the network.
+      Why the Policy Isn't Always Enforced
+        Ex: little point in purchasing laptops if corporate policy prevents them from leaving the building. the same token (while fewer reasons to use USB flash drives) many people find them to be convenient.
+        organizations use "sanitized" laptops", rather than having one laptop that's issued to a single employee, they maintain a pool of laptops. 
+          Ex. employee checks out a laptop to work remotely, when employee returns, the laptop is returned to IT department where its re-imaged, removing any harmful malware that might infected the system.
+        another way to mitigate the risks is to configure laptop computers to always access the internet trhough the use of corporate VPN:
+          routing all internet traffic through VPN connection back to Headquarters, you can be sure that inline security devices (malware filters, Spam filters, Etc.) maintain effectiveness.
+
+*******************************************************************************************
+  Router Security
+    networked software systems needed secure network pathways, its easy to intercept( and alter ) sensitive traffic as it passes over the network. 
+    router security should be considered during the overall  security assessment of Information Systems.
+    Maintaining a system or device is extremely important for security purposes.
+      router software can contain flaws that may be discovered and exploited. attacks can be issued on a netowork, and a compromised router could result in a damaging attack.
+        routinely keep routers updated with the latest patches to help protect the network, systems and anyrelated data.
+
+    Planes of Operation
+      router operation is traditionally partitioned (or segmented) into 3 planes of operation:
+        Control Plane - Responsible for managing traffic to/from the device; including functions such as: Routing protocol, State notification, Packet filtering
+          Control plane uses the management plane for remote communication. (not actually transporting data)
+        Management Plane - the designation for traffic to and from the device. to direct management of the routing device (Protocols like telnet, ssh, http, https, snmp, Etc.) 
+          Management Plane is responsible for access to, monitoring, and configuring the device.
+        Data Plane - responsible for managing the traffic that flows through the device and is usually intended for a remote device (workstation, another router).
+          logical separation of communication roles will help an admin identify traffic for the purpose of policy creation and traffic management.
+
+  Role-Based IP Addressing
+    An ACL(access control list) is a list of permissions that are associated with the access of an object; when routing, these access lists filter traffic in both inbound and outbound directions.
+      ACLs that are applied to Management traffic are referred to as Infrastructure Access Control Lists (iACLs) and are leveraged to both identify and control direct device access.
+        iACLs in a large network has difficulty distinguishing legitimate management traffic from transigressive traffic.
+          use a policy that inherently segments the network's address space by specific role of the device or group of devices, otherwise called Role-Based IP Addressing.
+    Ex. - organization with 3 departments: Sales, Human Resources, and Information Technology. each department would be assigned separate IP addres space, or subnet, and the machines residing in that department would be assigned addresses in that space only.
+      network would be segmented into 4 distinct subnest, 
+        the network equipment itself should reside on a completely different Subnet in order to Identify and Isolate the Management Traffic from that of the Operational Traffic of the device.
+          this segmentation allows Generic ACLs to be applied to the devices that will either allow or deny traffic between subnets without the need for individual rules applied to specific hosts in the entire network.
+            this separation of network segments allows admin to controll access both to outside networks as well as between the separate departments.
+
+  Ingress and Egress Filtering
+    proper filtering of inbound and outbound traffic ensures that a networks is functioning as intended in a secure and efficient manner.
+      Inbound, or ingress filtering protects a network from invalid traffic originating from outside the network by blociking this traffic when it enters the network.
+      outbound, or Egress filtering, ensures that your network does not transmit invalid traffic to remote networks
+      Proper Filtering
+        Proper filtering can reduce the ability for a remote attacker to easily use spoofed packets and Man-in-the-Middle attacks across the network edge by disallowing traffic that meets certain specifications.
+          Ex. attacker will attempt to spoof a trusted host on target network in order to abuse a trusted relationship between 2 machines on your network.
+            Proper Ingress filtering causes the attacker's packets to never reach their intended target as the spoofed network address should never attempt to connect to the target machine from outside interface.
+            Alternativaly "un-routable" network spaces reserved for private use can be used to circumvent certain firewall implementations.
+              for the purpose of information retrieval and network mapping, and as a precaution, should be filtered on al edge routers.
+      Bogons
+        these abused address spaces are generally called bogons
+          defined as martian blocks [Private (reserved for non-Internet usage) and reserved address spaces (multicast, experminental, future use) RFCs 1918, 3330]
+          and blocks that arnt currently assigned to a designated registry organization
+        Bogons should be filtered on both Inbound and Outbound directions on all network interfaces that are open to the internet.
+        bogons should be filtered in all network devices regardless of location or function, as such filtering when applied on a widespread scale will reduce the total amount of abusive Internet traffic.
+        bogon List is dynamic and regularly changes as new block spaces are assignedand released, so regular updates will be required for comprehensive coverage.
+        publicly available Bogon lists are  are a great place to begin when identifying troublesome address spaces during the creation and deployment of any filtering solution
+
+  Authentication, Authorization, and Accounting
+    Authentication, Authorization, and Accounting (AAA) are very important to the operation and maintenance of network devices.
+      Authentication to network devices should be based on a centralized database of user records. 
+        alleviating the need for a network admin to manually enter user information on all network devices each time there is a pertient user change.
+        a centralized user database can disallow network use without first identifying (authentication) the user and ensure that they have the access rights (authorizaiont) to use networking resources
+        accounting will allow admin to view the activities of each authenticated user, and keep meaningful records of such activities for the help of troubleshooting and incident analysis.
+
+  Traffic Flows
+    Traffic flow is traditionally defined as an unidirectional collection of packets that share a septuple-key value
+      every packet that is considered a part of the flow contains the exact same values for each of the following keys:
+        Source IP Address.
+        Destination IP Address.
+        Source port for UDP, TCP and o for ICPM or other protocols.
+        Destination port for UDP,TCP, and o for ICMP or other protocols.
+        IP ProtocolsIncoming (Ingress) interface
+        Type of Service
+      Monitoring Network Traffic
+        Cisco Systems created a protocol called NetFlow that allows Cisco routers to send flow data to a collection agent for the purpose of identifying network flows.
+          each Netflow-enabled router sends flow information to a central collection agent, analyzed to produce meaningful representations of the collected data.
+            once parsed by the collecter, can show network adminsistrators exactly the quantity of bandwidth that clients have consumed, and the amount of bandwidth that is still available to the network.
+      Standardizing Network Flow Collection
+        NetFlow is a proprietary protocol thats officially supported only by Cisco Equipment; many open-source POSIX systems have implemented support for sending NetFlow data to legitimate collection agent.
+        IETF has recently submitted a proposal for standarized open protocol called IPFIX (IP Flow Information eXchange) 
+          in attempts to provide the same functionality to a generic audience in attmept to standarize flow record colection
+        IPFIX is based off the latest version of the NetFlow (version 9) protocol and is almost an exact implementation of the original proprietary protocol.
+        Network flow information can be leveraged to Identify troublesome hosts that abuse network access (port scanning, peer-to-peer file sharing, connected hosts and/or network usage history)
+          identifying thes troublesome flows is useful when dealing with larg networks. 
+            combined with Role-Based IP Addressing, this capability can allow network admin to pinpoint troublesome connections and provide meaningul info for issue resolution
+
+  Bandwidth Implications
+    early streaming content was simple to manage as the available sources were easy to target and either block or rate limit
+      With Internet Radio, Internet Television, and Video on Demand (VOD) services this has become an overwhelming challenge
+        the ability to produce live content streams has become affordable and access to content delivery networks have become household names.
+    Implications of Media Streaming
+      Network admin arnt able to prevent or rate limit a few single sources, 
+        have to learn to deal with the expected behavior of computer users and build systems resilient enough to deal with the bandwidth concerns
+      in securing a network, handling media streaming becomes about preventing resource exhaustion.
+        resource is the network itself, the network admin should beable to create methods to reduce the impacts of streaming content and learn to prepare as much as possible to developments and changes to the type of content being seen.
+      first concept is to understand the implications of a stream and just how impactful a single view can be. streaming media badwidth calculations are based on numerous factors:
+        Bitrate of the media
+        frame rate of the media
+        frame size of the media
+        the quality of the sound distributed with the media.
+
+  Bandwidth Strategies
+    organization have mission critical applications that require internet bandwidth. forcing network admins to develop stratigies to deal whith streaming content:
+      Administrative policy
+        many organizations turn to administrative policy as a way to discourage streaming use by their end users.
+        Impacted by an organization's willingness to enforce violations of their policy.
+        web filtering and web proxy servers are a very real part of modern networks and andminstrators typically turn to them to help identify employees that are worst offenders in an effort to preserve netowrk resources.
+      Rate Limiting
+        rate limit end users of a network. performed on a individual instance or to groups of users.
+          network admin can assign a more predictable high end bandwidth usage by understandig what the aggregate of all users at a specified rate limit would be. the challenge iwth rate limiting is handling the exceptions.
+      Network Division
+        Network admin create multiple outbound Internet pathways and isolate the critical or important business applications to a pathway that can remain more consistent and guaranteed.
+          works by identifying traffic sources and establishing routes or firewall rules that force traffic to use one connection or another.
+        when end users are competing for available bandwidth and not against the organization's critical applications, self-enforcement becomes reality.
+      Filtering 
+        organizations resort to a filtering strategy in combination with or in lieu of enforcing administrative policy.
+        filtering works best when accompanied by clear administrative policies that have a clear path for administrative enforcement.
+        admin attampt to perform filtering at the network perimeter with routers and firewalls. (effective against sites like YouTube, Spotify, or Netflix.
+          not as effective at preventing streaming from all sources, or one of the many methods users can use to bypass filtering attempts.
+          most strategies center on a webfilter appliance and/or client software that allows filtering content by type.
+          update constantly for effectiveness of these products.
+      Controlling the Source
+        network admin may provide improvements that reduce the impact on a network. can be done when the source is well-known and identified in advance. use of Multicasting capabilities of networks and software
+          Multicast allows a stream to come into the network once while being distributed to all subscribers simultaneously.
+          Multicast only works when you have multiple viewers of the same content in the same time frame.
+        Caching appliances - allows you to capture a stream and store that stream for a period of time. 
+          if an end user requests that stream from the content provider, you can intercept and request and then cache copy can be played.
+
+*******************************************************************************************
+Voice Services Security
+
+  the client software used with these services (Skype, Zoom, Webex, Google, Talk, or GoToMeeting) provide easy to use options for features such as:
+    Remote Screen Sharing, Remote Control of a Computer, File Transfers, Publishing Video Content, Chat Sessions, Recording and Logging of Sessions
+  Security Risks
+    principle reason applications used to carry real-time comnmmunications present a security risk to the organization. because these application usually traverse firewalls.
+      concept of traversal meaning theat the application communicates with 3rd party via central source using standard ports common to most internet traffic.
+        realtime communication services use a decentralized model for comunicaion, relies on peer-to-peer networks rather than single central source for routing all communications.
+          Ex. all networks allow users to connect to 3rd party entities using TCP port 80.
+            if the voice chat service also sends communication to a server via TCP port 80, than it becomes difficult for a network administrator to filter tha ttraffic based on the destination address.
+              the use of a random process to select which port the applicaion uses as a source port and prevents tha administrator from easily blocking the source application as well.
+            this ability for an end user to quickly initiate a session with anyone on the outside of an organization and participate in file transfers, sharing of content and remote control sessions make this a method for bypassing a corporate firewall, 
+              and even more importantly increasing the potential for intellectual property loss
+  User Privacy
+    most internet voice services are performed outside of, or as an exception to, access policies a network administrator has control over.
+    another threat is accessing or abusing features of the software with purpose of invading privace using capruring, recording, or masquerading techniquest.
+    these services are designed to work in NAT evnironments, if the user want to use these voice services, is behind a firewall and that firewall is concealing the IP address of the user's computer.
+      attacker is able to gain access to the service and participate in a session.
+
+  Strategies for Securing Voice Services
+    many real-time communicaion software packages caused network administrators to consider many techniques to protect their end users from these threats:
+      User Education
+        a way to secure real-time communication is to control the application the end user utilizes during the communication session.
+        applications have the ability to restrict certain features. 
+         a good feature to disable would be the file transfer capability. 
+          forcing end users to transfer files through means such as email. 
+            can prevent a file from entering the network that could be a trojean horse for a later attack
+        a way to attack a network is to get an unsuspecting user to install an application that allows a hacker to get remote access into the system while bypassing the corporate firewall.
+      Better tools
+        provide improved and more accessible tools.
+        a network administrater can deploy tools similar to the free ools available on the internet. end users will use the tools  their organization provides as long as tool is easy to use and meets needs.
+          allowing the network administrator to have better control of the voice services or confrencing application the organization's users are using.
+      Canging Defaults
+        wise network admin that wants to protect employees from threat can choose to change the default communication behavior of the voice or conference application
+          one way is to configure the TCP or UDP ports that the application uses.
+        Ex. - appication could be set to use TCP port 80 or TCP port 443 for encrypted communication.
+          by using a different port the applicaionwill be more secure because it will be less predictable by the potential assilant.
+            any settigns including the install path of the application should be altered if possible sto avoid one of the many potential exploits of the software.
+      Implementing Modern Security Standards
+        organizations should implement protocol such as Secure Real-Time Transport protocol (SRTP) for encrypting voice traffic and TLS 1.3 for signaling security.
+          these measures protect against evesdropping and man-in-the-middle attacks.
+          best practices include:
+            enforcing multi-factor authentication for administrative access
+            using session borer controllers (SBCs) to monitor and control VoIP traffic
+            applying zero trust principles to segment voice networks.
+          regular updates and vulnerability assessments ensure that Voip systems remain resilient against evolving threats.
+      Restrict Features
+        internet voice services are performed outside of or as an exception to, access policies a network administrator has control over.
+        accessing or abusing features of the software with the purpose of invading privacy using capturing, recording, or masquerading techniques.
+        these services are designed to work in NAT environments. if the user who want to use these fove services is behind a firewall and that firewall is concealing the IP address of the users computer.
+          attacker is able to gain acces to the service and participate in a session.
+
+*******************************************************************************************
+Best Practices
+
+  Best Practices for Safe Network Operations
+    before 2000s most of the efforts of security professionsals focused on the maintenance of virus definition files.
+    as long as a reliable anti-virus product had been purchased, installed and kept up to date, systems could be maintained with relatively high level of assurance
+      in the early 2000s countless worms (Slammer, Blaster, and Sasser) quickly spread, illustrating why this practice was no longer sufficient to product networks.
+      other principles and best practices for safe network operations are:
+        Separation of dudties, Policies vs. Procedures, and Acceptable Use Policies
+
+    Separation of Duties
+      power and authority should be distributed among as many people as is practical.
+      there have been countless examples of one individual, vested with too much power or authority has been able to abuse the system for personal gain.
+      whenever possible it is crucial for critical duties to be assigned to multiple personnel. or when this is not possible require multiple administrators to be part of the process
+      Separation of Duties Guideline
+        which tasks should be distributed to different administrators?
+          departments are managed in unique ways, particularly in smaller organizations. organizations themselves decide on how duties should be divided.
+          Ex. Basic guideline:
+            make sure that auditing and managing are done by two different people
+              auditor is responsible for the examination of data (usually log files) that may contain evidence of wrongdoing.
+                if the person responsible for auditing aso has the authourity to configure the network, there is undeniably a potential for abuse.
+            it would also be ill-advised to make the same person an administrator as well as the auditor.
+
+    Policy and Procedures
+      Policy and procedures, sometimes there is confusion surrounding these terms:
+        Policy - a written guideline used to govern the execution of activities, or to convey rules and regulations.
+          policies very rarely deal with specific details, but instead embrace a "high level" view of a topic. when written correctly, policies are designed to last many years with minor modifications.
+        Procedure - a published document that provides highly detailed instructions to be used when performing a certain task.
+          Because procedures discuss highly detailed and specific information, they must be updated and modified frequently.
+
+    Acceptable Use Policy
+      End users represent the weakest point in any information defense scheme.
+        Users can be tricked by attackers, leading to damage.
+        Users can be emotional, causing them to willfully damage systems.
+        Users can be careless, leading to accidental damage of equipment.
+        Users may decide to use systems in such a way that does not harm equipment, but instead threatens the organization with civil or criminal penalties.
+      Acceptable Use Policies and Technology
+        Acceptable Use Policy (AUP) can spell out the appropriate use of a particular resource within an organization.
+          separate AUPs for computer use, internet access, and email use, or a unified AUP that addresses proper conduct for all these systems.
+        well written acceptable use policy used in conjunction with available technology is considered a best practice in network protection.
+
+    Goals for Acceptable Use Policies
+      most technical controls used to secure clients from atack are well known to administrators (patch anagement, user of firewalls, and anti-virus software).
+        each offers a differnt layer of defense, with every layer representing another obstacle that an attacker must overcome in order to infect the system.
+      Protection of Personnel
+        it is important for AUP to ensure there are forms of protection afforded to useers.
+        Ex. - libel and slander are 2 damaging forms of attack that dont impact technology assets at all, but can have devastating impacts on people.
+          Identity theft may be another item spelled out by the AUP, though this topic is often addressed in other policies regarding personal safety and professional conduct
+        it is important to be sure employees adhere to regulations. an employee who is injured as a result of employment may try to take legal action against the organization.
+      Protection of Resources
+        most end users understand physical computers there using constitute resources, so the y dont damage them.
+        users do not recognize a computer's software as a resource.
+        Successful AUP must be written in such a way to ensure users understand and can identify all of the resources within the organization, both hidden and physical.
+        administrators remember the following resources. there valuable and require protection just as a piece of hardware does:
+          Bandwidth, Time ("CPU" and "wall clock"), Storage Space
+      Protection of Reputation
+        its important to ensure that employees and other staff understand ramifications of what they do 
+          realize that the organization could be held liable if a representative (employee, staff member, Etc.) uses the organization's equipment to harm another person or group.
+        organization could be held liable, for viruses and DDoS atacks that might be launched from your network, but also potentially for any slander or libel that is distributed using your systems.
+        
