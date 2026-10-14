@@ -136,7 +136,7 @@ Securing Cloud-Based Applications.
     Cloud Environements increas the risk of unauthorized access to confidential data due to the ability to access data from multiple customers through a single point of entry.
     Cloud security risks can be mitigated with a strong security policy and processes that were developed with an understanding of common security risks.
   
-  Cloud Security Vulnerabilities:
+  Cloud Security Vulnerabilitie(s):
     Insecure application and application programming interfaces (API), Abuse of cloud services, Shared Technology Issues, Dataloss or leakage, Account Authentication Breaches.
   
   Cloud Security Processes

@@ -423,6 +423,7 @@ Database Server Security
   most servers secure data on some level: per-file, per-mailbox, per-directory, Etc.
   Databases are purposefully designed to allow users to manipulate data, search through it rapidly, and arrange it in ways that allow new conclusions to be drawn.
   databases must be secured against traditional external threats (hackers, viruses, worms, Etc.) but they must also be protected against logical attacks from insiders.
+  Databases can be vulnerable to traditional network and software vulnerabilities, as well as logical vulnerabilities created by the database administrator/programmer.
 
   Internal and External Threats
     External Threats:

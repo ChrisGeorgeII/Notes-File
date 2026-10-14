@@ -3,7 +3,8 @@
 ***************************************************************************************
 Firewalls
   firewall  - a device that is designed to prevent unwanted, potentially malicious network traffic from reaching a particular computer or computer network.
-  statful packet  - a small amount of data sent over a network or networks    
+  statful packet  - a small amount of data sent over a network or networks
+  To prevent hackers and malware from gaining direct access to computers on a network.
   SYN-ACK
     SYN - Synchronize
     ACK - acknowledgment
@@ -207,6 +208,7 @@ Intrusion Detection Systems
   Application Layer Firewalls
     this type of firewall is capable of scanning data on the Network and Transport Layers (like a SPI firewall) along with the application layers.
       App layer firewall have knowlege of how common protocols like HTTP, STMP, etc... should behave and can spot unordinary behavior.
+      It watches application layer traffic like HTTP and SMTP for signs of abnormal activity, which could mean an attack is underway.
         
         ex1 - SQL injection attack's goal is to overwrite part of a websight's configuration.
           if successful the victimized websight will begin redirecting its visitors to a hacker-ran websight
@@ -253,7 +255,7 @@ Intrusion Detection Systems
               IDS examins each TCP setment and because long user agent string and extra- long query string are located in different segments, the attack will go unnoticed.
       IDS's with Proxy-like functionality enjoy increased security, they also represent a network bottleneck and may impact network performance.
   
-  Host-Based Intrusion Detection System(IDS)
+  Host-Based Intrusion Detection System(IDS) - a security software installed directly on an individual endpoint (server, workstation, virtual machine) to monitor internal operating system activity, file modifications, system calls, and log files for signs of malicious behavior
     in a host based IDS, computers have software packages installed that examin the current state of the computers on which they are running:
       CPU Load, Network Traffic(incomming and outgoing), file integrity, log files, etc.
     anything running locally on the computer can be observed by a host-based IDS.
@@ -346,13 +348,13 @@ Intrusion Prevention Systems (IPS) - device designed to monitor a particular net
         IPS uses two different types of detection: Signature and Anomaly with their own strengths and weaknesses
         Anomaly - is any change in behavior from ordinary, expected behavior. anomalies usually indicate an attack of some form is taking place.
   
-  Network-Based Intrusion Prevention Systems 
+  Network-Based Intrusion Prevention Systems - an inline security hardware or software tool that continuously monitors network traffic to detect and automatically block malicious activity in real time
     protect large portions of computer network, if not the whole network.
     in general difference in IPS and other security appliances (IDS) is the response.
     IPS are configured to have the ability to in some way stop the suspicious activity.
       EX. halt all network traffic from the web server until the network administrator can sort things out.
   
-  Host-Based Intrusion Prevention Systems
+  Host-Based Intrusion Prevention Systems - software security tool installed on a single endpoint (server, laptop, or virtual machine) that actively monitors, detects, and blocks malicious activity from within that device.
     Host-Based IPSs monitor and defend a single computer (host)
       uses components of the local system to monitor for intrusions (file integrity checking, log file monitoring, etc...)
         ISPs also must monitor the applications and programs running on the system in order to defend against potential intrusions.
@@ -528,6 +530,8 @@ Virtual Private Networks (VPN) - VPNs encrypt data as it travels over the intern
             most wireless encryption offerings only attempt to keep data secret from outsiders
             most technologies are designed in such a way that there is little defense against insider threats.
           WPA/WPA2
+            The primary encryption difference is that WPA uses the Temporal Key Integrity Protocol (TKIP) based on the RC4 stream cipher, 
+              while WPA2 uses the much stronger Advanced Encryption Standard (AES) via the Counter-Mode/CBC-MAC Protocol (CCMP)
             older wireless encryption protocols (WEP - Wired Equivalent Privacy) are considered obsolete and insecure.
               Vulnerabilities that allow attacker to crack its encryption.
             WPA2 uses advanced encryption standard (AES) a robust and widely trusted encryption algorithm

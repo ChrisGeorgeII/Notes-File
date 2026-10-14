@@ -393,6 +393,10 @@ Authorization happens after authentication
         Simple Authentication and Security Layer (SASL) has been proposed as a solution to this problem
           LDAP is a protocol any OS can use it as authentication service, provided the OS can "speak" to LDAP protocol.
 
+    Samba - open-source software suite that provides file and print services to SMB/CIFS clients. Samba allows for interoperability between Linux/Unix servers and Windows-based clients.
+      Samba can be used to provide authentication services to Windows clients, allowing them to access resources on a Linux/Unix server as if they were part of a Windows domain.
+      Samba can also be configured to act as a domain controller, providing centralized authentication and authorization services for a network of Windows clients.
+
 Topic 4: Honeypots
 ******************************************************************************************
   Honeypots - a computer or network that has purposefully been left open to attack. describes both single workstations that ar edeployed to monitor hackers as well as entire networks. (honeyNet)
