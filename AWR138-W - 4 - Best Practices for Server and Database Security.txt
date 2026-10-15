@@ -25,14 +25,14 @@
         Guidelines for Physical Security
           organizations should adopt a Zero Trust Architecture, leverage cloud-native backups, and utilize geo-redundant storage to maintain data availability and integrity across regions.
           when securing a server:
-            Locate server in an area with restriced access. (with proper ventilation)
-            Locate your server in a n interior room, with walls that cannot be easily broken through.
-            Locate your server in an area with appropriate environmental defenses (pretection from flooding, earthquakes and building collapse, fires using some form of electrically friendly suppressant (CO2)
+            Locate server in an area with restricted access. (with proper ventilation)
+            Locate your server in an interior room, with walls that cannot be easily broken through.
+            Locate your server in an area with appropriate environmental defenses (protection from flooding, earthquakes and building collapse, fires using some form of electrically friendly suppressant (CO2)
   
     Minimizing the Attack Surface
       Clusters - a group of computers that have been logically linked together to cooperatively perform some task or provide some service, resulting in a system that can appear to be a single system.
       Attack Surface - a term used to describe the overall number of ways in which a particular system can be attacked.
-      "minimizing attack surface" - describs the efforts to reduce the number of possible ways in which that system can be attacked.
+      "minimizing attack surface" - describes the efforts to reduce the number of possible ways in which that system can be attacked.
       tools can inform defenders and attackers of potentially unwarranted threats.
       unless it cannot be avoided, file systems should reside on dedicated systems or clusters, allowing admin to determine processes that shouldn't be running.
       in an effort to minimize the attack surface:
@@ -42,20 +42,20 @@
         restrict privileges of user accounts to the bare minimum
       removing unused software
         a way to minimize attack surface is to not patch or update software that OS is not running
-          Ex. older instalations of Windows had Internet Information Services (IIS) installed and activated by default. causing vulnerabilitys to all traditional exploits (including attack specific to microsoft's web server)
+          Ex. older installations of Windows had Internet Information Services (IIS) installed and activated by default. causing vulnerabilities to all traditional exploits (including attack specific to microsoft's web server)
         most IT professionals uninstall Internet Information Services and no need to update this software.
   
     Encrypt Data at Rest
       "At Rest" - describes data that is on a storage device, not being transmitted from one system to another
-      if physical security is compromised and attackers gain physical access (or control) to file server, encryption of files stored on system is only defence.
+      if physical security is compromised and attackers gain physical access (or control) to file server, encryption of files stored on system is only defense.
   
     Choosing a Cryptographic Solution
       Cryptography uses secret keys, use key management facilities and algorithms to encrypt and decrypt data
-      OS venders and 3rd party utilities, provide aoptions for storing data, organizations that use intregrated solutions (provided by Operating Systems) should examine:
+      OS vendors and 3rd party utilities, provide options for storing data, organizations that use integrated solutions (provided by Operating Systems) should examine:
         Windows: Encrypting File System (EFS)
         Linux: DM-Crypt
         FreeBSD: GEOM
-        MacOS: FileVault
+        macOS: FileVault
         BitLocker
       Cryptographic Solutions
         Legacy Cryptographic Standards (MD5, SHA-1, 3DES) are no longer recommended due to vulnerabilities and susceptibility to brute-force and collisions attacks. 
@@ -64,16 +64,16 @@
           AES-256 for data encryption
           TLS 1.3 for Secure Communications
       Evaluating Encryption Solutions
-        Certificate - a Ditigal documentat that contains a system's stated identity and public key. Certificates are used to exchange public keys at the beginning of a symmetric key cryptography session.
+        Certificate - a Digital document that contains a system's stated identity and public key. Certificates are used to exchange public keys at the beginning of a symmetric key cryptography session.
         take note when evaluating encryption solutions for file servers is each solution's compatibility with other IT infrastructures.
           Ex. not every cryptographic solution may function when used in a clustering environment or it may not function correctly when used with software RAID (Redundant Array of Independent Disks) systems
-            some options may require additional infrastructure ( centralized Certifacate authority) to operate normally in clustered RAID environments.
+            some options may require additional infrastructure (centralized Certificate authority) to operate normally in clustered RAID environments.
           3rd party encryption utilities for file servers (VeraCrypt and PGP) typically having a wide variety of features but may or may not work well with existing IT infrastructure.
       Ensuring Encryption Solution Compatibility
         when evaluating encryption solutions for file servers, keep in mind each solution's compatibility with other IT infrastructures.
         Ex. not every cryptographic solution may function when used in a clustering environment or it may not function correctly when used with software RAID systems.
-          some soptions might require additional infrastructure (Centralized Certificate Authority) to operate normally in clustered or RAID environments.
-        when organization uses clustering to provide redundancy of data, its critical the OS of each server be configured correctly, can result in a failur to fully mirror all information to all servers.
+          some options might require additional infrastructure (Centralized Certificate Authority) to operate normally in clustered or RAID environments.
+        when organization uses clustering to provide redundancy of data, its critical the OS of each server be configured correctly, can result in a failure to fully mirror all information to all servers.
         3rd-party encryption utilities available for file servers (TrueCrypt and PGP). these utilities have a wide variety of features, but may or may not work well within existing IT infrastructure.
 
 ****************************************************************************************************
@@ -82,45 +82,45 @@
     securing your company presence while online or surfing the internet
     the number of attacks against the DNS system is rapidly increasing
       Compromising the DNS system could allow an attacker to redirect users to a site or server of the attacker's choosing.
-        the number of attacks that acn be executed against the user, along with the success rate of attacks, goes up dramatically
+        the number of attacks that can be executed against the user, along with the success rate of attacks, goes up dramatically
     Protecting DNS Servers
       attackers could execute a Denial of Service (DOS) attack on the server, causing the website owner to lose visibility and/or consumer business.
       DoS attacks involve a huge number of remote DNS clients that flood your servers with queries targeting existing or non-existing domains.
       DNS servers being critical in function of the internet, pay attention to the Security of DNS systems. the integrity of DNS system is critical in order to ensure information security.
 
-  Denials of Service Attacks (DoS) atack - Cyber-attack where attacker attempts to disrupt service by making a computer, network, or server unavailable, utilizing UDP.
+  Denials of Service Attacks (DoS) attack - Cyber-attack where attacker attempts to disrupt service by making a computer, network, or server unavailable, utilizing UDP.
     Impervious to some traditional DOS attacks (Syn flood)
     attacker will make use of recursive queries. in a recursive query, DNS server agrees to fully resolve a DNS query for the client.
-      if client requets IP address for www.comecompany.com and the DNS server doesn't know, the server will contact all requisite servers down the line until the IP address for hostname can be located.
+      if client requests IP address for www.somecompany.com and the DNS server doesn't know, the server will contact all requisite servers down the line until the IP address for hostname can be located.
       recursive queries require time and resources from DNS server, and any process that consumes time and resources can be misused as a DoS attack.
       recursive query is popular form of DNS centric DoS attacks.
 
   Patch Management - set of changes to a server or computer to either improve, fix, or update security vulnerabilities/bugs.
     Patch - An update to a software product that has been released by the vendor, in an effort to correct some discovered vulnerability.
     patch management should ALWAYS be maintained!
-    many DNS systems require considerable patching when deployed, with a greater risk fo attack than other IT services.
+    many DNS systems require considerable patching when deployed, with a greater risk of attack than other IT services.
     Patch Management Ex. - 
       Poor Patch Management: global ransomware attack affected over 150 countries and hundreds of organizations in the second quarter of 2017.
         the ransomware exploited a vulnerability in the Microsoft Windows OS.
-        Microsoft released a patch to address this vulnerability in the 1st quarter of March 2017. the ransomeware spread ocurred because most organization had not yet patched systems.
+        Microsoft released a patch to address this vulnerability in the 1st quarter of March 2017. the ransomware spread occurred because most organization had not yet patched systems.
     Ordinary Design and Production Flaws
       DNS servers are prone to human errors, they must be patched regularly to avoid compromise, these design and production flaws are frequently vendor/ distribution specific.
         a flaw that is specific to Microsoft DNS servers has little impact on other DNS servers.
       admin should keep up-to-date on recent discovered flaws and proper configuration methods.
     DNS protocol Flaws
-      DNS protocol is one of the least secure protocol in wide use. the insecurity is rooted in the orgins of the internet.
+      DNS protocol is one of the least secure protocol in wide use. the insecurity is rooted in the origins of the internet.
           the internet was small network of select universities, companies, and a few government research labs. Redundancy and resilience were the goals that drove the DNS protocol.
   
-  Defending against Cache Posining
+  Defending against Cache Poisoning
     Cache Poisoning (cache pollution) is a term applied to a whole series of attacks that attempt to insert corrupt or altered data in the record cache maintained by DNS servers.
-      the goal was to trick or deceive clients (computers or users) into communicating with an imposter server. the attackers goal is to beable to change what values will be returned during a hostname lookup
+      the goal was to trick or deceive clients (computers or users) into communicating with an imposter server. the attackers goal is to be able to change what values will be returned during a hostname lookup
     Cache poisoning Ex. - users or computer attempting to visit windowsupdate.com instead are redirected to an IP address of attacker's choosing.
-      the user or computer may have no reason to suspect that the site being viewed is phony, increasing the odds of success for the attacters other activities (phishing attacks)
+      the user or computer may have no reason to suspect that the site being viewed is phony, increasing the odds of success for the attackers other activities (phishing attacks)
     Dangers of DNS Poisoning Attacks
-      cache poisoning attacks occure when DNS server responds to a DNS query and returns extra data along with the record being sought.
+      cache poisoning attacks occur when DNS server responds to a DNS query and returns extra data along with the record being sought.
         if an attacker were able to alter records for a major financial site, they could place an identical website elsewhere on the internet.
           users who visit www.mystockbroker.com correctly into their address bars would arrive at the attackers fraudulent website.
-            requsts for account service would go to the attacker, receiving all email traffic for the mystockbroker.com domain.
+            requests for account service would go to the attacker, receiving all email traffic for the mystockbroker.com domain.
           defense against cache poisoning attacks: make sure Domain Name System servers do not believe every piece of information they are told and should verify the following:
             a- the host address associated with the domain name.
             NS - the authoritative name server for the domain.
@@ -128,37 +128,37 @@
             CNAME - identifies the canonical name of an alias.
             PTR - Identifies the IP address associated with the domain/hostname.
 
-  Pop and IMAP
+  POP and IMAP
     POP - designed for single-device use, largely obsolete.
     IMAP - synchronizes emails across multiple devices by storing them on the server, aging as technology advances.
     providers still support POP and IMAP for legacy compatibility
-    another protocol, JMAP (JSON Meta Application Protocol), an open standard that unifies email, contacts, and calendars more effeciently.
+    another protocol, JMAP (JSON Meta Application Protocol), an open standard that unifies email, contacts, and calendars more efficiently.
     Proprietary systems grown dominant: microsoft uses MAPI over ActiveSync to synchronize communication tools seamlessly
     the trend is a shift from older POP and IMAP protocols to more integrated and efficient tech.
     Post Office Protocol
-      Post Office Protocol (POP) was a standard for retrieving email, is obsolet due to its limitations in a multi-device world, designed to download email messages to a single computer removing them from the server.
+      Post Office Protocol (POP) was a standard for retrieving email, is obsolete due to its limitations in a multi-device world, designed to download email messages to a single computer removing them from the server.
         poses a problem for users who want to access their email from various devices (smartphones, tablets, laptops) as a message downloaded to one device would not be available on another.
       being replaced by more modern and flexible Internet Message Access Protocol (IMAP).
-      sotres emails on the server, allowing for synchronization across multiple devices.
+      stores emails on the server, allowing for synchronization across multiple devices.
         any action you take on one device (reading, deleting, organizing message into a folder) is reflected on all devices where you access your email.
         making IMAP and other modern protocols (Microsoft Exchange) far more suitable for today's connected users.
     Internet Message Access Protocol
       IMAP (Internet Message Access Protocol, RFC3501) was introduced to mitigate this problem.
       IMAP does not retrieve the original message from the email storage service but works off copies, all email is archived in a central location so that the chances of data loss are far less.
       the problems introduced by using POP and IMAP are eliminated through the use of Webmail, negating the necessity for implementing a stand-alone service for end users.
-      majority of email downloaded of fmail server is done using one of 3 protocols:
+      majority of email downloaded off mail server is done using one of 3 protocols:
         Post Office Protocol (POP), Internet Message Access Protocol (IMAP), or via Webmail.
-          others like Microsoft Exchange and Novel Groupwise are difficult to study them given the secretive nater of these protocols.
+          others like Microsoft Exchange and Novell GroupWise are difficult to study them given the secretive nature of these protocols.
   
   Reconnaissance
-    organizations need to operate DNS systems for internal use. admin find it effective to congi critical services to resolve a particular DNS entry, rather than hard code an IP address into client workstations.
-    unfortinatly internal DNS servers can frequently be used as information gathering resources for attackers who might seek to discover the IP address of critical servers within an organization
-    items that help protect organization from having its DNS system used as an inteligence source for attackers:
+    organizations need to operate DNS systems for internal use. admin find it effective to config critical services to resolve a particular DNS entry, rather than hard code an IP address into client workstations.
+    unfortunately internal DNS servers can frequently be used as information gathering resources for attackers who might seek to discover the IP address of critical servers within an organization
+    items that help protect organization from having its DNS system used as an intelligence source for attackers:
       Limit Zone Transfer
         in DNS parlance, a "Zone Transfer" is the transferring of information from one DNS server to another.
           a zone describes a large portion of a domain; 
-          Ex. - TEEX web project might utilize one zone for its main forward facing servers(www.teex.org) and another zone for its experimental and development work (dev.teex.org)
-          attackers are intrested in initiating zone transfers with an organizations DNS servers because a zone contains a great deal of information about an organizations netowrks.
+          Ex. - TEEX web project might utilize one zone for its main forward facing servers (www.teex.org) and another zone for its experimental and development work (dev.teex.org)
+          attackers are interested in initiating zone transfers with an organizations DNS servers because a zone contains a great deal of information about an organizations networks.
             Solution is to limit zone transfers to known servers.
               when possible should limit zone transfers to only a handful of specific IP address
               when not possible other measures can typically be taken depending on the vendor of DNS system.
@@ -167,7 +167,7 @@
         Appropriate queries can be forwarded from one system to another reducing the possibility of an attacker being able to initiate a fraudulent zone transfer through the use of spoofed IP packets or other means.
         DNS platforms are able of operating multiple servers on a single computer. 
           combined with the ability to install multiple network cards and/or assign multiple address to a single system, can allow you to easily deploy separate logical servers on the same physical system.
-        rememebr to specifically bind the external DNS server to the public IP address, and the internal DNS server to the internal (private) IP address.
+          remember to specifically bind the external DNS server to the public IP address, and the internal DNS server to the internal (private) IP address.
 
   Domain Name System Security Extensions
     Using DNS, keep in mind the origins of the protocol, DNS was designed to service the internet at a time where the participants were few and trusted.
@@ -179,18 +179,18 @@
     main effort of DNSSEC is to maintain the integrity of information distributed in the system, through the use of cryptography.
       DNSSEC mandates the appending of digital signatures to all DNS traffic as a way of validating the creator of that traffic.
         keep in mind: how critical DNS is to the normal operation of the internet. attackers will attempt to use this fact to advantage.
-          an attacker intrested in perpetrating a Denial of Service (DoS, DDoS) attack against an organization my try a variety of measures to knock the DNS server offline.
+          an attacker interested in perpetrating a Denial of Service (DoS, DDoS) attack against an organization may try a variety of measures to knock the DNS server offline.
     DNSSEC Deployment
-      DDNSSEC represents a large change to traditional DNS protocol, its deployment has been delayed by a wide variety of issues:
+      DNSSEC represents a large change to traditional DNS protocol, its deployment has been delayed by a wide variety of issues:
         Backwards compatibility
-        Software vendor politicks (Vendor specific implementation difficulties)
+        Software vendor politics (Vendor specific implementation difficulties)
         Security and ownership of the root (.com) servers (who will control the certificates for the root name servers.)
       its reasonable to think that DNSSEC will begin enjoying widespread deployment as these issues are slowly being resolved.
 
 ****************************************************************************************************
 Email Server Security
 
-  Email systems ar composed of 2 basic service components:
+  Email systems are composed of 2 basic service components:
     The MTA (Mail Transport Agent) is an application that receives incoming email from (MUA) and forwards outgoing email for delivery.
     The MUA (Mail User Agent) is installed on the user's system, this program is called an email client (Ex. Microsoft Outlook)
   the components are used to transport and retrieve email.
@@ -207,49 +207,49 @@ Email Server Security
     SMTP uses MX (Mail eXchange) records for a domain to determine what host is responsible for email transmission.
     if DNS is not properly secured, an attacker can alter these records for the purpose of malicious activity. (I.E., redirect all email for TEEX.com to attackerserver.com)
 
-  SMTP ROles
+  SMTP Roles
     RFC2821 specifies that SMTP services can perform one or multiple roles for the purpose of delivering electronic mail. Roles:
       RFC - Request for Comments (RFC) is a written directive or discussion of current research, methods, behaviors, or concepts of a topic involving the Internet or network devices.
         RFC's are published by the Internet Engineering Task Force (IETF).
       Originator - the SMTP Originator is responsible for introducing email messages into an interconnected system. the system might be the Internet or it might be some alternative interconnected system.
       Delivery - a delivery SMTP system is one that accepts incoming messages and deposits them into a storage service from which the recipient can retrieve email.
       Relay - The SMTP relay is responsible for receiving messages from the SMTP client then forwarding them without modification to another SMTP server for delivery for further relaying.
-      Gateway - the gateway is an SMTP server that handles the interaction between unrelated transport environments (Networks, Intranets, non-standard intrnet transports).
-        may require that an email message be altered due to different protcolols between environments, and/or not allowed by specifications of the SMTP Relay.
+      Gateway - the gateway is an SMTP server that handles the interaction between unrelated transport environments (Networks, Intranets, non-standard internet transports).
+        may require that an email message be altered due to different protocols between environments, and/or not allowed by specifications of the SMTP Relay.
 
   Security Considerations
     general guidelines for to provide a basic level of security for Email services
     implementation of specific principles can be considered and enacted.
     email systems can be separated into two primary services each with security implications of their own.
     DNS enables email to be addressable to a human-understandable recipient.
-    relying on DNS means if DNS is exploitable there is a good chancethat other systems (emails) can be attacked.
-      DNS must be secured before considering the implications of email serer security.
+    relying on DNS means if DNS is exploitable there is a good chance that other systems (emails) can be attacked.
+      DNS must be secured before considering the implications of email server security.
     SMTP - 
       SMTP provides multiple types of service for email transmission and should be secured through:
         Disable functionality that will not be used on the network.
           Ex. networks using standard transport should not need services provided by SMTP Gateway, service should be disabled.
         Determine which network hosts need direct access to SMTP services.
-          If host doesnt require access to a service, that host should bedisallowed to communicate with these services
+          If host doesn't require access to a service, that host should be disallowed to communicate with these services
         An SMTP relay agent should identify each host that wishes to use its service; 
-          if that host is not within the boudaries of the local network or responsible remote host, than access to relay services should be disallowed for that host
+          if that host is not within the boundaries of the local network or responsible remote host, then access to relay services should be disallowed for that host
       responsible filtering can mitigate many attack patterns associated with SMTP services and should be reviewed to ensure that only the necessary host have access.
       its advised that unauthenticated clients be disallowed access to SMTP services.
     POP and IMAP
       POP and IMAP email retrieval protocols provide remote network access to server software.
         these should be filtered to allow access to only authorized clients and networks
-        uggested that a strong encryption be used between client and server in which all traffic is encrypted. most server support SSL encryption for POP/IMAP sessions.
+        suggested that a strong encryption be used between client and server in which all traffic is encrypted. most server support SSL encryption for POP/IMAP sessions.
           pop is largely obsolete in enterprise settings-IMAP or cloud-based solutions (Microsoft 365, Google Workspace) are preferred.
     Email Security Options
       disable retrieval services and use a Webmail interface for MUA functions, allowing standard interface for all organization email,
         mitigate many issues concerning vulnerabilities with email clients.
       webmail is dependent on a web server, precautions should be taken in securing these servers.
         Approaches to Email Vulnerabilities
-          modern email security relies on layered approach (STARTTLS, DKIM, DMARC, SPF) addressing specific vulnerabilities in legacy protcols like SMTP, POP, and IMAP.
+          modern email security relies on layered approach (STARTTLS, DKIM, DMARC, SPF) addressing specific vulnerabilities in legacy protocols like SMTP, POP, and IMAP.
             STARTTLS upgrades plaintext email transmission to encrypted communication using TLS, mitigating risk of interception during transit.
             DKIM (DomainKeys Identified Mail) uses cryptographic signatures to verify that email was not altered after it was sent
             SPF (Sender Policy Framework) allows domain owners to specify which mail servers are authorized to send on their behalf, reducing spoofing.
             DMARC (Domain-based Message Authentication, Reporting, and Conformance) builds on SPF and DKIM by providing a policy framework for handling failed authentication and generating reports.
-              These technologies help defend against phishing, spoofing  and man-in-the-middle attacks, and aer considered essential components of secure email infrastructure in modern networks.
+              These technologies help defend against phishing, spoofing and man-in-the-middle attacks, and are considered essential components of secure email infrastructure in modern networks.
         Balancing Security and Usability
           protocols like STARTTLS, DKIM, DMARC, and SPF significantly enhance email security, must be implemented thoughtfully and in coordination with broader organization policies.
             Overly strict configs can lead to legitimate messages being rejected
@@ -262,21 +262,21 @@ Web Server Security
   Dynamic Host Configuration Protocol (DHCP) is an Internet Standard for managing the IP configuration of hosts that dynamically connect to networks.
     DHCP is used to assign a valid IP address to hosts in a network without overlapping assignments.
       leasing a time period in which an IP address is valid, DHCP can assign a host with an IP address from a pool of available addresses.
-        mitigates the complexity of IP assignment for admin by negating the need to staticaly assign address informaion to hosts.
-    DHCP is very insecure and offers little protection and authenticaion
+        mitigates the complexity of IP assignment for admin by negating the need to statically assign address information to hosts.
+    DHCP is very insecure and offers little protection and authentication
     DHCP uses User Datagram Protocol (UDP) to transmit information between the client and server.
       meaning it is simple to flood a DHCP server with requests until IP address have been assigned, creating Denial of Service.
 
   DHCP Servers
-    Man-In-The-Middle Attack - An evesdroping attack in which the attacker intercepts messages to/form multiple victims, making them belive that they are securely talking directly to each other when the attacker is actually in control of the messages and their contents.
-    DHCP is a popular target for attackers because its also realtively easy to create rogue DHCP server on a network and assign potentially malicious values to unaware clients.
+    Man-In-The-Middle Attack - An eavesdropping attack in which the attacker intercepts messages to/from multiple victims, making them believe that they are securely talking directly to each other when the attacker is actually in control of the messages and their contents.
+    DHCP is a popular target for attackers because its also relatively easy to create rogue DHCP server on a network and assign potentially malicious values to unaware clients.
       if this info includes an attacker controlled DNS Server or router, the information can be used to perform a Man-In-The-Middle Attack, leading to possible breaches of integrity and data loss.
 
   DHCP Security Guidelines
-    DHCp dusnt have many options for securing servers, admin should consider following some general guidelines when planning service implementation:
+    DHCP doesn't have many options for securing servers, admin should consider following some general guidelines when planning service implementation:
       Hosts that are not residents of the local network should never need to communicate to internal network services, so all DHCP traffic entering and leaving the network should be filtered.
       DHCP servers rarely change network location, therefore all DHCP traffic not originating from the designated DHCP server should be filtered from traveling over the network.
-      MAC identification should be used to verify that a client is authorized to request information from a DHCP server; only known MAC addresses of hosts chouls be assigned IP addresses.
+      MAC identification should be used to verify that a client is authorized to request information from a DHCP server; only known MAC addresses of hosts should be assigned IP addresses.
 
   DHCP Security and Network Access Control
     DHCPv6 defines improved mechanisms for secure client-server communication and address assignment, offering better authentication and configuration integrity than earlier DHCP versions.
@@ -286,11 +286,11 @@ Web Server Security
 
   Web Server Security
     web servers are able to speak with other servers on corporate network and are frequently tied to database servers.
-    there are 2 primary web serveers, Apache and Internet Information Servicess (IIS)
+    there are 2 primary web servers, Apache and Internet Information Services (IIS)
 
   Patching
     patching is important for maintaining a secure system and web servers.
-      webservers are differnt because there are many items that must continually patched in order to ensure proper security.
+      webservers are different because there are many items that must continually patched in order to ensure proper security.
     Web Server Patching
       first step is ensure the web server software is fully updated. web servers can contain vulnerabilities that may allow attackers to bypass defenses and gain control.
       frequent targets for automated scans and exploits.
@@ -300,42 +300,42 @@ Web Server Security
     Interpreter Patching
       Interpreter - A computer program, which converts each high-level program statement into the machine code. (source code, pre-compiled code, and script)
       modern web servers are a combination of several parts:
-        lowes layer is the web server (IIS, Apache). this discribes the basic software that listens on TCP port 80 and exchange traffic using HTTP protocol with clients located elsewhere aon the internet.
+        lowest layer is the web server (IIS, Apache). this describes the basic software that listens on TCP port 80 and exchange traffic using HTTP protocol with clients located elsewhere on the internet.
         users who serve static HTML pages, a web server is all they require.
-        websightes need to do more than server static HTML pages, they must use scripting languages that provide extra capabilities not featured in traditional HTML.
+        websites need to do more than serve static HTML pages, they must use scripting languages that provide extra capabilities not featured in traditional HTML.
         Scripting Language
-          to use a scritping language requires the installation of additional software, web servers are only capable of "speaking" HTML.
-            add-on packages (interpreters) process commands issued in the scripting language, then pass data to the web server. this data is than passed back to the client.
-          scripting language interpreter also represents another software system that can be exploited, handling data coming from unknown and untrusted sources (i.e., the websight visitors) its particularly vulnerable to exploitation.
+          to use a scripting language requires the installation of additional software, web servers are only capable of "speaking" HTML.
+            add-on packages (interpreters) process commands issued in the scripting language, then pass data to the web server. this data is then passed back to the client.
+          scripting language interpreter also represents another software system that can be exploited, handling data coming from unknown and untrusted sources (i.e., the website visitors) its particularly vulnerable to exploitation.
           interpreters need to be updated as patches are released, or web servers could be compromised.
     Application Patching
-    its cheaper to purchas a pre-made web application rather than devlop one. (discussion boards, content management systems, webmail portals, Etc.)
-      attackers may purchase the source code that drives these applications, and can discover some vulnerabilitys that is specific to that web application.
+    its cheaper to purchase a pre-made web application rather than develop one. (discussion boards, content management systems, webmail portals, etc.)
+      attackers may purchase the source code that drives these applications, and can discover some vulnerabilities that is specific to that web application.
         when vulnerability is made public, the app developer will issue a patch, it must be applied to your web app just like any other software.
 
   Application Security
     organizations must understand the risks of associating with custom built web applications. attacks used against web applications: Cross-Site Scripting, Input Validation, Session Hijacking
 
-  Cross-Site Scripting - An attack during which a perpetrator posts malicious HTML code into a user portion of a website like a message board. malicious HTMl code then get downloaded and executed by the browsers of visitors to the website.
-    attakers might seek to use a custom web application maliciously through the use of a cross-site scripting attack (XSS)
+  Cross-Site Scripting - An attack during which a perpetrator posts malicious HTML code into a user portion of a website like a message board. malicious HTML code then get downloaded and executed by the browsers of visitors to the website.
+    attackers might seek to use a custom web application maliciously through the use of a cross-site scripting attack (XSS)
     XSS Attacks
       malicious HTML code directs the victim's browser to another website which will probably attempt to exploit some known vulnerability in the victim's browser, taking control of victim's computer.
       XSS attacks occur in stealth
       Defense against XSS attacks:
         if you have a portion of website that displays user submitted content, dont allow them to post HTML.
-          if too restrictive, recommended that user content be filtered heavily allowing, allowing users to post relatively harmless HTML tags (bold, italics)
+          if too restrictive, recommended that user content be filtered heavily, allowing users to post relatively harmless HTML tags (bold, italics)
         alternative is to use custom markup language users may use to post links and text decoration.
         cross-site scripting attack on an organization's web server might put the organization in legal jeopardy. harming the organizations public image. its important to defend against cross-site scripting attacks.
         Frames
           visitors web browser would create a frame exactly one pixel wide and one pixel tall
             the frame would then load the attacker's malicious webpage, leading to browser exploitation and control of user's computer
-          frame loading the malicious page is small, majority of visitors will never realize thay have inadvertently visited a malicious webpage.
+          frame loading the malicious page is small, majority of visitors will never realize they have inadvertently visited a malicious webpage.
 
-  Input Validation Attack - any form of assult where an attacker is able to cause the web application to behave differently, based on malformed or improper data sent to the application by the attacker.
-    SQL Injection Attack - an atacker is able to trick the web application into passing the attackers SQL commands directly to the company's database.
+  Input Validation Attack - any form of assault where an attacker is able to cause the web application to behave differently, based on malformed or improper data sent to the application by the attacker.
+    SQL Injection Attack - an attacker is able to trick the web application into passing the attackers SQL commands directly to the company's database.
     Input Validation Attacks
       normal communication between website visitor and web server/webapplication:
-        Input Valiation Attack Part 1
+        Input Validation Attack Part 1
           information typed into those boxes will be encoded and sent back to the web application, 
             when received by the web application, the web application will consult the database, running some sort of query.
               Ex. - SELECT firstname, lastname FROM users
@@ -344,42 +344,42 @@ Web Server Security
         Input Validation Attack Part 2
           web application has taken the data typed into the "username" field on the form, placed it directly into the query, between single quotation marks, similar happens to password.
             attackers can type something like the following into the username field
-              'johndoe' AND 1-1;
+              'johndoe' AND 1=1;
                 web app will execute the following query:
                   SELECT firstname, lastname FROM users
                   WHERE username = 'johndoe'
                     and   1=1; AND password='abc123'
         Input Validation Attack Part 3
-          query will search the database for records where username is johndowe and the logical condition 1-1 is true.
-          semicolon after AND 1=1 is a comment character in many SQL platforms, causing ramainder of text on that line to be ignored by the database.
+          query will search the database for records where username is johndoe and the logical condition 1=1 is true.
+          semicolon after AND 1=1 is a comment character in many SQL platforms, causing remainder of text on that line to be ignored by the database.
             the attacker gained access to johndoe's account.
 
   Input Validation Defense
     defense against input validation attacks is to validate input. inspect any and all data transmitted by the other computer during a web transaction and ensure that it is formatted properly.
     when systems communicate with computer not under your control, validate any data transmitted to your systems.
-    following things must be validated when processing data for a webpage: URL Requests, Form Data, Session Information, any other piece of data transmeitted from client to server.
+    following things must be validated when processing data for a webpage: URL Requests, Form Data, Session Information, any other piece of data transmitted from client to server.
     Input Validation is done by utilizing regular expressions.
-    Regular Expressions are programmming constructs that allow the developer to specify the acceptable format for data; anything not matching that formatis automatically rejected.
+    Regular Expressions are programming constructs that allow the developer to specify the acceptable format for data; anything not matching that format is automatically rejected.
 
   Regular Expressions
-    web programming languages include native support for regular expressions. a downside is that evaluation process can be computationally intensive,CPU burden may not beable to handle high traffic.
-      the alternative steps must be taken to ensure that input from client computers is valid. these alternative steps can take the form of hard programmed rules, inserted by the deeveloper.
-        input validation rules developed by human programmers arnt as robust or thorough as regular expression and should be utilized when necessary.
+    web programming languages include native support for regular expressions. a downside is that evaluation process can be computationally intensive, CPU burden may not be able to handle high traffic.
+      the alternative steps must be taken to ensure that input from client computers is valid. these alternative steps can take the form of hard programmed rules, inserted by the developer.
+        input validation rules developed by human programmers aren't as robust or thorough as regular expression and should be utilized when necessary.
 
   Session Hijacking - techniques used by web application developers to create a stateful connection using the stateless hypertext transfer protocol (HTTP protocol).
-    HTTP is stateless, each transaction (webpage download) occurs independently of all other transactions.fine for downloading stand-alone webpages, but more interactive sights like shopping or banking its insufficient.
+    HTTP is stateless, each transaction (webpage download) occurs independently of all other transactions. fine for downloading stand-alone webpages, but more interactive sites like shopping or banking its insufficient.
     sessions are the storing of state information in some kind of medium that supplements normal HTTP traffic. 
-      this might include items (Username, Customer Number, Page Layout Preferences, Etc.) in many situations, the build of info that must be retained is stored on the server.
-        clients computer is givven a cookie which contains a session ID or some similar way to link the user to the stored session information.
+      this might include items (Username, Customer Number, Page Layout Preferences, Etc.) in many situations, the bulk of info that must be retained is stored on the server.
+        clients computer is given a cookie which contains a session ID or some similar way to link the user to the stored session information.
 
   Discover Session IDs
-    Sniffing - another term for evesdropping a form of attack in which an attacker is able to monitor/observe and collect traffic as it travels over a network from the sender to the receiver.
-    when attackers discover the sesssion ID they can pose as the user.
+    Sniffing - another term for eavesdropping a form of attack in which an attacker is able to monitor/observe and collect traffic as it travels over a network from the sender to the receiver.
+    when attackers discover the session ID they can pose as the user.
     attackers will try to discover session IDs by using the following tactics:
       Brute force (guessing of the session ID)
       Packet Sniffing
       Cross-site Scripting
-    cross-site scripting allows the attacker to control the victim's web browser. victim's web browser has the session cookie, the attacker erfectively gains access to the session by proxy.
+    cross-site scripting allows the attacker to control the victim's web browser. victim's web browser has the session cookie, the attacker effectively gains access to the session by proxy.
 
   Session Hijacking Defense
     assuming the attackers dont have physical access to the victim's computer, there are several things that can be done to defend against session hijacking:
@@ -392,20 +392,20 @@ Web Server Security
       HTTPS
         Transmission of cookies over HTTPS is always advisable, as this clearly defeats all but the most sophisticated sniffing attacks.
       Session Management Features
-        popular web programming platforms (.NET, PHP, Python, Perl, Etc.) feature built-in session management features. thes facilities automatically utilize defenses to prevent the theft of session IDs.
-          these native capabilities, developers should also consider using modern session management technologies such as JSON Web Tokens (JWTs, OAuth 2.0, and OpenID Connect to enhance authentication and authorization processes.
-        implementing secure cookie flags (HttpOnly, Secure, and SamSite) adds an extra layer of protection against common web based attacks such as cross0site scripting (XSS) and corss0site request forgery (CSRF).
+        popular web programming platforms (.NET, PHP, Python, Perl, Etc.) feature built-in session management features. these facilities automatically utilize defenses to prevent the theft of session IDs.
+          these native capabilities, developers should also consider using modern session management technologies such as JSON Web Tokens (JWTs), OAuth 2.0, and OpenID Connect to enhance authentication and authorization processes.
+        implementing secure cookie flags (HttpOnly, Secure, and SameSite) adds an extra layer of protection against common web based attacks such as cross-site scripting (XSS) and cross-site request forgery (CSRF).
 
   Server Security
-    asystem that interfaces with the public internet should assume it will be hacked and must structure bothe server software and network as a whole, based on some day an attacker will gain control of server.
+    a system that interfaces with the public internet should assume it will be hacked and must structure both server software and network as a whole, based on some day an attacker will gain control of server.
       Account Permissions
         if web server is compromised, the attacker will gain access through your web server or a scripting interpreter. Steps to limit the damage that can be done.
           recall that web server (or interpreter) is just another operating system service. 
-            like all operating systems srvices, must have a user account associated with it.
-              most operating systems provide facilities to govern the mermissions and capabilities of every user account on the system.
+            like all operating systems services, must have a user account associated with it.
+              most operating systems provide facilities to govern the permissions and capabilities of every user account on the system.
             ensure that if your web server app is taken over by an attacker they have limited access.
               limiting access should include permissions to modify configurations and setting, but also include directories that can be written to.
-                some attackers wil attempt to utilize your web server to host their illegal phishing websites, spyware/adware, pirated software and movies, Etc.
+                some attackers will attempt to utilize your web server to host their illegal phishing websites, spyware/adware, pirated software and movies, Etc.
             by ensuring web server can read, but not write files, you can prevent this from happening.
       Set UP a DMZ
         when mitigating damage place web server in a DMZ (demilitarized zone) - an area between nation states in which military action is not permitted.
@@ -414,7 +414,7 @@ Web Server Security
           if webserver is compromised, its ability to further affect your internal network is minimized
         outer firewall on network may have select few ports opened to allow limited traffic to pass, so might the inner firewall.
           Ex. website might need to access organizations database server, located on the interior portion of network. 
-            youll need to open ports in the inner firwall to allow exchange data between web server and firewall.
+            you'll need to open ports in the inner firewall to allow exchange data between web server and firewall.
             the inner firewall insures that no other data can be exchanged between the web server and interior portions of network.
 
 ****************************************************************************************************
@@ -427,37 +427,36 @@ Database Server Security
 
   Internal and External Threats
     External Threats:
-      databases have facilities in place to restrict accss to information on a per-user basis.
-        storing sensitive infoormation that is not neede dby every member of an organization, and could be misused if it fell int othe wrong hands.
+      databases have facilities in place to restrict access to information on a per-user basis.
+        storing sensitive information that is not needed by every member of an organization, and could be misused if it fell into the wrong hands.
           modern database systems include their own access control system, designed to allow admin to control individual user access to database resources like tables, queries, forms, reports, Etc.
-          databases wil rely upon the user account management services offered by the underlying operating system (a users "Windows" usernam and paswsword).
-          databases suport either Role-Based Access Control (RBAC) or Discretionary Access Control (DAC), though lately the trend is for databse designers to heavily encourage the use of RBAC.
-            RBAC is generallky better suited for management of complex permissions, the case when controlling user acces to items within the database.
+          databases will rely upon the user account management services offered by the underlying operating system (a users "Windows" username and password).
+          databases support either Role-Based Access Control (RBAC) or Discretionary Access Control (DAC), though lately the trend is for database designers to heavily encourage the use of RBAC.
+            RBAC is generally better suited for management of complex permissions, the case when controlling user access to items within the database.
     Internal Threats:
       2nd classification of threats against database servers is termed "Insider,", "logical," "usage," or any number of other accurate qualifiers.
         all are based around the same notion: all databases are used by human beings, who may misuse their privileges in malicious ways.
       almost all databases support legitimate users who are supposed to enter, extract, and analyze information with the database.
-        legitimate users may abuse their authorized access in malicious and unanticipated ways. Vulnerabilities can be categorized into 2 catagories: Traditional and Logical
+        legitimate users may abuse their authorized access in malicious and unanticipated ways. Vulnerabilities can be categorized into 2 categories: Traditional and Logical
         Traditional Internal Threats
-          databases have facilities in place to restrict access to information on a per-user basis. databases store sensitive info that isnt needed by every member, and could be misused if in wrong hands
+          databases have facilities in place to restrict access to information on a per-user basis. databases store sensitive info that isn't needed by every member, and could be misused if in wrong hands
             modern database systems include an access control system, to allow admin to control individual user access to database resources (tables, queries, forms, reports, Etc.)
             databases rely on user account management services offered by underlying OS (a user's "Windows" username and password).
             databases support either Role-Based Access Control (RBAC) or Discretionary Access Control (DAC), 
-              triend is Database designers heavily encourage RBAC, its better suited for management of complex permissions.
+              trend is Database designers heavily encourage RBAC, its better suited for management of complex permissions.
         Logical Internal Threats
           databases are prone to threats that are found with traditional security practices.
             Logical Threat is used to describe instance in which a database has been configured incorrectly, allowing users to misuse the system through valid (unintended) operations.
-              similar to logic errors experienced by programmers-cases, the application was written in valid program code, but didnt do what was intended or expected.
+              similar to logic errors experienced by programmers-cases, the application was written in valid program code, but didn't do what was intended or expected.
                 logic errors are specific to each individual database.
           Ex. mid-level accountant discovers a logical error with the database allowing him to move money from one account to another account without requiring a supervisor's approval.
-            not an error of database platform. error deals with the logic built into the database by the constomer-in this case firm that employs the accountant.
+            not an error of database platform. error deals with the logic built into the database by the customer-in this case firm that employs the accountant.
           Logical Vulnerabilities
             there are a few logical vulnerabilities that can be found in all databases.
-              Inference - term used to describe cases in which users are able to deduce or infer data taht they do not have access to directly.
+              Inference - term used to describe cases in which users are able to deduce or infer data that they do not have access to directly.
         Other Concerns
-          remember what the server does, for databases, the server (computer+database software) is used to store the archive information 
+          remember what the server does, for databases, the server (computer + database software) is used to store the archive information 
             the server should be treated with same care that other information storage options are (File Servers)
           Ex. physical access to systems should be highly restricted. data stored on system should be encrypted to avoid compromise in the event of theft.
-            logical acccess to the systems hould be regulated.
+            logical access to the systems should be regulated.
             most guidelines provided for file servers can be applied to database servers as well.
-            

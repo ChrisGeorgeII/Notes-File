@@ -7,70 +7,70 @@ Topic 1: Logging and Auditing
 
   with proper configuration systems would not run into security incidents
   
-  logging and audinting involve examination of detailed information:
-    Logging - the action of storing inmportant data for review at a later time
-      log files can determin what happened after an incident or failure.
-    Auditing - process of periodically inspecting something (computer, database, ledger, Etc.)with the goal of ascertaining the true status of an item.
+  logging and auditing involve examination of detailed information:
+    Logging - the action of storing important data for review at a later time
+      log files can determine what happened after an incident or failure.
+    Auditing - process of periodically inspecting something (computer, database, ledger, etc.) with the goal of ascertaining the true status of an item.
               audits ensure accounts are in order and inventories match the goods on hand.
-              professionals will perform audits against account activities, mermissions, settings, network activity, Etc.
+              professionals will perform audits against account activities, permissions, settings, network activity, etc.
   
   Accounting  - Combined process of Logging and Auditing.
     The collective process of gathering data (logging) and examining that data (auditing). sometimes used with authentication and authorization, aka AAA (Authentication, Authorization, and Accounting)
   
   Unix: Logging
     Syslog  - sub-system designed to accept error reports from varying parts of the operating system and journal the events to appropriate log files
-      standard logging facility used in POSIX (Unix, Linux, Solaris, Etc.) operating systems.
+      standard logging facility used in POSIX (Unix, Linux, Solaris, etc.) operating systems.
       Un*x Operating Systems (Unix OS) uses Syslog (System Log) as the primary logging system
-        user may not beable to write but any legitimate user can read the logs.
+        user may not be able to write but any legitimate user can read the logs.
     Syslog Categories
       syslog accepts error and event reports from:
-                   Kern  - Kernal messages
-                   User  - Regular user processes
-                   Mail  - Messages relating to the mail system
-                    Lpr  - Messages from the line printing system
-                   Auth  - Activity related to requesting name and password
-                 Daemon  - Background process that fulfil requests
-        Local0...local7  - Local facilities defined by administrator
-                console  - Messages directed to the system console
-                   cron  - Messages from the cron system schedular
+                    Kern  - Kernel messages
+                    User  - Regular user processes
+                    Mail  - Messages relating to the mail system
+                     Lpr  - Messages from the line printing system
+                    Auth  - Activity related to requesting name and password
+                  Daemon  - Background process that fulfill requests
+         Local0...local7  - Local facilities defined by administrator
+                 console  - Messages directed to the system console
+                    cron  - Messages from the cron system scheduler
     Syslog Priorities
       events that are recorded by Syslog are assigned a priority, there are 8 priorities:
-          emerg  - Emergency condition that needs to be addressed immediately. Ex. System Crash
-          alert  - Condition that should be corrected immediately. Ex. Corrupted System Database
-           crit  - Critical condition that indicates a failure in the primary system and should be corrected immediately
-            err  - Error, not urgent but needs to be resolved
-           warn  - Warning, not an error but an indication that an error is about to occur if not action is taken.
-         notice  - not an error, but something that needs to be handled in a special way
-           info  - informational message usually no action is required
-          debug  - messages useful to developers for debugging
+           emerg  - Emergency condition that needs to be addressed immediately. Ex. System Crash
+           alert  - Condition that should be corrected immediately. Ex. Corrupted System Database
+            crit  - Critical condition that indicates a failure in the primary system and should be corrected immediately
+             err  - Error, not urgent but needs to be resolved
+            warn  - Warning, not an error but an indication that an error is about to occur if no action is taken.
+          notice  - not an error, but something that needs to be handled in a special way
+            info  - informational message usually no action is required
+           debug  - messages useful to developers for debugging
     Syslog Configurations
-      Syslog fonfiguration is consistent with other files in Unix OSs and can be performed through the editing of the /etc/syslog.conf file. 
-        Can direct mesages to any number of locations using syslog.conf (files, networking addresses, the console (commandline)
-      The astrix in Un*x is the waldcard (*) - informs the Syslog system to route all messages of all priority security related incidents to the log file located at /var/log/security
-        You'll want to log events to a file, typically /var/log/directory.
+      Syslog configuration is consistent with other files in Unix OSs and can be performed through the editing of the /etc/syslog.conf file. 
+        Can direct messages to any number of locations using syslog.conf (files, networking addresses, the console (command line)
+      The Asterisk in Un*x is the wildcard (*) - informs the Syslog system to route all messages of all priority security related incidents to the log file located at /var/log/security
+        You'll want to log events to a file, typically /var/log/ directory.
         its good idea to direct log info to a central logging server.
   
   Unix: Securing Log Files
     Copying log information from Un*x system to central log server:
-      in syslog.conf file users can direct traffic to another IP addressed
-        specify @<IP address> as the device, the local Syslog system will forward the events generated from that part of system(Kernel, User, Apps, Etc.) to a central logging server.
+      in syslog.conf file users can direct traffic to another IP address
+        specify @<IP address> as the device, the local Syslog system will forward the events generated from that part of system (Kernel, User, Apps, etc.) to a central logging server.
           Syslog will send using UDP on port 514 or 512
   
   Unix Auditing
     Ex. if data is never examined or analyzed all the logged info is useless.
-      auditing Un*x systems is diffeent than windows, where windows offers centralized "one stop shop" for auditing system configs, Un*x features separate utilities.
+      auditing Un*x systems is different than windows, where windows offers centralized "one stop shop" for auditing system configs, Un*x features separate utilities.
     File Integrity Checking
-      ensures a systems' configuration has not changed
+      ensures a system's configuration has not changed
       Un*x OS stores many of their configuration settings in text files. to change system settings a user will have to change the data contained.
-      File Integrity Monitors can watch sensitive files and (with hasing and other tech) know when the file's contents have been changed.
+      File Integrity Monitors can watch sensitive files and (with hashing and other tech) know when the file's contents have been changed.
     Manual Tools
-      Un*x OS ships with command shell utilities that can be used to gain understanding of what is occuring on a system:
+      Un*x OS ships with command shell utilities that can be used to gain understanding of what is occurring on a system:
         ps utility  - Shows all processes currently running on the system, allowing an auditor to see if there is an unknown or unauthorized program running.
         ipconfig and netstat utilities  - can be used together to find possible network misbehavior
         find command  - can be used to watch for recently created set-uid and set-gid files. with ability to script most parts of Un*x system its possible to become automated and find abnormalities.
   Windows: Logging
     the Windows Event Log is a detailed record of system, security and application notifications stored by the windows OS that is used by Admin to diagnose system problems and predict future issues.
-      Windows Logging should be considered an obsolescent but function tech:
+      Windows Logging should be considered an obsolescent but functional tech:
         status: still functional but not ideal for large-scale enterprise environments.
         details: Heavy Reliance on manual configuration and Snap-In tools.
         Recommendation: use Group Policy Management Console (GPMC) or Microsoft Defender for Endpoint for scalable security management.
@@ -83,32 +83,32 @@ Topic 1: Logging and Auditing
       Forwarded - Messages sent to a computer from other computers.
   Windows: Windows Event Viewer
     Windows Event Viewer - is the central hub for all of the system logs, displays detailed information about significant events on computer.
-      some venders will choose to maintain their own error logs and wont appear in the Windows Event Viewer.
-        consolt documentation for instructions on how to view logged events.
+      some vendors will choose to maintain their own error logs and wont appear in the Windows Event Viewer.
+        consult documentation for instructions on how to view logged events.
   Windows: Types of Windows Logs
     Windows Event Viewer will have viewable logs:
       Application Log - contains events logged by applications or programs
       System Log - is the location to find errors and events recorded by components of the Windows OS. event types are predetermined by Windows.
-        contains info that will help recover/prevent system crashes, monitors for suspicious activity (failed intrusion attampts will show up as errors in System Log)
-      Power Shell - cross-platfor task automation solution made up of a command-line shell, scripting language, and config management framework.
-        runs on windows, linux and macOS. accepts and returns .NET objects
-        Power Shell features robust command-line history, tab completion and command prediction, supports command and parameter aliases, pipeline for changing commands, and in-console help system
+        contains info that will help recover/prevent system crashes, monitors for suspicious activity (failed intrusion attempts will show up as errors in System Log)
+      Power Shell - cross-platform task automation solution made up of a command-line shell, scripting language, and config management framework.
+        runs on windows, Linux and macOS. accepts and returns .NET objects
+        Power Shell features robust command-line history, tab completion and command prediction, supports command and parameter aliases, pipeline for chaining commands, and in-console help system
       Security Log - records events as defined by audit policies set on each object. Admin specify what events to record in security log. attempts to log to system can be recorded in Security Log.
         Restricted access: only windows security service (Local Security Authority Subsystem Service or LSASS) can record entries in Security Log. Security Log requires Admin level access to read.
       Setup Log - contains events related to application setup, will contain all actions taking place during installation in the Setup Log files.
         Windows Setup now includes the ability to review the Windows Setup performance events in the Windows Event Log viewer.
       Forwarded Events Log - used to store events collected from remote computers in the same network, allowing admin to keep track of event logs of other computers from one location.
         Forwarded Events Log Descriptions:
-          Error - an event that indicates a significant problem such as loss of data or loss of cunctionality
-          Warning - event that isnt necessarily significant, but may indicate a possible future problem.
+          Error - an event that indicates a significant problem such as loss of data or loss of functionality
+          Warning - event that isn't necessarily significant, but may indicate a possible future problem.
           Information - an event that describes the successful operation of an application, driver, or service.
-          Success Audit - and event that records an audited security access attempt that is successful
+          Success Audit - an event that records an audited security access attempt that is successful
           Failure Audit - an event that records an audited security access attempt that fails.
-      Task Scheduler - enables to automatically perform rutine tasks on a chosen computer by monitoring whatever criteria you choose (Triggers) and then executing the tasks when criteria are met.
-        can execute tasks like starting an app, sending a email, or showing a message box. tasks can be scheduled to execute in respose to events or triggers.
+      Task Scheduler - enables to automatically perform runtime tasks on a chosen computer by monitoring whatever criteria you choose (Triggers) and then executing the tasks when criteria are met.
+        can execute tasks like starting an app, sending a email, or showing a message box. tasks can be scheduled to execute in response to events or triggers.
   Windows: Security Log Files
-    attackers often gain system access to esclate privileges to delete local logs covering their tracks
-      systems should be configured to automatically forward logs to a secure, centralized server using third-party tools. 3rd party utiltities include Datadog, Loggly, LogDNA, Logstash, Solarwinds Papertrail.
+    attackers often gain system access to escalate privileges to delete local logs covering their tracks
+      systems should be configured to automatically forward logs to a secure, centralized server using third-party tools. 3rd party utilities include Datadog, Loggly, LogDNA, Logstash, SolarWinds Papertrail.
   windows: Log Security Settings
   what Log Security Settings Control:
     User authentication to a network or computer.
@@ -123,9 +123,9 @@ Topic 1: Logging and Auditing
         Policies - a set of configurations and settings that can be easily ported and applied to multiple systems.
         a policy is the central concept within auditing using Security Configuration and Analysis (SCA) module
     Third-Party Tools:
-      other aspect of auditing data is inspecting data that has been gathered in log files. windows best approach is to use a 3rd party utility to aid in analysing data that has been logged.
+      other aspect of auditing data is inspecting data that has been gathered in log files. windows best approach is to use a 3rd party utility to aid in analyzing data that has been logged.
         third-party utilities:
-          Microsoft Setinel.
+          Microsoft Sentinel.
           Splunk Enterprise Security.
           Datadog.
           CrowdStrike Falcon Next-Gen Siem.
@@ -138,47 +138,47 @@ Topic 2: Security Policies and Analysis in Windows
   Security Policies - managed through Security Settings extension within Group Policy
     Account Policy area - governs settings related to passwords and account lockout.
     Local Policy area - covers auditing, user rights, and various security options.
-    for both (local and account policys) Security Settings extension displays local policy and the effective policy
+    for both (local and account policies) Security Settings extension displays local policy and the effective policy
       Effective policy reflects the combined impact of local, domain, and organizational unit (OU) policies. 
-        this is importand because local settings can be overridden by higher-level policies. 
+        this is important because local settings can be overridden by higher-level policies. 
         Policy Precedence from lowest to highest is Local, Domain, then OU.
   
   Working with Security Policies
     Local Security Policy in Windows is managed through Security Settings extension with Group Policy.
       Viewing Local Security Policy
-        a user with admin privileges can acccess Group Policy Console:
-        Start > Run > Gpedit.msc > ok > + (next to computer configuration) > Windows Settings > Security Settings > Local Policies to expand folders> Security Options folder under Local Policies.
+        a user with admin privileges can access Group Policy Console:
+        Start > Run > Gpedit.msc > ok > + (next to computer configuration) > Windows Settings > Security Settings > Local Policies to expand folders > Security Options folder under Local Policies.
     Modifying Local Security Policy:
-      To open the `Security Item of Intrest` and revise the policy:
-        + (next to Account Policies) in left pane to expand it(uner security settings) > Password Policy > Double-click Minimum Password Age > set a Minimum Password Age of 1 day and click ok.
-        Local Security Policy Propagation - when user OKs the policy change, policy propagation is triggered that causes an effective policy to be computed and aplied to the system. (based on any overriding domain or OU policies)
+      To open the `Security Item of Interest` and revise the policy:
+        + (next to Account Policies) in left pane to expand it (under security settings) > Password Policy > Double-click Minimum Password Age > set a Minimum Password Age of 1 day and click ok.
+        Local Security Policy Propagation - when user OKs the policy change, policy propagation is triggered that causes an effective policy to be computed and applied to the system. (based on any overriding domain or OU policies)
         status regarding this policy propagation is in the Application Event Log
           right-click Security Settings and click Reload > close Group Policy Console
-            reloading the local policy updates the effective policy in the UI. depending on domain or OU pasword policies in effect, the effective policy may not have changed on the computer.
+            reloading the local policy updates the effective policy in the UI. depending on domain or OU password policies in effect, the effective policy may not have changed on the computer.
     Working with Security Templates
       Security Templates Snap-in allows to create a text-based template file that contains security settings for all the security areas supported by the Security Configuration Tool Set.
         these template files can be used to configure or analyze system security using other tools:
-          import template file into Security Settigs extension to config local, domain, or OU security Policies
+          import template file into Security Settings extension to config local, domain, or OU security Policies
           the Security Configuration and Analysis Snap-In to configure or analyze system security based on a text-based security template.
-          Secedid.exe command-line tool directly or in conjunction with other management tools (Microsoft Systems Management Server or Task Scheduler) to deploy a security template or trigger a security analysis
+          Secedit.exe command-line tool directly or in conjunction with other management tools (Microsoft Systems Management Server or Task Scheduler) to deploy a security template or trigger a security analysis
         Loading the Snap-In
           to load Security Templates snap-in:
             start > Run > MMC /s > OK
             Console (under Console1) > click Add/Remove Snap-in and click Add.
             select Security Templates > Add > close > click OK > expand security Templates > expand C:\WINNT\security\templates
           Modifying the Template
-            Create Security Template: Right-Click default templates folder (C:|WINNT\security\templates) under Security Templates and select New template.
+            Create Security Template: Right-Click default templates folder (C:\WINNT\security\templates) under Security Templates and select New template.
               to view settings defined by Securews.inf:
                 expand Securews > Browse the Account Policies and Local Policies defined by Securews by expanding those folders, selecting different areas and viewing the Stored Template Settings.
-        Displaying Custion Log-on Message:
-          Security Options > right pane, Double-Click Message Text for user Attempting to log on. type the message that will be displayed to all users when loggin gon and click OK.
+        Displaying Custom Log-on Message:
+          Security Options > right pane, Double-Click Message Text for user Attempting to log on. type the message that will be displayed to all users when logging on and click OK.
         Creating Restricted Group Policy:
-          Restricted Group Policy - Allows user to define who should belog to a specific group. 
-          When template or policy that defines a restricted group is applied to a system, Security Configuration Tool sets add or remvoes member as defined by the template settings
+          Restricted Group Policy - Allows user to define who should belong to a specific group. 
+          When template or policy that defines a restricted group is applied to a system, Security Configuration Tool sets add or remove members as defined by the template settings
           Create the Restricted Group Policy:
             Right-Click Restricted Groups > Add Group > type NewAdmins as group name > OK Double-click Administrators:
-              define who should be a member of adminstrators group and specify other groups that administrators group can be a member of.
-                click add > Browse > select administrater user in the select users or Groups dialog and click ADD > OK > OK > OK
+              define who should be a member of administrators group and specify other groups that administrators group can be a member of.
+                click add > Browse > select administrator user in the select users or Groups dialog and click ADD > OK > OK > OK
             Enforcing a Restricted Group Policy-
               this restricted group policy states that only the local admin user can belong to the admin local group when Securews template is used to config a Windows 2000 system.
                 during config all other are removed
@@ -193,10 +193,10 @@ Topic 2: Security Policies and Analysis in Windows
                 Full Control checkbox to give the Administrators group full permissions
                   clear the "Allow Inheritable permissions from parent to propagate to this object" checkbox.
                     click OK to accept admin-only permissions defined for the directory
-                      select the Replace existing mermission on all subfolders and file with inheritable permissions button > OK
-              in this Ex. the ACL config for %systemroot%\repair dir in Securews.inf template is defind as follows:
+                      select the Replace existing permission on all subfolders and file with inheritable permissions button > OK
+              in this Ex. the ACL config for %systemroot%\repair dir in Securews.inf template is defined as follows:
                 admins have full control on the %systemroot%\repair directory, an ACE is inheritable can be specified in Advanced tab of ACL editor.
-                by clearing the "allow inheritable permissions from parent to propagate to this object" checkbox the %systemroot%\repair dir doesnt inherit any permissions from its parent.
+                by clearing the "allow inheritable permissions from parent to propagate to this object" checkbox the %systemroot%\repair dir doesn't inherit any permissions from its parent.
                 by selecting "Replace existing permission on all subfolders and files with inheritable permissions mode of operation" all ACLs on all subfolders and files of the repair directory are configured so they inherit the inheritable Administrators full control permission from this parent regardless of their current configuration.
           Inheriting, Overwriting, and Ignoring Policy Changes
             after defining permissions for file system or registry object, Security Configuration Tool Set asks how the object's children should be configured:
@@ -208,8 +208,8 @@ Topic 2: Security Policies and Analysis in Windows
               to prevent a child object from being overwritten by a parent:
                 child can be added to the template and ignored.
                   the child's inheritance mode and Explicit ACEs remain untouched
-                  if an ancester exists but is configured such that children inherit, then ignoring a child has no impact. To save customized Securews.inf file:
-                    right-click Securews.inf > Save As > Type Mysecurews > Save > Exit Security Templates Snap-in console (close) > yes to save console settings > save the conose as Security Templates.
+                  if an ancestor exists but is configured such that children inherit, then ignoring a child has no impact. To save customized Securews.inf file:
+                    right-click Securews.inf > Save As > Type Mysecurews > Save > Exit Security Templates Snap-in console (close) > yes to save console settings > save the console as Security Templates.
 
   Authentication Systems
     might involve passwords, biometrics, security tokens, or multi-factor authentication (MFA). in the context of Information Assurance, Authentication supports 3 Goals:
@@ -218,25 +218,25 @@ Topic 2: Security Policies and Analysis in Windows
       availability - authentication helps prevent unauthorized users from overwhelming or disrupting systems.
 
   Performing a Security Analysis
-    can analyze current system settings against a baselin template at any time.
+    can analyze current system settings against a baseline template at any time.
       to identify security holes that might exist in a current configuration
       to identify changes that a potential security policy may impart to a system before actually deploying the security policy.
       to identify deviations from a policy that is currently imposed on a system.
 
   Command Shell Alternatives
-    for admin who require the ability to script auditing procedures, there are alternitaves to Command-shell:
-      SECEDIT - a microsoft provided utility that offers the same capabilities as the SCA GUI utility but is ran from the command line and produces a log file with results.
-        a downside to SECEDIT is it cannot be run against remote machines. only be used to efectively evaluate the security settings of the local system.
+    for admin who require the ability to script auditing procedures, there are alternatives to Command-shell:
+      SECEDIT - a Microsoft provided utility that offers the same capabilities as the SCA GUI utility but is run from the command line and produces a log file with results.
+        a downside to SECEDIT is it cannot be run against remote machines. only be used to effectively evaluate the security settings of the local system.
 
   Command-Line Configuration and Analysis
-    configuration and analysis operations in Security Configuration and Analysis UI can be ran by Secedit.exe command-line tool.
-      command-line operation allows security configuration and analysis to be performed amone other admin tools:
-        Analyze   - allows to analyze current systems settins against baseline settings or security template stored in a database.
+    configuration and analysis operations in Security Configuration and Analysis UI can be run by Secedit.exe command-line tool.
+      command-line operation allows security configuration and analysis to be performed among other admin tools:
+        Analyze   - allows to analyze current systems settings against baseline settings or security template stored in a database.
                       IDs discrepancies between current configs and desired security standards, results are stored in separate area of database and can be viewed in Security Configuration and Analysis snap-in.
-        Configure - Allows configuration of a system with security settings stored in database or security template  to a system. 
-          helping enforce consistant security policies across multiple systems or resolving security discrepancies
+        Configure - Allows configuration of a system with security settings stored in database or security template to a system. 
+          helping enforce consistent security policies across multiple systems or resolving security discrepancies
         Export - dumps database configuration information into a template (.inf) file. available in the snap-in through Security Configuration and Analysis context menu after database has opened.
-          allowing creation of baseline template from a system with the desired configuration ot to share security settings between systems
+          allowing creation of baseline template from a system with the desired configuration to share security settings between systems
         Rollback - Saves servers current security settings into a security template so it can be used to restore most of server's security settings to a known state.
           with exceptions that when applied, the rollback template will not change access control list entries on files or registry entries that were changed by the most recently applied template.
         Validate - Verifies the syntax of a template created using Security Templates snap-in to ensure integrity and prevent issues during application.
@@ -244,31 +244,31 @@ Topic 2: Security Policies and Analysis in Windows
             for more refer to the Command-Line Configuration and Analysis PDF.
   Database-Driven Configuration
     all configurations and analyses are database-driven.
-    Secedit.exe supports parameters for specifying a database as well as configuration fileto be mported into database prior to performing configuration.
+    Secedit.exe supports parameters for specifying a database as well as configuration file to be imported into database prior to performing configuration.
       by default the configuration file is appended to the database.
       with snap-in you can specify a log file; however Secedit.exe allows detailed log information to be recorded.
-      when snapin configures all security areas, Secedit.exe allows you to specify areas to be configured. 
-        security areas not specified are ignored evien if the database contains security settings for thsoe areas.
+      when snap in configures all security areas, Secedit.exe allows you to specify areas to be configured. 
+        security areas not specified are ignored even if the database contains security settings for those areas.
   
 Topic 3: Authentication
 ******************************************************************************************
 
   Authentication  - the process of verifying the true identity of a computer user. 
-    ensuring someone trying to acces a system is who they clame to be, through combination of Username, passwords, and/or multi factor authentication
-      attackers might gather employee names or usernames through tactics like dumpster diving or browsing company websights
-        when they try to log in they are stoped at the authentication stage, needing the correct passwords.
+    ensuring someone trying to access a system is who they claimed to be, through combination of Username, passwords, and/or multi factor authentication
+      attackers might gather employee names or usernames through tactics like dumpster diving or browsing company websites
+        when they try to log in they are stopped at the authentication stage, needing the correct passwords.
   Types of Authentication
-    authentication typically works by relying on something the user HAS, sometheing the user KNOWS, and/ or something the user IS.
+    authentication typically works by relying on something the user HAS, something the user KNOWS, and/or something the user IS.
       Has, Possession Factors  - schemes may rely on the user to produce some physical item. this physical item is usually some kind of token or smart card, user provides their identity.
-      Knows, Knowledge Factors - most comminl way of authenticating users are paswords. something the user knows may have documented drawbacks Ex. writing passwords down on desk. also passwords might be easy to guess.
-      Is, Inheritance factors  - Biometrics are traits that are uniques to each person, fingerprints, retinal scans, voice inflection, Etc. these items cannot be lost and are difficult to forge.
+      Knows, Knowledge Factors - most common way of authenticating users are passwords. something the user knows may have documented drawbacks Ex. writing passwords down on desk. also passwords might be easy to guess.
+      Is, Inheritance factors  - Biometrics are traits that are unique to each person, fingerprints, retinal scans, voice inflection, etc. these items cannot be lost and are difficult to forge.
   Managing Authentication
-    most organization deploy ecntralized authentication servers in order for the computers on the network to authenticate users.
-      critical when computers in network dont have primary owner/user.
+    most organization deploy centralized authentication servers in order for the computers on the network to authenticate users.
+      critical when computers in network don't have primary owner/user.
       admin would need to mirror the user account information on each computer
       manage authentication requests in a secure manner: Requests and responses must be kept secret, and Requests and responses cannot be easily forged or faked.
   Kerberos Authentication
-    a network running Kerberos as its default authentication protocol featers Authentication Server, Ticket Granting Server, and Service Server
+    a network running Kerberos as its default authentication protocol features Authentication Server, Ticket Granting Server, and Service Server
       some implementations may feature all of these "servers" operating on the same actual computer.
     Kerberos Tickets:
       computers on a network running Kerberos typically exchange cryptographically secured pieces of data (Tickets) with a start and expiration time.
@@ -287,36 +287,36 @@ Topic 3: Authentication
         7. TGS sends a valid session key for the service to the client.
         8. Client forwards the session key to the service to prove the user has access, and the service grants access.
   Disadvantages of Kerberos
-    because tickets can expire, its important that systems on the network have times nad dates synchronized.
+    because tickets can expire, its important that systems on the network have times and dates synchronized.
     because kerberos servers control access to network resources, failure of any 3 components will result in network resources not honoring login and access requests
     kerberos is the main authentication scheme used in Windows Active Directory, MacOS X, and Red Hat Linux.
   Other Authentication Protocols
     where Kerberos would be considered overkill:
-      RADIUS - Remote Authentication Dial-In Service - designed for dial-up netowrking, used in environments where users conect for short periods, including many wireless networks.
+      RADIUS - Remote Authentication Dial-In Service - designed for dial-up networking, used in environments where users connect for short periods, including many wireless networks.
         provides centralized authentication services that can be easily deployed over wireless networking equipment
           in a RADIUS system, the client and server share a secret used to encrypt communications.
-            after login info is transmitted, rRADIUS server uses other authentication protocols (EAP) to complete authentication process, as Radius server and User database serer are often separate.
-          when implementing RADIUS and EAP for network authentication, ensure that security best practices are followed to protoect user credentials and prevent unauthorized access.
-          organizations should consider condiguring robust encryption, certificatie validation, and integrating Multi-Factor Authentication (MFA) and exploring passwordless stratigies.
-            enhance security by reducing reliance on traditional passwords and adding layers of identity verification, especially in environments wher RADIUS and EAP are used to autheintacate users across wireless and VPN connections.
+            after login info is transmitted, RADIUS server uses other authentication protocols (EAP) to complete authentication process, as Radius server and User database server are often separate.
+          when implementing RADIUS and EAP for network authentication, ensure that security best practices are followed to protect user credentials and prevent unauthorized access.
+          organizations should consider configuring robust encryption, certification validation, and integrating Multi-Factor Authentication (MFA) and exploring passwordless strategies.
+            enhance security by reducing reliance on traditional passwords and adding layers of identity verification, especially in environments where RADIUS and EAP are used to authenticate users across wireless and VPN connections.
       EAP - Extensible Authentication Protocol (EAP) - a flexible framework commonly used in wireless network to negotiate authentication parameters between clients and servers.
-        EAP suppors a variety of methods (EAP-MD5, EAP-TLS, and PEAP) to strengthen security within its framework.
+        EAP supports a variety of methods (EAP-MD5, EAP-TLS, and PEAP) to strengthen security within its framework.
           organizations should integrate Multi-Factor Authentication (MFA) and passwordless strategies directly into the chosen EAP method.
             Ex. EAP-TLS can be enhanced by requiring a 2nd factor like biometric or hardware token, while PEAP can support passwordless authentication by leveraging certificates or device-based credentials.
-              incorporating MFA and passwordless into EAP provides a more resilient authenticaitonprocess, reducing reliance on passwords and mitigating risks associated with credential theft.
+              incorporating MFA and passwordless into EAP provides a more resilient authentication process, reducing reliance on passwords and mitigating risks associated with credential theft.
   Attacks using Password Hashes
-    usernames and passwords provide a easyer and more direct access to systems. attackers could exploiting technical flaws that are present on the software.
+    usernames and passwords provide a easier and more direct access to systems. attackers could exploiting technical flaws that are present on the software.
     well-Known attacks against passwords:
       Sniffing
         sniffing attacks are not specific to passwords, can be used to attack confidentiality and any data traveling over the network.
-          old systems using simple authentication protocol transmitted the usernames and passwords over the netwrok in cleartext.
-            attackers with network access can sniff the password while it traveled the netwrok to the authentication server
+          old systems using simple authentication protocol transmitted the usernames and passwords over the network in cleartext.
+            attackers with network access can sniff the password while it traveled the network to the authentication server
       Rainbow Attack - involves taking a password hash and comparing that hash to a set of rainbow tables.
         Rainbow Tables - Contain every possible hash that can be output by the hashing algorithm
         Hash - a value that represents a data stream, as produced by a hash function which takes some data as input and performs a series of mathematical operations on the data to produce a unique output.
           when attackers gain access to a password hash, they search the rainbow table and find the matching hash. verifying that they discovered the correct hash being used.
       Replay Attack - category of network attack where the attacker detects a data transmission and fraudulently has it delayed or repeated, carried out by the sender or by malicious entity, who intercepts the data and retransmits it.
-        Replay attacks help attackers gain access to a netwrok an gain information which would not have been easily accessible or complete a duplicate transaction.
+        Replay attacks help attackers gain access to a network an gain information which would not have been easily accessible or complete a duplicate transaction.
         Replay Attacks Authentication
           Replay attacks also known as Playback Attacks
           when valid users authenticate themselves they enter a password, its then hashed to some output. the hashed value is transmitted to the login server as proof that users are who they claim to be.
@@ -324,12 +324,12 @@ Topic 3: Authentication
             some incorporate random values which cannot be predicted into the hash (salt), causing the hashes to be different each time making playback attacks difficult.
       Pass-The-Hash - credential theft and lateral movement technique.
         an attacker can abuse the challenge-and-response nature of the NT Lan Manager (NTLM) authentication protocol to authenticate as a user with only NTLM hash of the user's password.
-          attacker can use the compromised account without plaintext password. hashes normally change when password is changed, granting the attacker significatnt time to abuse the compromised user.
+          attacker can use the compromised account without plaintext password. hashes normally change when password is changed, granting the attacker significant time to abuse the compromised user.
           
 Topic 4: Authorization
 ******************************************************************************************
 Authorization happens after authentication
-  once user proves who they are, authorization determins what they are allowed to do. ensuring users can only access resources or perform actions appropriate to their roles or responsibilities.
+  once user proves who they are, authorization determines what they are allowed to do. ensuring users can only access resources or perform actions appropriate to their roles or responsibilities.
   
   Authorization Systems 
     Authorization determines what an authenticated user is allowed to do (access to files, Resources, Services, or system functions based on Policies, Roles, or Access control lists.
@@ -346,16 +346,16 @@ Authorization happens after authentication
       MAC: Mandatory Access Control - Access Control Model (Military Settings) that determines the user's access rights based upon rank or position within organization.
         Access Levels include Unclassified, Secret, and Top Secret.
       EAC: Electronic Access Control - security control system used to physically manage entry and exit into secure areas of office or work site.
-      DAC: Disretionary aCCESS Control - Access Control Model that uses a complete list of resources with mermissions that determine wht users have access to them.
+      DAC: Discretionary Access Control - Access Control Model that uses a complete list of resources with permissions that determine what users have access to them.
   
   Discretionary Access Control
-    in a DAC system, each asset has an Access Control List (ACL), defining which users or groups that contain broader entriesthat apply to lart portions of the population
-      Ex. Windows OS ACLs typically contain an entry called "Everyone" refering to all known users.
+    in a DAC system, each asset has an Access Control List (ACL), defining which users or groups that contain broader entries that apply to large portions of the population
+      Ex. Windows OS ACLs typically contain an entry called "Everyone" referring to all known users.
   
   Electronic Access Control (EAC)
     Technology and Biometrics require user to validate access before entering. entry can be validated by Smart Card, Smart Badge, Keypad entry, Biometric Check
       for Exiting EAC can be configured in 2 systems:
-        Free exit: no requirement for passing out of the secure area. Electronic Access Control System detects someone aproching an exit and unlocks the door or has a release button allowing people to leave.
+        Free exit: no requirement for passing out of the secure area. Electronic Access Control System detects someone approaching an exit and unlocks the door or has a release button allowing people to leave.
         Controlled exit: same security is used for travel in both directions. by law these systems must be set up to allow people to exit if system fails or power goes out.
   
   Mandatory Access Control (MAC) - security access control that is centrally controlled by a security policy administrator.
@@ -366,25 +366,25 @@ Authorization happens after authentication
       Read: analogous to access, this permission enables a user to examine the contents of an asset
       Write: This Permission enables a user to modify an asset in some way.
       Execute: this permission enables a user to use a particular asset.
-    Roles - defined as a collection of mermissions, logically grouped to allow a user to accomplish a task. similar to a job title or function in an organization.
+    Roles - defined as a collection of permissions, logically grouped to allow a user to accomplish a task. similar to a job title or function in an organization.
     Users - analogous to users in all other access control systems. individual members of an organization.
       users have roles assigned to them, by assigning roles to users instead of the other way around, flexibility is maintained.
         each role can be assigned to multiple users
         each user can have multiple roles assigned to them
-        each role can hav multiple permissions assigned to it
+        each role can have multiple permissions assigned to it
         roles may conflict with other roles.
       RBAC include a role hierarchy, indicating which roles should override in the event of a conflict. RBAC is currently in wide use. 
-      softare packages that provide support for RBAC; Oracle Database systems, Microsoft Active Directory (windows), AP.
+      software packages that provide support for RBAC; Oracle Database systems, Microsoft Active Directory (windows), AP.
   
   Access Control Lists
-    most OS use Access Control Lists (ACLs) a list of users who can access a particular resource (file, folder, Etc.) as well as the actions there allowed to take (Read, Write, Change Permissions, Etc.)
+    most OS use Access Control Lists (ACLs) a list of users who can access a particular resource (file, folder, etc.) as well as the actions they're allowed to take (Read, Write, Change Permissions, etc.)
     every object in an OS has an ACL
   
-  Directory Services - Refers to a database that stores users, apaswords, and related attibutes. 
-    2 comon types of Directory Services in networks are:
+  Directory Services - Refers to a database that stores users, passwords, and related attributes. 
+    2 common types of Directory Services in networks are:
       Active Directory (AD)
     Note: directory means listing of users and attributes, similar to telephone book. not the file system structure used to organize data.
-      Lightweight Directory Access Protocol (LDAP) - protocol for querying and intracting with user databases, the preferred database for non windows networks.
+      Lightweight Directory Access Protocol (LDAP) - protocol for querying and interacting with user databases, the preferred database for non windows networks.
       in Unix-like environments database of user information may be stored in a variety of ways without directly impacting the LDAP.
       LDAP refers to the protocol for communicating with the server, or the server itself.
       LDAP organizes records into Hierarchy known as a tree. each tree has a node (root) with each sub-node (called "Leaves" or "Entries") logically related to its preceding node.
@@ -399,20 +399,20 @@ Authorization happens after authentication
 
 Topic 4: Honeypots
 ******************************************************************************************
-  Honeypots - a computer or network that has purposefully been left open to attack. describes both single workstations that ar edeployed to monitor hackers as well as entire networks. (honeyNet)
+  Honeypots - a computer or network that has purposefully been left open to attack. describes both single workstations that are deployed to monitor hackers as well as entire networks. (honeyNet)
   
   Honeypots: Inviting Trouble
     honey pots are loaded with monitoring and logging information and will capture every "fingerprint" left behind by a potential intruder.
-      allowing a system administrator to monitor attackers and observe their activities, allowing admin to better focus on defence basen on what the attackers are trying these days.
+      allowing a system administrator to monitor attackers and observe their activities, allowing admin to better focus on defense based on what the attackers are trying these days.
         admin can take information and attempt to pursue law enforcement.
     Resource Demands and Risks:
       Honey Pots require resources: system administrator's time and energy, Network Bandwidth, Computing Resources invested into setting up the honeypot.
-        should be segregated from all of the prduction systems on the network.
-        Be sure dusnt have any kind of elevated trust or permission with other parts of network; attacker may be able to use as launching pad for other atacks
+        should be segregated from all of the production systems on the network.
+        Be sure doesn't have any kind of elevated trust or permission with other parts of network; attacker may be able to use as launching pad for other attacks
   
-  Honeypots: Bating the Trap Scenarios:
+  Honeypots: Baiting the Trap Scenarios:
     Ex. 1:  - unpatched system, block it off from rest of network, put it out there to be compromised:
-                admin who stay up to date with hacking stratigies will want to use this. this is an academic exercise since none of the observed activites are likely to be applicable to the other systems on network.
+                admin who stay up to date with hacking strategies will want to use this. this is an academic exercise since none of the observed activities are likely to be applicable to the other systems on network.
     Ex. 2:  - Exact replica of production system on network; give replica no responsibilities. traffic that arrives at the replica system/network must be malicious.
                 an email server handling messages will have difficulty sorting malicious activity from legitimate traffic.
                 admin may wish to place a replica on network, running same software. because system has no responsibilities, traffic that reaches it can be assumed to be malicious.
@@ -420,7 +420,7 @@ Topic 4: Honeypots
   Developing a Honeypot
     Enable Logging and secure the Standard Log Files, along with other logging tools
       Ex. logging provided by OS will not give a packet-by-packet view of network traffic like packet sniffer (e.g. Ethereal/wireshark) would.
-    if attacker deduces there interacting with a honeypot and not a production system, thell probably resume attack on real systems.
+    if attacker deduces they're interacting with a honeypot and not a production system, they'll probably resume attack on real systems.
       monitoring software installed on local systems are difficult to hide if the attacker can access the process table.
       Honeypot Deployment, keep in mind:
         Gather and secure information you are after.
@@ -429,15 +429,14 @@ Topic 4: Honeypots
         ensure that your honey pot cannot be easily identified.
   Advantages of Honeypots
     a distraction to attackers allowing admin to monitor activities of attackers.
-    if attackers are currently compromising your honeypot, they arnt compromising production systems.
+    if attackers are currently compromising your honeypot, they aren't compromising production systems.
     effectively another layer of defense.
     Ex. attackers seeking to utilize honeypot as a mail relay (spamming) might tighten the egress filtering on network traffic leaving the network.
         admin might also pursue criminal or civil action against the attacker using data gathered.
           ensure data is gathered and handled appropriately so it will be admissible in court.
   Disadvantages of Honeypots
-    Not "set it and forgetit" devices, must continually be monitored. if admin dont look at log files, no information has been gained.
+    Not "set it and forget it" devices, must continually be monitored. if admin don't look at log files, no information has been gained.
     Must maintain hardware. must apply patches. 
-    If honey pot is to assess current defenses, than data may not be useful if honeypot doesnt mirror the production system.
+    If honey pot is to assess current defenses, then data may not be useful if honeypot doesn't mirror the production system.
     honeypots residing on network can become a liability if attackers are able to use it as a launching pad for other attacks.
-      regulate its ability to reach other systems on the network. obtain approval from executive management or legal in order to limit liability should an attack occure.
-      
+      regulate its ability to reach other systems on the network. obtain approval from executive management or legal in order to limit liability should an attack occur.

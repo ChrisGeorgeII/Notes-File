@@ -1,9 +1,9 @@
 ***************************************************************************************
-*********************************** Layered Defence ***********************************
+*********************************** Layered Defense ***********************************
 ***************************************************************************************
 Firewalls
   firewall  - a device that is designed to prevent unwanted, potentially malicious network traffic from reaching a particular computer or computer network.
-  statful packet  - a small amount of data sent over a network or networks
+  stateful packet  - a small amount of data sent over a network or networks
   To prevent hackers and malware from gaining direct access to computers on a network.
   SYN-ACK
     SYN - Synchronize
@@ -14,27 +14,27 @@ Firewalls
     client to server: sends packet to server, sets ACK
   SPI firewalls 
     uses Stateful Packet Inspection (SPI) to track every incoming and outgoing packet for authenticity
-    the advantage of using stateful packet inspection firewall is it tracks each connection's current status which blocks invalid packets from reaching intended target.
-      to determin if a packet is legimimate:
-        the only way the packet could be legimate is if the intended recipient of this SYN-ACK packet sent the remote system a SYN packet beforehand.
+    The advantage of using a stateful packet inspection firewall is it tracks each connection's current status which blocks invalid packets from reaching the intended target.
+      to determine if a packet is legitimate:
+        The only way the packet could be legitimate is if the intended recipient of this SYN-ACK packet sent the remote system a SYN packet beforehand.
         local system send a SYN packet to the remote address at some time in the recent past
-  Transmission Contorl Protocol (TCP)
-    *older firewalls would have to allow this suspect packet through, or no comunication using tcp would be possible.
+  Transmission Control Protocol (TCP)
+    *older firewalls would have to allow this suspect packet through, or no communication using TCP would be possible.
       when allowed through the targeted system deals with the packet.
         if packets were forged its possible that the targeted system recognized it as being forgery and discards it
           TCP regulations sends `TCP-Reset signal` to remote address
     * TCP/IP frameworks of many operating systems have numerous vulnerabilities
       host operating systems are vulnerable to specially crafted packets
-        previus Example illistrates a SPI firewall vulnerability.
-          local system is protected by the firewall transmitts SYN packet to remote host
+        The previous Example illustrates a SPI firewall vulnerability.
+          local system is protected by the firewall transmits SYN packet to remote host
             Firewall Noted this event
           remote host responded with a SYN-ACK
-            firewall would reconized as being a responce to the earlier transmission sent by local system.
+            The firewall would be recognized as being a response to the earlier transmission sent by the local system.
   NAT and PAT firewalls
     Network address Translation (NAT)
       combines NAT component and traditional SPI firewall
-      keeps track of a pool of IPv4 address and associats a public address with each system as it request access to the internet
-        when attempting to transmit data to internet, Nat performs a "translation" inserting the public address associated with that host iunto the IP header.
+      keeps track of a pool of IPv4 address and associates a public address with each system as it request access to the internet
+        When attempting to transmit data to the internet, Nat performs a "translation" inserting the public address associated with that host into the IP header.
     Port Address Translation (PAT)
       allows multiple computers to utilize the internet simultaneously using a single public IP address
   limitations and complications of network addresses
@@ -43,45 +43,46 @@ Firewalls
       provides 4.3 billion routable address
     # of IP address
       each octet is 8 bits in length (00000000.00000000.00000000.00000000)
-      total number of address equaling 232 or 4,294,967,296
+      total number of addresses equaling 232 or 4,294,967,296
     IP address allocation
-      ip addresses are allocated/assigned in blocks reffered to Class A, Class B, and Class C
-      each block of address in a givven class consist of consecutive addresses totaling:
+      
+ip addresses are allocated/assigned in blocks referred to Class A, Class B, and Class C
+      each block of address in a given class consist of consecutive addresses totaling:
         Class A = 16,777,216 addresses
         Class B = 4,048,576
         Class C = 65,536
-    # of Public IP addressesconnected devices
+    # of Public IP addresses connected devices
       588,514,304 addresses are reserved for administrative purposes.
         out of 4,294,967,296 addresses that leaves 3,706,452,992 routable or public addresses.
     connected devices
-      14.2 billion devices connected to the internet in 2019, prjected that in 2021 there will be 25 billion devices conneted.
+      14.2 billion devices connected to the internet in 2019, projected that in 2021 there will be 25 billion devices connected.
         these devices, aka "things," comprise what is being referred to as "The Internet of Things (IOT)
     IANA  - (Internet Assigned Numbers Authority)
       department of ICANN (nonprofit private American corporation)
       responsible for global coordination of the Internet Protocol addressing systems
         includes Autonomous System Numbers used for routing internet traffic
-    IPv4  - 32-bit numbers, often expressed as 4 cotets in "dotted decimal" notation
+    IPv4  - 32-bit numbers, often expressed as 4 octets in "dotted decimal" notation
       IPv4 has 4.3 billion routable addresses
     IPv6  - 128-bit numbers conventionally expressed using hexadecimal strings
       IPv6 accommodates over 340 undecillion unique addresses (340 followed by 36 zeroes)
   Deployment of NAT
-    all computer on a network using NAT do have an IP address
+    all computers on a network using NAT do have an IP address
       the address for each computer may be private/internal/administrative IP address
-      IPv4 addreess space set aside portions of Class A, Class B and Class C address space so companies can employ for private/internal/administrative use.
+      IPv4 address space sets aside portions of Class A, Class B and Class C address space so companies can employ for private/internal/administrative use.
         10.0.x.y or 192.168.x.y
-          these addresses are called Priveate/Internal/Administrative because they have no meaning outside of the company's network
-          routers are programmed to immediatly recognize private IP addresses as being Private and will simply discard it
+          these addresses are called Private/Internal/Administrative because they have no meaning outside of the company's network
+          routers are programmed to immediately recognize private IP addresses as being Private and will simply discard it
   TCP/IP and PAT
     TCP
       IP identifies each system in a connection by associating the hardware [MAC] address with an IP address
-        TCP identifies applications on these systems that are communicating by usilizing ports.
+        TCP identifies applications on these systems that are communicating by utilizing ports.
       remote
-        on the private side of a PAT device when a device wants to connect to a remote system, the device constructs an ordinarry TCP segment, contained in an IP packet
+        on the private side of a PAT device when a device wants to connect to a remote system, the device constructs an ordinary TCP segment, contained in an IP packet
           the TCP header contains both destinations and source port numbers
-            for most communications the destination port number will be a port number (80 for HTTP, 25 for SMTP, etc...) when source port number will be a random number grater than 1024
-              similar to port remapping it involves changing the port number used for certin types of communications on a system
+            for most communications the destination port number will be a port number (80 for HTTP, 25 for SMTP, etc...) when source port number will be a random number greater than 1024
+              similar to port remapping it involves changing the port number used for certain types of communications on a system
                 when remapping, a PAT device can hide the real port number of an internal application from the outside world.
-        PAT device can Uniquely Identify every connection running on a network.
+        PAT devices can Uniquely Identify every connection running on a network.
       headers
         on the private side of a PAT device, the Pat takes the TCP segment and changes the headers.
         Source IP address is changed from private IP address that the host submitted, to global IP address being shared by the PAT device.
@@ -91,25 +92,25 @@ Firewalls
           Neither the server nor the host on the private side of the PAT firewall knows that the PAT is in use.
           is possible to tell when host is using a PAT device, "look for clues"
       response
-        When Server sends data back to client, PAT device receives, looks at what server sent the segment, what destination port, forward the segemnt to proper host
-          similar to how internal port number is hidden, a PAT device hides internal hosts from outside attackers using the private addresses.
+        When Server sends data back to client, PAT device receives, looks at what server sent the segment, what destination port, forward the segment to proper host
+          Similar to how internal port numbers are hidden, a PAT device hides internal hosts from outside attackers using the private addresses.
       TCP
         Majority of the Network Traffic found on the internet utilizes Transmission Control Protocol (TCP) over the Internet Protocol.
-          PAT takes advantate of these protocols allowing multiple computers to use the same Public IP Address
+          PAT takes advantage of these protocols allowing multiple computers to use the same Public IP Address
         all systems on the private side of a PAT device have private IP addresses
         NAT and PAT are highly similar
   Security of NAT/PAT firewalls
-    Nat and PAT firewalls offer some defence over traditional firewalls
-      NAT/PAT device receives a TCP segments for a Public IP address on a network, examins the segment and carrys out one of the following:
-        if segmentis part of a known ongoing TCP connection, forward segment to proper system on the inside of the network
-        if segment is a new connection request, looks at its forwording table; if it finds a matching rule it forwards the segment to the proper system on the inside of the network
-        if neither of the previus conditions are met, NAT/PAT device will throw it away
+    Nat and PAT firewalls offer some defense over traditional firewalls
+      NAT/PAT device receives a TCP segments for a Public IP address on a network, examines the segment and carries out one of the following:
+        if segment is part of a known ongoing TCP connection, forward segment to proper system on the inside of the network
+        if segment is a new connection request, looks at its forwarding table; if it finds a matching rule it forwards the segment to the proper system on the inside of the network
+        if neither of the previous conditions are met, NAT/PAT device will throw it away
       most frontal assaults will be foiled by a NAT/PAT device
-      the only packets that will be relayed from internet to systems on the protected side of the network are packets that meet a set of pre-written rules (stated before).
-        this does not mean that your systems cant be hacked.
+      The only packets that will be relayed from the internet to systems on the protected side of the network are packets that meet a set of pre-written rules (stated before).
+        This does not mean that your systems can't be hacked.
       computers that are infected with bots and rootkits can frequently bypass a firewall, 
         They frequently originate malicious traffic and most outbound communications are not filtered
-      Another Layer of Defence:
+      Another Layer of Defense:
         packet filters can scan and discard malicious packets based on a set of rules configured to allow or deny communications based on organization's policies
   Firewall Logs
     Automated Logging
@@ -117,47 +118,47 @@ Firewalls
     Log   - a file containing information and activity records for some particular piece of software, computer, network, etc...
     Logging - the process of recording activities of a particular piece of software, network, or computer.
     Firewall Logs uses
-      used by administrators after an attack to discover what occured.
+      used by administrators after an attack to discover what occurred.
       used offline with analysis techniques to determine attack patterns and help administrators find ways to prevent the same type of attack in the future.
       used during attacks so administrators can view detailed information about what is being attacked
       used to find how the attack is being carried out.
       where the attack is likely originating in order to stop the malicious activity as quickly as possible.
-        sources my be forged during attacks.
+        sources may be forged during attacks.
   Firewall Alerts
-    firewalls are only effective if users keep them turned on, updated, and dont exempt items.
+    Firewalls are only effective if users keep them turned on, updated, and don't exempt items.
       firewalls catch emails with suspicious content. but user has ability to allow an email to be delivered and opened, despite firewall's recommendation
-        if email contains malware, user's actions render the firewall ineffective.
-      firewalls generate alerts so that events can be brought to an administrator's attention.
+        If an email contains malware, the user's actions render the firewall ineffective.
+      Firewalls generate alerts so that events can be brought to an administrator's attention.
       For Logging and Alerting features to work effectively a firewall must be configured to match the requirements of the network being protected.
     Regarding PAT - most firewalls include the ability to use a NAT pool of addresses or to use just one address and implement PAT
     most routers have the ability to use PAT or Address overloading
-      aka purchase a router and then you can identify on that router one address that can be "overloaded." effectively means your using PAT (Cisco)
+      aka purchase a router and then you can identify on that router one address that can be "overloaded." effectively means you're using PAT (Cisco)
   Port Forwarding
-    port forwarding is the application of rules that tell the NAT/PAT firwall which system on the internal network should handle a particular type of traffic.
+    port forwarding is the application of rules that tell the NAT/PAT firewall which system on the internal network should handle a particular type of traffic.
       ex  - one possible rule might instruct a PAT device to forward all incoming TCP Port 80 requests to internal IP address 192.168.0.50.
-        in this case there is presumably a server runing at IP 192.168.0.50 and this server has been configured to run as a web server.
+        In this case there is presumably a server running at IP 192.168.0.50 and this server has been configured to run as a web server.
   Host-based firewalls
-    consumers wont encounter a firwall directly, they are usually used to protect the perimeter of a network of computers.
+    consumers won't encounter a firewall directly, they are usually used to protect the perimeter of a network of computers.
       a small home office environment will most likely use a bundled router/firewall in a device usually provided by the ISP.
-        the firewalls will bundle most of the security features of a layered defense model.
-    in a layered defense strategy the last bastion is the user's PC(s) or the server(s) that is being protected.
-      common practicce is for an end user/network administrator to deploy a strategy of using a host-based firwall.
+        The firewalls will bundle most of the security features of a layered defense model.
+    In a layered defense strategy the last bastion is the user's PC(s) or the server(s) that is being protected.
+      common practice is for an end user/network administrator to deploy a strategy of using a host-based firewall.
         companies use free host-based firewalls that either come with the OS or free as a download.
-          term commonly used in the network business for this type of host based firwallEnd Point Protection (Northrup)
+          term commonly used in the network business for this type of host based firewall End Point Protection (Northrop)
     Host-based Firewall risk
-      Host-based firewalls dusnt completely romove the need for a perimeter firewall but effective when used properly and up to date.     
+      Host-based firewalls didn't completely remove the need for a perimeter firewall but were effective when used properly and up to date.     
       concerns with a host based firewall:
-        end users disable or turn off the host-based firwall because it may prevent them from accessing resources.
-        deactivated by malware running on a ednpoint.
-    Host-Based Firewall management
-      when larger corporations use a host-based firwall, its usually done in connection with application-based firewalls, proxy servers, and other security measures.
-      Network admins will deply software through a managed methodology:
-        Microsoft Windows Server Networks - this is performed with a featured called Group Policy
-          entralized management of the software becomes critical to prevent:
-            end users from disabling the software
-            deploying configuration changes when needed
-            changing policies to what affects certin applications
-            performing updates as needed
+        end users disable or turn off the host-based firewall because it may prevent them from accessing resources.
+        deactivated by malware running on an endpoint.
+  Host-Based Firewall management
+    When larger corporations use a host-based firewall, it's usually done in connection with application-based firewalls, proxy servers, and other security measures.
+    Network admins will deploy software through a managed methodology:
+      Microsoft Windows Server Networks - this is performed with a feature called Group Policy
+        Centralized management of the software becomes critical to prevent:
+          end users from disabling the software
+          deploying configuration changes when needed
+          changing policies to what affects certain applications
+          performing updates as needed
 
 ******************************************************************************************************************************************************************************
 
@@ -177,106 +178,106 @@ Intrusion Detection Systems
           Responsible for reporting Pertinent network info back to the central IDS.
           Typically hardware devices that are placed in highly visible places through a network.
           put in places to observe most of the traffic traveling on a network.
-          typically attacked at each switch so all network traffic of intrest can be observed.
+          typically attached at each switch so all network traffic of interest can be observed.
   
   Network-Based IDS Deployment
     Network Based IDS's are deployed to:
       processing requirements of the IDS are frequently too much to be handled by the small probes attached to switches and routers.
-      collecting and analizing all data in one place allows the IDS to examine simultaneous events occuring on different parts of the network.
-    the IDS has a "birds-eye view of all the treaffic traveling in the network, allowing it to notice unusual activity.
-      when a organization's servers starts sending data to an unknown system, the ids will be in position to observe and flag abnormal traffic.
+      collecting and analyzing all data in one place allows the IDS to examine simultaneous events occurring on different parts of the network.
+    The IDS has a "birds-eye view of all the traffic traveling in the network, allowing it to notice unusual activity.
+      When an organization's servers start sending data to an unknown system, the IDS will be in position to observe and flag abnormal traffic.
   
   Protocol Analysis:
-    initially Network-based IDS tracked only packets from point (a) to point (b). allowing admin to get a idea of data fowing in the networks.
-      admin would need separate monitors and sniffers to examine data flows further.
-        this approach offered no protection from hackers who embeded attacks inside of normal network traffic.
-    ping - transmits a small packet of data to another system with the "echo" flag sent. if a system receives a ping packet it will sent the packet back to the sender. (unless admin disabled ping)
+    Initially Network-based IDS tracked only packets from point (a) to point (b). allowing admin to get an idea of data flowing in the networks.
+      Admin would need separate monitors and sniffers to examine data flows further.
+        This approach offered no protection from hackers who embedded attacks inside of normal network traffic.
+    ping - transmits a small packet of data to another system with the "echo" flag sent. if a system receives a ping packet it will send the packet back to the sender. (unless admin disabled ping)
       well known and frequently used utility 
-        enablig admin to determin wether or not a particular server is able to receive network traffic.
-        used to see if workstating being repaired has network conectivity
+        enabling the admin to determine whether or not a particular server is able to receive network traffic.
+        used to see if workstation being repaired has network connectivity
     in 1997 - `98 TCP/IP had a defect in implementation of many major OS. 
       resulting in system crash whenever the system received a packet that was bigger than ~65000 bytes in size
       a hacker could create a packet bigger than the ~65000 byte limit and disguise it as an ordinary ping packet
-      the hacker could send this packet to any victim and knew there was a good change if let through the defenses the system would be knocked offline.
+      The hacker could send this packet to any victim and knew there was a good chance that if let through the defenses the system would be knocked offline.
       AKA Ping of Death
     Protocol Analysis
       represents a new form of intrusion detection
-      IDS systems that are capable of Protocol Analysis have knowledge of how a protocol should work, capable of reconizing when something is amiss.
-        ex  - IDS with Protocol Analysis would examin incoming Ping of Death, notice its not properly formatted ping packet than take defensive action.
+      IDS systems that are capable of Protocol Analysis have knowledge of how a protocol should work, capable of recognizing when something is amiss.
+        ex  - IDS with Protocol Analysis would examine incoming Ping of Death, notice its not properly formatted ping packet then take defensive action.
           all major OSs were fortified against Ping of Death.
   
   Application Layer Firewalls
-    this type of firewall is capable of scanning data on the Network and Transport Layers (like a SPI firewall) along with the application layers.
-      App layer firewall have knowlege of how common protocols like HTTP, STMP, etc... should behave and can spot unordinary behavior.
+    This type of firewall is capable of scanning data on the Network and Transport Layers (like a SPI firewall) along with the application layers.
+      App layer firewalls have knowledge of how common protocols like HTTP, SMTP, etc... should behave and can spot unordinary behavior.
       It watches application layer traffic like HTTP and SMTP for signs of abnormal activity, which could mean an attack is underway.
         
-        ex1 - SQL injection attack's goal is to overwrite part of a websight's configuration.
-          if successful the victimized websight will begin redirecting its visitors to a hacker-ran websight
-            that websight attempts to infect users with viruses, spyware, and trojans
-          telltale sight of this SQL injection attack is extremely long page request transmitted to the web server being targeted.
-        ex2 - page requests are normally a few hundred characters in length; very long page requests might be several thousand charcters long.
+        ex1 - SQL injection attack's goal is to overwrite part of a website's configuration.
+          if successful the victimized website will begin redirecting its visitors to a hacker-run website
+            that website attempts to infect users with viruses, spyware, and trojans
+          telltale sight of this SQL injection attack is an extremely long page request transmitted to the web server being targeted.
+        ex2 - page requests are normally a few hundred characters in length; very long page requests might be several thousand characters long.
           SQL injection attacks are over 4000 characters long
-            page request of this length falls outside of the normal HTTP traffic for most web servers.
+            A page request of this length falls outside of the normal HTTP traffic for most web servers.
   
   Deep Packet Inspection (DPI)
     considerable disagreement within security industry on the precise meaning of "Deep Packet Inspection":
-      a DPI implementation for some venders take the form of a partial proxy server
+      a DPI implementation for some vendors take the form of a partial proxy server
         buffering all of the TCP (or UDP) packets for an entire session and examining the application-layer transaction (Harrison).
       implementation from other vendors will inspect each TCP (or UDP) segment, analyzing only the content of that packet in relation to normal operation of that protocol.
-      the reason for this disagreement about DPI is the controversy that surrounds the use of DPI to monitor internet use and behavior.
+      The reason for this disagreement about DPI is the controversy that surrounds the use of DPI to monitor internet use and behavior.
         advocates in favor of the freedoms allowed by the internet strongly discourage the use of DPI Technologies by ISPs
         Tech Evangelists encourage DPI to help keep the Internet protected from malicious behavior.
   
   Deep Packet Inspection Application
-    The controversy that became a matter of public intrest is the European Commision case against the company called Phorm
+    The controversy that became a matter of public interest is the European Commission case against the company called Phorm
       Phorm developed software that used DPI but to profile Internet Traffic for advertising and other purposes.
-        the International Telecommunications Union (ITU) approved the latest requirements for DPI in working item Y.2779.
-    recent malicious behaviour will undoubtedly encourage more tech groups to consider DPI as legitimate
+        The International Telecommunication Union (ITU) approved the latest requirements for DPI in working item Y.2779.
+    recent malicious behavior will undoubtedly encourage more tech groups to consider DPI as legitimate
     Ex. - the most common methods of defeating an IDS by concealing malicious attacks inside IP fragments.
-      when network receives IP packet thats too large, it fragments the packet into smaller fragments.
+      When a network receives an IP packet that's too large, it fragments the packet into smaller fragments.
         these are reassembled when they are received by the destination 
         unless IDS is capable of reassembly and performing a close inspection on the traffic contained therein the attack pattern will remain unnoticed to the IDS
   
   NAT Environments
     address ranges used by NAT are defined by the Internet Engineering Task Force (IETF) in a Request for Comment (RFC) known as RFC1918 AKA Address Allocation for Private Internets.
       (www.ietf.org search for 1918, you can see all address ranges reserved)
-    in a NAT environment, all computer workstations start off with internal IP addresses, packets are transmitted by each individual computer, complete with its source IP address and destination for the desired workstation.
-      when packets reach the NAT Gateway/Proxy, the NAT device removes the computers internal IP address and substitutes it with an available public ip address.
-        if not available IP address than the packet will get dropped or be redirected to some internal system.
+    In a NAT environment, all computer workstations start off with internal IP addresses, packets are transmitted by each individual computer, complete with its source IP address and destination for the desired workstation.
+      When packets reach the NAT Gateway/Proxy, the NAT device removes the computer's internal IP address and substitutes it with an available public IP address.
+        if no available IP address then the packet will get dropped or be redirected to some internal system.
   
   Deep Packet Inspection Application Scenarios
-    EX. and attack has discovered a server that has not been patched against a recently disclosed buffer overflow vulnerability within a popular web server
-      the vulnerability allows the attacker to execute code of their choice upon transmitting a HTTP "user agent" value of more than 50 characters AND a "query string" that is longer than 1500 bytes.
-        because the total amount of data being transmitted is grater than 1450 byte limit for a single TCP segment
-      the attacker's system and server are broken up into atleast 2 TCP segments
-      EX 1  - IDS using a proxy-like deep packet inspection scheme buffers all packets associated with HTTP transaction.
-              when all packets have been received the system examins the transaction, allowing it to discover the suspiciously long query in combination with the long user agent value
+    EX. an attacker has discovered a server that has not been patched against a recently disclosed buffer overflow vulnerability within a popular web server
+      The vulnerability allows the attacker to execute code of their choice upon transmitting a HTTP "user agent" value of more than 50 characters AND a "query string" that is longer than 1500 bytes.
+        because the total amount of data being transmitted is greater than 1450 byte limit for a single TCP segment
+      the attacker's system and server are broken up into at least 2 TCP segments
+      EX 1  - IDS using a proxy-like deep packet inspection scheme buffers all packets associated with HTTP transactions.
+              when all packets have been received the system examines the transaction, allowing it to discover the suspiciously long query in combination with the long user agent value
       EX 2  - IDS using a deep packet inspection that is lacking a proxy-like component might miss this attack.
-              IDS examins each TCP setment and because long user agent string and extra- long query string are located in different segments, the attack will go unnoticed.
+              IDS examines each TCP segment and because long user agent string and extra- long query string are located in different segments, the attack will go unnoticed.
       IDS's with Proxy-like functionality enjoy increased security, they also represent a network bottleneck and may impact network performance.
   
   Host-Based Intrusion Detection System(IDS) - a security software installed directly on an individual endpoint (server, workstation, virtual machine) to monitor internal operating system activity, file modifications, system calls, and log files for signs of malicious behavior
-    in a host based IDS, computers have software packages installed that examin the current state of the computers on which they are running:
-      CPU Load, Network Traffic(incomming and outgoing), file integrity, log files, etc.
+    in a host based IDS, computers have software packages installed that examine the current state of the computers on which they are running:
+      CPU Load, Network Traffic(incoming and outgoing), file integrity, log files, etc.
     anything running locally on the computer can be observed by a host-based IDS.
-    EX. - the different symptoms that might be exibited on a computer thats been compromised by a hacker or for of malware:
-        Systems running slwly, Program crashes and other add behaviors
-      unexpected events, like seldom-used program observed in the background.
+    EX. - the different symptoms that might be exhibited on a computer that's been compromised by a hacker or form of malware:
+        Systems running slowly, Program crashes and other odd behaviors
+      unexpected events, like seldom-used programs observed in the background.
       new processes running on the system.
   
   Centralized IDS monitoring
-    IDS products are capable of reporting suspicious events to a central server. this way all suspicious activity in in one place and more meaning ful reports can be generated with this info.
-    EX. - most system admins would be intrested to learn that half of the systems on the network simultaneously begin exibiting the same strange behavior.
+    IDS products are capable of reporting suspicious events to a central server. This way all suspicious activity is in one place and more meaningful reports can be generated with this info.
+    EX. - most system admins would be interested to learn that half of the systems on the network simultaneously begin exhibiting the same strange behavior.
     Manufacturers that produce IDS systems, or organizations that offer centralized management offer these services:
       Network-Based IDS, Host-Based Software, and Centralized Monitoring
   
   Centralized IDS Monitoring Management
     all three work in concert to prevent and alert network administrators of intrusion attempts.
-      a way to reduce the admin overhead required by an organization thats trying to manage a network-based IDS or several hundred computers all running a host-based IDS
+      a way to reduce the admin overhead required by an organization that's trying to manage a network-based IDS or several hundred computers all running a host-based IDS
         IDSs are frequently capable of running in a stand-alone manner.
   
   Intrusion Detection Strategies (IDS)
-    hast-based and network-based use these detection strategies:
+    host-based and network-based use these detection strategies:
       Signature (Rule) Detection, Anomaly Detection, Heuristic Detection
   
   Signature (Rule) Detection - Signatures are profiles of some malicious activities (virus or worm, penetration attempt, etc.) that should be stopped.
@@ -284,61 +285,61 @@ Intrusion Detection Systems
       must update definition files
         same with Anti-Virus Products, the signature files for a signature-based IDS need to be kept up-to-date in order to defend against the latest techniques used by hackers.
     Pros
-      low false alarm rate, quick identification, vary accurate at detecting, based on known signatures.
+      low false alarm rate, quick identification, very accurate at detecting, based on known signatures.
     Cons
-      False Negative Attacks  - signature-based detection knows about attacks that it has been programmed to recognize.and new or unheard of attack will probably pass by a signature-based IDS.
+      False Negative Attacks  - signature-based detection knows about attacks that it has been programmed to recognize. Any new or unheard of attack will probably pass by a signature-based IDS.
       False Positive Attacks
-        no two networks are configured equally, "normal" activity is diferent for every network. telltale sighns of an attack on one network might not be a attack on another.
-        Most Signature-based IDS products come with a built-in database of common attack signatures. when first placed online it hasnt tuned to the organization's traffic, resulting in false positives.
-          this same situation happens whenever a signature database is updated and new rules are added; some period of adkustment is frequently needed.
+        no two networks are configured equally, "normal" activity is different for every network. telltale signs of an attack on one network might not be an attack on another.
+        Most Signature-based IDS products come with a built-in database of common attack signatures. when first placed online it hasn't tuned to the organization's traffic, resulting in false positives.
+          This same situation happens whenever a signature database is updated and new rules are added; some period of adjustment is frequently needed.
   
   Anomaly Detection - monitoring strategy used by Intrusion Prevention or Intrusion Detection systems to id potential attacks by comparing a system's current activity
-    designed to solve a problem with signature-based detection's inability to recognized new, previously unseen attacks.
-    it establishes a baselin then considers anything outside that normal activity to be suspicious activity.
-    Changes EX.     - Web server receives incoming network traffic on TCP ports 80 and 443 and might talk to a database server and send log reports to central log server.
-                      if webserver sends network traffic out on TCP port 25, this is a change in behavior. webserver has been compromised.
-    Detection EX.   - Anomaly detection frequently uses some form of AI, its able to precisely learn the patterns that make up normal behavior for computer/network.
-                      training period is still required while the IDS learns about its environment.
+    designed to solve a problem with signature-based detection's inability to recognize new, previously unseen attacks.
+    it establishes a baseline then considers anything outside that normal activity to be suspicious activity.
+    Changes EX.     - Web server receives incoming network traffic on TCP ports 80 and 443 and might talk to a database server and send log reports to the central log server.
+                      If a web server sends network traffic out on TCP port 25, this is a change in behavior. webserver has been compromised.
+    Detection EX.   - Anomaly detection frequently uses some form of AI, it is able to precisely learn the patterns that make up normal behavior for computers/networks.
+                      A training period is still required while the IDS learns about its environment.
                       admin will be required to provide the system with constant feedback regarding things that are normal and abnormal.
     Challenges EX.  - Anomaly Detection Suffers from the following inverted set of problems:
                       Low false negative error rates, high false positive error rates. particularly while training the system.
-                      after the system has been deployed, high false positive error rates may still be observed.
+                      After the system has been deployed, high false positive error rates may still be observed.
     Advantages EX.  - Anomaly detection offers several advantages in comparison to Signature-Based Detection.
                       no signature files to update
                       earlier detection of new types of attack
-                      Anomaly detection bases its decisions on previously observed behavior and capable of discovering new types of attack that may be missed by a signature-based detector.
+                      Anomaly detection bases its decisions on previously observed behavior and is capable of discovering new types of attack that may be missed by a signature-based detector.
   
-  Heuristic Detection - operates by comparing incoming traffic and packets to Pre-Established baseline of normally experienced behavior for a specific network.
+  Heuristic Detection - operates by comparing incoming traffic and packets to a Pre-Established baseline of normally experienced behavior for a specific network.
     Hybrid Methodology  - science behind creating and id the profiles of a given network differ widely.
       merges the signature-based methodology with an anomaly discovering engine.
         Methods of Profile-based Detection:
-          Artifical Nural Network EX. - means of doing machine learning, in which a computer learns to perform some tasks by analyzing training examples.
+          Artificial Neural Network EX. - means of doing machine learning, in which a computer learns to perform some tasks by analyzing training examples.
                                       A term used to describe a type of methodology that will use a small profile data set to classify intrusions
-                                      Nural netowrk trained against profile data set by an algorithm that looks for patterns that are contrary to the pattern matching that it was able to perform with the profile.
-                                      uses artificial network to determine what types of behavior are considered normal.
+                                      Neural network trained against profile data set by an algorithm that looks for patterns that are contrary to the pattern matching that it was able to perform with the profile.
+                                      uses artificial networks to determine what types of behavior are considered normal.
           Fuzzy Logic EX.             - Scientists have begun to research how IDS systems can perform the same type of logic when analyzing traffic patterns.
-                                       by using probabilistic or multi_valued logic, the IDSs can make a "fuzzy" guess that has found an anomaly rahter than an exact pattern match.
+                                       By using probabilistic or multi-valued logic, the IDSs can make a "fuzzy" guess that has found an anomaly rather than an exact pattern match.
   
   Choosing an IDS
-    most IDS's utilize Signatiure-Based Detection.
-    as general rule is anomaly-based detection is used more frequently in host-based IDS's rather than Network-Based IDS's.
-    Anomaly-based detection may be offered as a supplemental technology, designed to complement signature-based detection rahter than replace it.
+    Most IDS utilize Signature-Based Detection.
+    As a general rule, anomaly-based detection is used more frequently in host-based IDS's rather than network-based IDS's.
+    Anomaly-based detection may be offered as a supplemental technology, designed to complement signature-based detection rather than replace it.
     new profile-based detection methods have begun to make their way into IDS technology
-      Heat Index, or the ability to control how aggressive the IDSis based on how close the pattern recognition is to what is considered the acceptable profile of organization.
+      Heat Index, or the ability to control how aggressive the IDS is based on how close the pattern recognition is to what is considered the acceptable profile of organization.
 
 ******************************************************************************************************************************************************************************
 
-Intrusion Prevention Systems (IPS) - device designed to monitor a particular netowrk or computer for signs of an attack happening, once spotted the system takes action to prevent the attack from spreading
-  when a possible attack is spotted the system notifies an admin and take whatever steps it can to block the intrusion(attack) from progressing.
+Intrusion Prevention Systems (IPS) - device designed to monitor a particular network or computer for signs of an attack happening, once spotted the system takes action to prevent the attack from spreading
+  When a possible attack is spotted the system notifies an admin and takes whatever steps it can to block the intrusion(attack) from progressing.
   
   IDS and IPS are alike in many ways
     IPS can be divided into:
       host-based: runs on each individual computer
       Network-Based: run on a centralized server
-    where IDS was a step forwared in security tech but some felt that Intrusion Detection Systems could do more and created Intrusion Prevention Systems
+    where IDS was a step forward in security tech but some felt that Intrusion Detection Systems could do more and created Intrusion Prevention Systems
       IPS Action Options
-        similar to IDSs the the ability to intervine with a problem occurs
-          EX.   - when a false positive error is reported by an ISP, it will do one of the following:
+        similar to IDSs the ability to intervene with a problem occurs
+          EX.   - when a false positive error is reported by an IPS, it will do one of the following:
                     cut off network access to some portion of the network.
                     lock down a workstation.
                     block incoming connections to a critical server.
@@ -349,24 +350,24 @@ Intrusion Prevention Systems (IPS) - device designed to monitor a particular net
         Anomaly - is any change in behavior from ordinary, expected behavior. anomalies usually indicate an attack of some form is taking place.
   
   Network-Based Intrusion Prevention Systems - an inline security hardware or software tool that continuously monitors network traffic to detect and automatically block malicious activity in real time
-    protect large portions of computer network, if not the whole network.
-    in general difference in IPS and other security appliances (IDS) is the response.
+    protect large portions of the computer network, if not the whole network.
+    In general the difference between IPS and other security appliances (IDS) is the response.
     IPS are configured to have the ability to in some way stop the suspicious activity.
       EX. halt all network traffic from the web server until the network administrator can sort things out.
   
   Host-Based Intrusion Prevention Systems - software security tool installed on a single endpoint (server, laptop, or virtual machine) that actively monitors, detects, and blocks malicious activity from within that device.
     Host-Based IPSs monitor and defend a single computer (host)
       uses components of the local system to monitor for intrusions (file integrity checking, log file monitoring, etc...)
-        ISPs also must monitor the applications and programs running on the system in order to defend against potential intrusions.
+        IPSs also must monitor the applications and programs running on the system in order to defend against potential intrusions.
         IPS can embed itself into Microsoft Windows, when macro virus prompts word to delete all files on HD, instructions get inspected by IPS, IPS decides if harmful it does not relay them to the OS.
   
   IPS detection Methods
-    IPS and IDSs use both signature (rule) detection and anomaly detection. similar trade offs for each approch in an ips and ids are similar
+    IPS and IDSs use both signature (rule) detection and anomaly detection. similar trade offs for each approach in an IPS and IDS are similar
       Signature vs. Anomaly Detection in IPS
-        most IPS's use signature-based detection, but as a general rule, anomaly-based detection is used more frequently in host-based IPSs rather than network-based IPSs- though can be find in either type of IPS
+        most IPS's use signature-based detection, but as a general rule, anomaly-based detection is used more frequently in host-based IPSs rather than network-based IPSs- though can be found in either type of IPS
         Anomaly-based Detection can be offered as a supplemental Technology designed to complement signature-based detection rather than replace it.
-    Manageing IPS False Positives
-      EX. - IPS might cut off network acces to a computer or group of computers inccorrectly, imparing those systems usability.
+    Managing IPS False Positives
+      EX. - IPS might cut off network access to a computer or group of computers incorrectly, impairing those systems usability.
 
 ******************************************************************************************************************************************************************************
 
@@ -374,13 +375,13 @@ Cryptography
   Encryption - the process of converting data from its original form into some encoded format that cannot be read or understood without first decrypting it using the proper key.
   
   Applications of Cryptography
-    EX. unless organization owns all transmission lines used to cary data from point to point, you wont beable to guarantee that data might be viewed by someone unknown or untrusted. the proper responses are:
+    EX. Unless the organization owns all transmission lines used to carry data from point to point, you won't be able to guarantee that data might be viewed by someone unknown or untrusted. The proper responses are:
         do not transmit data electronically
         use encryption to secure the data.
   
   Components of Cryptography: Cipher
     cipher is an algorithm used to encrypt data, both parties must agree upon a cipher in order for successful transmission to occur.
-      EX. - like how someone speaking a different language to prevent eavesdropping. both must agree to speak the language. if one speeks a different language it wont work.
+      EX. - like how someone speaks a different language to prevent eavesdropping. both must agree to speak the language. if one speaks a different language it wont work.
   
   VPN Uses
     Provider-Provisioned VPNs are not as common as user-provisioned VPN. (this course will focus on user-provisioned VPNs)
@@ -389,29 +390,29 @@ Cryptography
         a way of bridging the networks from two separate corporate locations 
   
   Components of Cryptography
-    key - secret piece of data that enables cleartext to be encrypted into ciphertext, allows siphertext to be decrypted back into cleartext. ensuring those who know the key can access original information.
-      EX. - 2 people dont know any other languages, might use code words or words that have special meaning.
-            the code words and their actualmeanings would be an example of a key.
+    key - secret piece of data that enables cleartext to be encrypted into ciphertext, allows ciphertext to be decrypted back into cleartext. ensuring those who know the key can access original information.
+      EX. - 2 people don't know any other languages, might use code words or words that have special meaning.
+            the code words and their actual meanings would be an example of a key.
     Cleartext - the original "unscrambled" data that has yet to be encrypted or has already been decrypted. 
-      AKA - The data that NEEDS to be protected or encoded to prevent unauthorized acces during transmission or storage
-      cleartext Ex.   - when user types password, sends email, or enters credit card info into a websight, the info exists as clear text at some point in the process.
-      Block Cipher    - a cipher that divides the cleartext into equal size chunks then encrypts each chunk separately. with input and key the output will always be consistant and not affected by time.
+      AKA - The data that NEEDS to be protected or encoded to prevent unauthorized access during transmission or storage
+      cleartext Ex.   - when a user types a password, sends an email, or enters credit card info into a website, the info exists as cleartext at some point in the process.
+      Block Cipher    - a cipher that divides the cleartext into equal size chunks then encrypts each chunk separately. with input and key the output will always be consistent and not affected by time.
       Stream Cipher   - a cipher that encrypts cleartext one character (byte) at a time.
-                          a stream cipher only uses a portion of the key stream to encrypt a byte teh cipheertext produced by the cipher may vary from moment to moment.
-                          EX. - the ciphertext produced by encrypting the letter "A" at different time will appear different because of tperforming encryption with a different part of the key stream.
+                          A stream cipher only uses a portion of the key stream to encrypt a byte; the ciphertext produced by the cipher may vary from moment to moment.
+                          EX. - the ciphertext produced by encrypting the letter "A" at different times will appear different because of performing encryption with a different part of the key stream.
     Ciphertext  - the output of cipher, or encryption algorithm, and refers to data that has passed through an encryption process.
                     the scrambled data produced by the encryption function, when encrypted it cannot be easily converted back into the original data without the key.
-                EX. - the message "Meet me at 5 PM" using an encrytpion algorithm and secret key, it might look like "6fA3$kL!2xQ" and cant ealisy be converted back without the correct cipher key.
+                EX. - the message "Meet me at 5 PM" using an encryption algorithm and secret key, it might look like "6fA3$kL!2xQ" and can’t easily be converted back without the correct cipher key.
   
   Encryption Key Security
-    if an attacker can get acces to the private key used to encrypt data, then the situation is lost.
-    some attackers might not attack the system from the internet, sometime its from the inside.
+    if an attacker can get access to the private key used to encrypt data, then the situation is lost.
+    some attackers might not attack the system from the internet, sometimes it's from the inside.
     Encryption Key Security Recommendations
       keep in mind when securing cryptographic keys:
-        restrict access to the keys to only the personnel who truly need acces to them.
-        physically secure the keys, perhaps on removeable data that is itself kept under lock and key. 
+        restrict access to the keys to only the personnel who truly need access to them.
+        physically secure the keys, perhaps on removable data that is itself kept under lock and key. 
           when physically securing a key to removable data, remember people are not the only adversary. should also protect the key from fire and water
-        dont store the keys with the data that is being protected. evin if the attacker gains access to one or the other thay still wont have acces to the data.
+        don't store the keys with the data that is being protected. even if the attacker gains access to one or the other that still won't have access to the data.
         encrypt the encryption key itself using a passphrase or some other item that can be easily remembered
   
   Cryptography Standards
@@ -419,60 +420,60 @@ Cryptography
       International standards occasionally found to have design defects, the design defects can often leave protected data vulnerable to decryption by someone other than the intended recipient.
   
   Symmetric Key Cipher  - an encryption method in which only one key is used between two parties
-    because knowledge of this key make decryption possible, the shared key must be securely exchanged between the parties and is often a challenge.
+    Because knowledge of this key makes decryption possible, the shared key must be securely exchanged between the parties and is often a challenge.
     easy to use for personal data use, only requires one key and is fast and light on resource usage.
     brute force and dictionary attacks are often successful in breaking symmetric keys.
   
   Asymmetric Key Cipher - encryption method in which two or more keys are used, such as one key for encryption and another for decryption.
     each person uses a pair of keys:
-      Public Key    - can be shared openly, allowing other to encrypt messages intended for the key owner
+      Public Key    - can be shared openly, allowing others to encrypt messages intended for the key owner
       Private Key   - only the matching private key can decrypt those messages.
     Ideal for secure communication over untrusted networks.
-    support digital signatures, a sender can use private key to sign data and others can verify the authenticity and integrity of data using the sender's public key.
+    support digital signatures, a sender can use a private key to sign data and others can verify the authenticity and integrity of data using the sender's public key.
     
   Symmetric Key Cryptography
     Advanced Encryption Standard (AES)  -
       most advanced and trusted symmetric encryption standard.
       supporting key lengths of 128,192 and 256 bits and approved by U.S. government for securing TOP SECRET info
-      DES (Data Encryption Standard) and 3DES (Triple DES) are considered obsolete du to serious security flaws.
+      DES (Data Encryption Standard) and 3DES (Triple DES) are considered obsolete due to serious security flaws.
       Gold Standard
       
   Common Asymmetric Key Ciphers:
     Asymmetric Cryptography - 
       Public Key Cryptography - involves the use of multiple keys
-      2 parties exchanging secret info dont use the same key.
+      2 parties exchanging secret info don't use the same key.
       Communications in an Asymmetric Cryptographic scheme utilize 4 keys.
-      both parties involved in Asymmetric Key Cryptography have 2 keys each referred to as Public and Private Keys. Each key is mathematically related allowing data encrypted with one key be decrypted with the other key.
+      Both parties involved in Asymmetric Key Cryptography have 2 keys each referred to as Public and Private Keys. Each key is mathematically related allowing data encrypted with one key be decrypted with the other key.
         most cases of asymmetric key cryptography is:
-          one key is published for anyone on the internet to use. aka "public" key
-          the other key is kept secret and not disclosed to anyone. aka "private" key
-    Asymmetric Cryptography Ex. - if bob wants to send alice a message, he'll encrypt the data using Alice's Public Key
-                                  when alice wants to send a message back to bob, she will encrypt the data using Bob's Public key so bob's private key can decrypt the message
-    Certificate Authorities - a certificate authority verifies the validity of bothe public keys, almost exclusively private companies
+          One key is published for anyone on the internet to use. aka "public" key
+          The other key is kept secret and not disclosed to anyone. aka "private" key
+    Asymmetric Cryptography Ex. - if bob wants to send Alice a message, he'll encrypt the data using Alice's Public Key
+                                  when Alice wants to send a message back to bob, she will encrypt the data using Bob's Public key so bob's private key can decrypt the message
+    Certificate Authorities - a certificate authority verifies the validity of both public keys, almost exclusively private companies
                               fees are collected in exchange for verifying a company (or person's) key.
-                                if a clever attacker hasnt disguised himself as certificate authority, face cetificates could be verified as valid, and jeopardize the confidentiality of the data being exchanged.
-                                  Folowing will help protect against this:
-                                    Each person uses asymmetric key cryptography when communicatin with the certificate authority.
-                                    since so few Certificate Authorities, its possible for each person's browser (email software, IM, etc.) to have the public key for certificate authority pre-loaded.
+                                if a clever attacker hasn't disguised himself as certificate authority, fake certificates could be verified as valid, and jeopardize the confidentiality of the data being exchanged.
+                                  Following will help protect against this:
+                                    Each person uses asymmetric key cryptography when communicating with the certificate authority.
+                                    Since there are so few Certificate Authorities, it's possible for each person's browser (email software, IM, etc.) to have the public key for certificate authority pre-loaded.
                                     every browser comes pre-loaded with public keys for all popular certificate authorities, protecting them from attackers who attempt to pose as Certificate Authorities
     Verifying Identity
-      Ex. - Bob must have Alice's Public Key ahead of time, and alice must also have BOB's Public Key in advance.
-              if the person on the other end of the connection is an imposter, thell be unable to read the message because the data can only be encrypted with the others private key.
+      Ex. - Bob must have Alice's Public Key ahead of time, and Alice must also have BOB's Public Key in advance.
+              if the person on the other end of the connection is an imposter, they'll be unable to read the message because the data can only be encrypted with the other private key.
   
   Asymmetric Cryptography Uses
     Asymmetric Key Cryptography - a form of cryptography in which different keys are used for the encryption and decryption of data. (Public Key Cryptography)
     used during the initial stages of establishing secure web connection for eCommerce
-      user's computer and the server they are communicating with use asymmetric cryptography to exchange a key, when both have the key the rest of the communication will wuse symmetric key ciphers.
-    digital signatures are a form of asymmetric key cryptography, to ensure the auther of a particular piece of information is who they claim to be
-      digital signature can be used to prevent a spoof of an email message and make it look legitimate.
-      Hash - a mathematical algorithm that maps, or coverts, data of arbitrary size to a string of a fixed size, rendering dissimilar strings similar in length and increasing difficulty to decrypt.
-      Digital Signature Authentication - ensures a message hasnt been tampered with and truly comes from its claimed sender. uses Hashing and Asymmetric
+      The user's computer and the server they are communicating with use asymmetric cryptography to exchange a key, when both have the key the rest of the communication will use symmetric key ciphers.
+    digital signatures are a form of asymmetric key cryptography, to ensure the author of a particular piece of information is who they claim to be
+      A digital signature can be used to prevent a spoof of an email message and make it look legitimate.
+      Hash - a mathematical algorithm that maps, or converts, data of arbitrary size to a string of a fixed size, rendering dissimilar strings similar in length and increasing difficulty to decrypt.
+      Digital Signature Authentication - ensures a message has not been tampered with and truly comes from its claimed sender. uses Hashing and Asymmetric
         1. sender writes message and transmits 
         2. sender's email computes hash and places it with the message as an attachment
-        3. has is encrypted wht senders private key
-        4. receiver get message and calculates hash of message.
-        5. receiver decrypts has attached by sender using public key.
-        6. receiver compares the two hashes, if identical, receiver can know message wasnt altered in taransmission and send by apparent sender.
+        3. hash is encrypted with senders private key
+        4. receiver gets a message and calculates the hash of the message.
+        5. receiver decrypts are attached by sender using a public key.
+        6. receiver compares the two hashes, if identical, receiver can know message wasn't altered in transmission and sent by apparent sender.
 
   Transport Layer Security -  modern, robust protocol that uses a combination of asymmetric and symmetric encryption to ensure secure data transmission across the internet
     most widely used protocol for implementing asymmetric (public key) cryptography in secure communications as Transport Layer Security (TLS)
@@ -480,21 +481,21 @@ Cryptography
     Transport Layer Security Encryption (TLS Encryption)
       combines symmetric and asymmetric encryption to maximize both speed and security.
         temp session key is generated by the client for fast symmetric encryption during data transmission.
-          to exchange this key securely TLS uses Public/Private Key Cryptography.
-          Digital Certificates issuesd by trusted Certificate Authorities (CAs) are used to varify the id of participants preventing impersonation and ensuring authenticity.
-    Transpor Layer Security Communication
+          To exchange this key securely TLS uses Public/Private Key Cryptography.
+          Digital Certificates issued by trusted Certificate Authorities (CAs) are used to verify the id of participants preventing impersonation and ensuring authenticity.
+    Transport Layer Security Communication
       TLS has evolved to the standard protocol for secure communication across the internet.
         protect data in transit for web browsing, email, and other services
-        widely used to establish Virtual Private Network (VPN) connections, creating encrypted tunnels that safeguar sensitive information from interception or tampering.
+        widely used to establish Virtual Private Network (VPN) connections, creating encrypted tunnels that safeguard sensitive information from interception or tampering.
   SSL - Protocol used on the internet to secure transmissions that use a combination of Symmetric and Asymmetric Cryptography.
   
 ******************************************************************************************************************************************************************************
   
 Virtual Private Networks (VPN) - VPNs encrypt data as it travels over the internet, ensuring that sensitive information remains protected while allowing remote offices to securely connect to central resources.
-  Ex. - organization have offices in different geographic locations nad need secure access to shared servers, databases, and other critical resources
+  Ex. - organization have offices in different geographic locations and need secure access to shared servers, databases, and other critical resources
         in the past, they often relied on dedicated communication lines from telecom providers to connect these locations.
-          thes lines were secure but expencsive and not always a practical solution.
-            some organizations chose to run separate netowrks in each office
+          These lines were secure but expensive and not always a practical solution.
+            some organizations chose to run separate networks in each office
   
   Virtual Private Networks (VPNs) provide a more affordable solution by offering the security of dedicated line without the high cost.
     
@@ -504,40 +505,40 @@ Virtual Private Networks (VPN) - VPNs encrypt data as it travels over the intern
     User Provisioned VPNs
       Set up and maintained by the organization itself. almost exclusively uses the internet.
     Provider-Provisioned VPNs
-      provided by the organization's phone or internet company. May use other resources where the average customer may not have accss.
+      provided by the organization's phone or internet company. May use other resources where the average customer may not have access.
   
   Common VPN Topologies
     VPN Topologies define how devices and networks connect securely over the internet.
       Client-To-Gateway
         a common type of VPN setup, remote employees require secure access to corporate network and its resources.
           before this was using dial-up connections to ensure direct, secure communication.
-          today, organization use VPNs to meet this need through a model knows as Client-to-Gateway, resembling the traditional Client-Server Relationship.
+          today, organization use VPNs to meet this need through a model known as Client-to-Gateway, resembling the traditional Client-Server Relationship.
             Note: connections can be established using IPsec or other proprietary protocols.
           Cisco and Microsoft offer VPN solutions specifically designed to deliver necessary speed and security for single-user access.
       Gateway-To-Gateway  
-        its common for organizations to have multiple offices in physically separate locations. many use VPNs to allow all their locaions to utilize common servers,databases, etc. on the corporate network.
+        It's common for organizations to have multiple offices in physically separate locations. Many use VPNs to allow all their locations to utilize common servers, databases, etc. on the corporate network.
           this type of config is called "Bridged Network Configuration", "site-to-site"
-          these types of networks are reliant on tunneling mode of IPsec to hide the fact network traffic destined for servers located on the private (internal) network is passed over the public internet.
+          These types of networks are reliant on tunneling mode of IPsec to hide the fact network traffic destined for servers located on the private (internal) network is passed over the public internet.
   
   Methods of Encryption
-    in many ceircumstances there is at least one encryption algorithm available for use at each layof of the protocol stack, besids the physical layer.
+    In many circumstances there is at least one encryption algorithm available for use at each layer of the protocol stack, besides the physical layer.
     commonly seen encryption options available at each layer of the TCP/IP stack.
       Commonly encountered protocols:
-        DataLink Layer (L2)
+        Datalink Layer (L2)
           encryption products available at Data Layer (L2) are designed to be used on wireless devices.
             large organizations needed to deploy wireless networks with the same level of security as offered by wired counterparts.
-            because wireless networks use radio waves to transmit data, there is little control over who is able to see the data being transmitted.
+            Because wireless networks use radio waves to transmit data, there is little control over who is able to see the data being transmitted.
             most wireless encryption offerings only attempt to keep data secret from outsiders
-            most technologies are designed in such a way that there is little defense against insider threats.
+            Most technologies are designed in such a way that there is little defense against insider threats.
           WPA/WPA2
             The primary encryption difference is that WPA uses the Temporal Key Integrity Protocol (TKIP) based on the RC4 stream cipher, 
               while WPA2 uses the much stronger Advanced Encryption Standard (AES) via the Counter-Mode/CBC-MAC Protocol (CCMP)
             older wireless encryption protocols (WEP - Wired Equivalent Privacy) are considered obsolete and insecure.
-              Vulnerabilities that allow attacker to crack its encryption.
+              Vulnerabilities that allow an attacker to crack its encryption.
             WPA2 uses advanced encryption standard (AES) a robust and widely trusted encryption algorithm
-            Always use WPA2 (or WPA3 where available) for wireless security and dont use WEP or WPA, they nolonger meet modern security requirements.
+            Always use WPA2 (or WPA3 where available) for wireless security and don't use WEP or WPA, they no longer meet modern security requirements.
           Wired Networks
-            traffic transmitted over wired network can be seen by evesdroppers, anyone with physical access to a wired network can listen to all of the traffic being transmitted on their segment of the network
+            traffic transmitted over wired network can be seen by eavesdroppers, anyone with physical access to a wired network can listen to all of the traffic being transmitted on their segment of the network
             Data Link Level Encryption is used in 2 most widely used secure protocols for online transmission:
               Secure Sockets Layer (SSL)
               Transport Layer Security (TLS)
@@ -545,8 +546,8 @@ Virtual Private Networks (VPN) - VPNs encrypt data as it travels over the intern
             wireless security/encryption is often accomplished via 802.1X (not the only application of Link Layer Security)
               platforms such as Frame Relay, ATM, and VPN incorporate Link Layer Encryption.
         Network Layer Encryption
-          Internet Engineering Task Force (IETF) hublised standard 4301, introducing the IPsec protocol to provide secure communications at the network layer of the TCP/IP stack
-            IPsec is built into most all networking appliances taht are sold, also has been added to the definition of the IPv6 Protocol.
+          Internet Engineering Task Force (IETF) published standard 4301, introducing the IPsec protocol to provide secure communications at the network layer of the TCP/IP stack
+            IPsec is built into most all networking appliances that are sold, also has been added to the definition of the IPv6 Protocol.
               Ipsec Provides the following assurances:
                 data was not modified in transport
                 senders are who they claim to be
@@ -556,7 +557,7 @@ Virtual Private Networks (VPN) - VPNs encrypt data as it travels over the intern
                   protecting the data from being read by attackers but reveals metadata such as source and destination IP address
                     an observer can see who is communicating but cant access the contents of the message.
                   Transport mode is commonly used for End-to-End communication between two hosts that both support IPsec, such as client and server.
-                    ensures data confidentiality and integrity, but dusnt conceal the id of the endpoints or traffic patterns.
+                    ensures data confidentiality and integrity, but doesn't conceal the id of the endpoints or traffic patterns.
                   site to site VPNs prefer Tunnel Mode because it encrypts the entire original IP packet including the header.
                 Tunnel Mode:
                   the original IP packet is encrypted, including the IP header.
@@ -564,7 +565,7 @@ Virtual Private Networks (VPN) - VPNs encrypt data as it travels over the intern
                     routers on the internet will have an IP header that can be read and used to route the packet to its destination
                   IPsec Designers claim that sender and receiver of packets transmitted in tunnel mode are completely hidden.
                     IP addresses of the gateway routers for sending and receiving networks are still in view.
-                      possible to determin which networks exchanged the packets.
+                      possible to determine which networks exchanged the packets.
                 Authentication Header Protocol (AH):
                   Authentication Header (AH) designed to ensure both the integrity and authenticity of IP packets during transmission.
                     verifies packet has not been altered or corrupted and confirms that it was sent by the system identified in the IP header:
@@ -574,34 +575,34 @@ Virtual Private Networks (VPN) - VPNs encrypt data as it travels over the intern
                         if the 2 match the packet is confirmed to be intact and unmodified.
                       AH uses Security Association to validate identity
                         an exchange of information between both parties to confirm who they are
-                        security associations include cryptographic credentials like digital certificates or public keys enabling AH protocol to verify each participant's ID.
+                        Security associations include cryptographic credentials like digital certificates or public keys enabling AH protocol to verify each participant's ID.
                 Encapsulating Security Payload (ESP) Protocol - Ensure Confidentiality of the data that is being transmitted.
                   the other protocol used by IPsec
                   ESP encrypts the payload of an IP packet using secure cipher(AES or Triple DES)
-                    Ex. Tunnelmode is used to hide ip address of sender and receiver, transport mode only hides the info that is being transmitted. (someone who evesdrops on packets sent in transport mode will see correct IP address of sender and receiver.
+                    Ex. Tunnel mode is used to hide the IP address of sender and receiver, transport mode only hides the info that is being transmitted. (Someone who eavesdrops on packets sent in transport mode will see the correct IP address of the sender and receiver.
                 Encapsulating Security Payload Protocol Transport Mode:
                   1. regular IP packet is generated
                   2. before being transmitted the payload of the packet is encrypted.
-                  3. the packet with its encrypted payload is transmitted. ip header remains unchanged (i.e., it isnt encrypted)
+                  3. the packet with its encrypted payload is transmitted. IP header remains unchanged (i.e., it isn't encrypted)
                 Encapsulating Security Payload Protocol: Tunnel Mode
                   1.  regular IP packet is generated 
                   2.  before being transmitted the entire packet is encrypted
-                  3.  the encrypted packet is embedeed within a new packet.
-                        the new packet contains the IP addresses of the gateway routers on the sending networks, not the IP addresses of the sender and receiver.
+                  3.  the encrypted packet is embedded within a new packet.
+                        The new packet contains the IP addresses of the gateway routers on the sending networks, not the IP addresses of the sender and receiver.
         Transport/Application Layer
           Transport Layer Security (TLS) Protocol - used to provide cryptographic protection to data being transmitted over the internet.:
             1. as segments are passed from the app layer to the transport layer, TLS is involved.
             2. TLS encrypts all of the data passed by the app layer to the transport layer.
-            3. encrypted data is then placed inside a normal transmission tontrol protocol (TCP) segment and transmitted over the internet.
+            3. encrypted data is then placed inside a normal transmission control protocol (TCP) segment and transmitted over the internet.
           Extension of the Secure Sockets Layer (SSL) Library
           Transport/Application Layer: Positions
-            TLS is relatiely invisible to the application layer, the app layer protocols like HTTP, IMAP, and SMTP know how TLS operates in order to take advantage of the security it offers.
+            TLS is relatively invisible to the application layer, the app layer protocols like HTTP, IMAP, and SMTP know how TLS operates in order to take advantage of the security it offers.
               TLS could be considered a transport layer protocol
               BUT TLS makes heavy use of TCP and cannot function without it.
-              some suggest TLS Resides above the transport layer in Protocol stack.
+              Some suggest TLS Resides above the transport layer in the Protocol stack.
           Transport/Application Layer: Network Stack
-            in protocol Stack TLS sits logically between application layer protocols and the transport layer.
-              Receiving data from app, encrypting it, then passing it to the transport layer for transmission.
+            In protocol Stack TLS sits logically between application layer protocols and the transport layer.
+              Receiving data from the app, encrypting it, then passing it to the transport layer for transmission.
             the Full Stack Order:
               Application Layer (HTTP,SMTP, POP, IMAP, Etc.
               Transport Layer Security (TLS)
@@ -610,10 +611,10 @@ Virtual Private Networks (VPN) - VPNs encrypt data as it travels over the intern
               Data Link Layer (ethernet, 802.11b/g/n, Etc.)
               Physical Layer (Wired, Wireless, Etc.)
           Transport/Application Layer: Objectives
-            TLS provides assurances simalar to those offered by IPsec, with 2 main objectives:
+            TLS provides assurances similar to those offered by IPsec, with 2 main objectives:
               Authentication
               Confidentiality
             TLS uses Asymmetric Cryptography (Digital Certificates) to provide authentication services and symmetric key cryptography to ensure confidentiality.
               TLS establishes communication, 2 parties negotiate which cipher to use
               TLS standard requires all clients to implement several standard cryptographic ciphers.
-              in the past TLS has relied on RC4 or Triple DES to secure data. though many servers are now requesting AES toing used for secure communication
+              In the past TLS has relied on RC4 or Triple DES to secure data. though many servers are now requesting AES to be used for secure communication

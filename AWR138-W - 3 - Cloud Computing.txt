@@ -6,17 +6,17 @@
 ****************************************************************************************************
 Cloud Computing
   National Institute of Standards defines cloud computing as:
-    a methodology for enabling convenient on-demand network access to a shared pool of configurable computing resources (networks, servers, and aplications) that can be rapidly provisioned and released with minimal management effort or service provider interactions. (NIST)
+    a methodology for enabling convenient on-demand network access to a shared pool of configurable computing resources (networks, servers, and applications) that can be rapidly provisioned and released with minimal management effort or service provider interactions. (NIST)
     allows people to access files, photos, songs, videos and host of other services on phones or laptops at any time. like a virtual infrastructure with its apps on a cloud-based network.
 
   Cloud-Based Networking - when some or all of an organization's networking resources are located in the cloud. 
     hosting networking resources in the cloud allows business to create complex networks using only internet connection.
-      netwroking resources are normally hosted by a 3rd party cloud provider, 
+      networking resources are normally hosted by a 3rd party cloud provider, 
       services that can be hosted by cloud networking:
-        Network Management Software, Data Connectitivity, Virtual Routers, Firewalls, Load Balancers, Bandwidth, Content delivery network (CDN), Virtual Private Network (VPN), Domain Name System (DNS)
+        Network Management Software, Data Connectivity, Virtual Routers, Firewalls, Load Balancers, Bandwidth, Content delivery network (CDN), Virtual Private Network (VPN), Domain Name System (DNS)
 
   Cloud Computing Services
-    risks of cloud computing depend on the type of cloud computing model deployed. cloud computing can be clasified by types of offerings by tservice providers:
+    risks of cloud computing depend on the type of cloud computing model deployed. cloud computing can be classified by types of offerings by service providers:
       Software as a Service (SaaS)        - refers to providing on-demand applications over the internet. (Ex. of SaaS providers: Salesforce Platform, Google Workspace, Hubspot, Zendesk, Freshdesk)
                                             one or more application and the computational resources to run them are provided as a turnkey service on demand. 
                                             all security provisions are carried out by the cloud provider.
@@ -33,14 +33,14 @@ Cloud Computing
                                             Platform architecture supports: Compilers, Libraries, Middleware, Utilities, and software tools necessary for developing and deploying applications.
 
   Cloud Computing Summary
-    Cloud Service Provider's Delivery model - defins what the network administrator (or customer) is responsible for.
+    Cloud Service Provider's Delivery model - defines what the network administrator (or customer) is responsible for.
     misunderstanding responsibilities of the customer and service provider causes unnecessary vulnerabilities due to improper maintenance of software.
-      by carefully defining roles and responsibilities of a cloud service offering, a network admin can id the key areas of rsponsibility and focus their attention on securing those aspects.
+      by carefully defining roles and responsibilities of a cloud service offering, a network admin can id the key areas of responsibility and focus their attention on securing those aspects.
 
   Digital Content Delivery Services
     the number and size of digital file formats can exceed attachment size limitation of email applications.
     Digital Content Delivery Services - enable companies to send large files to customers, partners and vendors for collaboration and business meetings,
-      services also deploy multiple layers of security to addrss every threat to data confidentiality and integrity.
+      services also deploy multiple layers of security to address every threat to data confidentiality and integrity.
     Ex. of cloud service digital content delivery service providers: DropBox, Amazon, and YouSendIt.
       these cloud providers advertise:
       "Secure and Simple-to-Deploy File-sharing Solutions" that "allows organizations to send and share large files," and services that enable customers to access files from mobile device, computer, or web.
@@ -58,30 +58,30 @@ Cloud Computing
               want to use your own data and your own applications.
                 when you want to control the level of security
                   your company has enough resources to run a cloud data center on its own
-              private cloud operates one organization, can be managed either internally or by 3rd-party and my be hosted internally or externally.
+              private cloud operates one organization, can be managed either internally or by 3rd-party and may be hosted internally or externally.
     Hybrid  - hybrid cloud provides a variety of public and private options from multiple providers.
               Hybrid cloud environments combine public and private cloud services
-              business hs to keep track of each security platforms to ensure the y can communicate with each other.
+              business has to keep track of each security platforms to ensure they can communicate with each other.
               on-premises and off-site server-based cloud infrastructures are used with hybrid cloud options.
               hybrid cloud requires more on-site resources and is often a more costly option.
 
-  Authentication - the process of identifying a user or system as who or what they declare to be. ther are 2 types of Authentication:
+  Authentication - the process of identifying a user or system as who or what they declare to be. there are 2 types of Authentication:
     Private Network Authentication
-      Private Network Authentication in a windows environment can occure through Active Directory or Local Authentication (NT LAN Manager, or NTLM)
+      Private Network Authentication in a windows environment can occur through Active Directory or Local Authentication (NT LAN Manager, or NTLM)
       Active Directory:
-        user credentials are validated via Local Security Authority Subsystem Service (Isass.exe), using kerberos protocol to comunicate with domain controller
+        user credentials are validated via Local Security Authority Subsystem Service (lsass.exe), using kerberos protocol to communicate with domain controller
       Kerberos:
         authenticates users without transmitting passwords in hash or cleartext form, reducing password cracking risks.
         supports single sign-on allowing users to access multiple systems with one logon "ticket"
-        Local Authentication uses NTLM, lacking single sign-on, primarily maintained for backword compatibility.
+        Local Authentication uses NTLM, lacking single sign-on, primarily maintained for backward compatibility.
         NTLM Vulnerabilities: Susceptibility to pass-the-hash attacks.
         use Kerberos along with contemporary authentication standards (OAuth 2.0, OpenID Connect, Multi-Factor Authentication (MFA)) to strengthen security.
-    Cloud Atuthentication
+    Cloud Authentication
       Public and hybrid cloud services (SaaS) leverage authentication method selected by the provider:
         database credential lookups, local directory access protocol (LDAP), or federated identity management.
-        Federal Identity Management - a method of linking authentication credentials across identity management systems to enable single sign-on across multiple domains using open authentication standards.
-          (The funcamentals of Identity Federation Techtarget) federated identity management involves the use of an identity provider (IP) and service providers (SP).
-          Identity provider may be a service or server thats responsible for managing authentication requests
+        Federated Identity Management - a method of linking authentication credentials across identity management systems to enable single sign-on across multiple domains using open authentication standards.
+          (The fundamentals of Identity Federation Techtarget) federated identity management involves the use of an identity provider (IP) and service providers (SP).
+          Identity provider may be a service or server that's responsible for managing authentication requests
             if service provider is trusted: authentication metadata consisting of public key certificates, URL for single sign-on service, URL for the single sign-on Log off service, are provided.
             session tokens or cookies are used to enable single sign-on across federated applications or resources.
 
@@ -90,7 +90,7 @@ Cloud Computing
     backup software for cloud storage solutions.
     data center admin will need to analyze backup windows to ensure processes are occurring during off-peak hours.
     implementing cloud-based storage requires analyzing the need for encryption of sensitive data and authentication methods
-    organizations should review service level agreements to ensure that response times, data availability, redundancy , and security obligations of the provider are in line with the organizations objectives.
+    organizations should review service level agreements to ensure that response times, data availability, redundancy, and security obligations of the provider are in line with the organizations objectives.
 
 ****************************************************************************************************
 Virtualization
@@ -105,13 +105,13 @@ Virtualization
     Application Virtualization  - Enables applications to run from a server without requiring file system, registry, or operating system changes on the device accessing the application.
                                   Enabling benefits: being able to run multiple versions of an application on a device, optimal use of hardware resources based on workload, and cost reduction in hardware and licensing.
     Operating System Virtualization - Enables running of several different Operating Systems in parallel on a single central processing unit (CPU)
-    Network Virualization - enables the logical segmentation of phyzical network resources, enabling the resources to be pooled together.
-                            Storage, processing, and applications may be shared across physical devices giveing flexibility of allocating resources as required.
+    Network Virtualization - enables the logical segmentation of physical network resources, enabling the resources to be pooled together.
+                            Storage, processing, and applications may be shared across physical devices giving flexibility of allocating resources as required.
     Server Virtualization - Enables running multiple servers that may have been running with low utilization rates onto fewer servers running at optimized server utilization rates.
                             decrease in numbers of servers results in a decrease in cost, energy, and hardware requirements.
-                            VMWare states that server consolidation in a virtualized environment can reduce hardware requirements by 10:1 ratio. (VMWare)
+                            VMware states that server consolidation in a virtualized environment can reduce hardware requirements by 10:1 ratio. (VMware)
     Storage Virtualization  - multiple physical network storage devices are combined to appear as one storage device that can be managed centrally.
-                              storage virtualization reduces the complexity of performing common administration tasks (backups, restoration, and stroage allocation.)
+                              storage virtualization reduces the complexity of performing common administration tasks (backups, restoration, and storage allocation.)
 
   Virtualization Devices:
     Servers, Storage Area Networks, Routers, Business Applications.
@@ -120,11 +120,11 @@ Virtualization
     60% of servers are running in virtualized environment and increasing. common virtualization challenges:
       Plan for Physical Device Failure
         consider hardware redundancy on hardware hosting virtual servers or devices.
-        Ex.: hosting 5 servers on one. consider clustering the server or at minimum, insure physical host has redundant power supplies, network interface cards(NIC cards), and centalized network attached storage.
+        Ex.: hosting 5 servers on one. consider clustering the server or at minimum, ensure physical host has redundant power supplies, network interface cards (NIC cards), and centralized network attached storage.
       New Administration Knowledge Required
-        Managing a VMWare, Xen, or Hyper-V server is different than managing physical devices. admin staff should be trained prior to virtualization. Modify operations and disaster recovery procedures.
+        Managing a VMware, Xen, or Hyper-V server is different than managing physical devices. admin staff should be trained prior to virtualization. Modify operations and disaster recovery procedures.
       Applications Consideration
-        Not all applications will be supported to run in virtual evnironments. contact application providers prior to migrating.
+        Not all applications will be supported to run in virtual environments. contact application providers prior to migrating.
 
 ****************************************************************************************************
 Securing Cloud-Based Applications.
@@ -133,15 +133,15 @@ Securing Cloud-Based Applications.
     securing cloud services requires collaboration between the cloud services provider and customer.
     security methods will depend on the type of cloud environment (Public, Private, or Hybrid and the cloud service being provided). 
       data being stored, transferred, or processed should be considered along with any compliance requirements
-    Cloud Environements increas the risk of unauthorized access to confidential data due to the ability to access data from multiple customers through a single point of entry.
+    Cloud Environments increase the risk of unauthorized access to confidential data due to the ability to access data from multiple customers through a single point of entry.
     Cloud security risks can be mitigated with a strong security policy and processes that were developed with an understanding of common security risks.
   
-  Cloud Security Vulnerabilitie(s):
-    Insecure application and application programming interfaces (API), Abuse of cloud services, Shared Technology Issues, Dataloss or leakage, Account Authentication Breaches.
+  Cloud Security Vulnerabilities:
+    Insecure application and application programming interfaces (API), Abuse of cloud services, Shared Technology Issues, Data loss or leakage, Account Authentication Breaches.
   
   Cloud Security Processes
-    Cloud Security is a continuous process starting with the development of secure cloud platforms and applicaions.
-    optimize and etect threats during operation (ensuring systems are patched and updated routinely, on cloud service provider and client sides).
+    Cloud Security is a continuous process starting with the development of secure cloud platforms and applications.
+    optimize and detect threats during operation (ensuring systems are patched and updated routinely, on cloud service provider and client sides).
       the following questions will assist in Identifying best security processes:
         what type of data is being managed in the cloud?
         what type of cloud model was selected (private, public or hybrid)?
@@ -154,7 +154,7 @@ Securing Cloud-Based Applications.
       multiple customers may be sharing common resources.
       sensitive data may be transferred and stored outside of private networks.
       Firewalls:
-        designed to prevent unauthorized access to or from a network. rules are established to implement security policies to grand, deny, and log network actigity based on admin criteria.
+        designed to prevent unauthorized access to or from a network. rules are established to implement security policies to grant, deny, and log network activity based on admin criteria.
         cloud-based firewall - optimized for private and public cloud environments enabling consistency across physical, virtual, and cloud environments.
         firewalls designed for cloud providers enable multi-tenancy security configuration capabilities.
       Data Encryption
@@ -162,71 +162,71 @@ Securing Cloud-Based Applications.
           Data is made unreadable until it is unlocked by using key algorithm.
           data should be encrypted prior to being transferred or stored in public and private clouds.
           encryption secures data regardless of physical location.
-             important in a cloud environment where physical location of data meay be unknown. (Encryption, Not Restriction: Nextgov)
-          encrypting data prior to transfering to cloud ensures only customer can decrypt or unlock data. 
-          Encryption services can provided by vendor wher vendor has promised confidentiality regarding data contents.
+             important in a cloud environment where physical location of data may be unknown. (Encryption, Not Restriction: Nextgov)
+          encrypting data prior to transferring to cloud ensures only customer can decrypt or unlock data. 
+          Encryption services can provided by vendor where vendor has promised confidentiality regarding data contents.
       Anti-Virus
-        cloud consumer and provider should ensure they have implemented anti-0virus, malware, and anti-spyware tools that are regularly updated.
+        cloud consumer and provider should ensure they have implemented anti-virus, malware, and anti-spyware tools that are regularly updated.
         customers need to work with cloud service providers to configure anti-virus exclusion rules for trusted files being transferred across the internet to customer devices.
-          sometime anti-virus software will quartine these files if rules are not established properly.
+          sometime anti-virus software will quarantine these files if rules are not established properly.
       Data Loss Prevention (DLP)
-        Data Loss Prevention Software can be used to ensure that confidential informaiton is tracked and transfer is controlled. 
-        Data is tagged based on a set of business rules that establish constrains for data in transit and at rest (stroage).
+        Data Loss Prevention Software can be used to ensure that confidential information is tracked and transfer is controlled. 
+        Data is tagged based on a set of business rules that establish constraints for data in transit and at rest (storage).
       Securing Application Vulnerabilities  
-        Customer Leveraging Software As a Service (SaaS) should verify that providers have done their due diligence when developing applicaiton
-          Including trace analysis for security vulnerabilities during code development. customer should understand contractual obligation of providers maintaining the app against new discoverd threats.
+        Customer Leveraging Software As a Service (SaaS) should verify that providers have done their due diligence when developing application
+          Including trace analysis for security vulnerabilities during code development. customer should understand contractual obligation of providers maintaining the app against new discovered threats.
       Security Authentication
         authentication to cloud services should be accomplished using authentication protocols and customer methods for auditing access to systems, data and processes.
         public cloud access can be controlled using federated identity management when offered to enable single sign-on and security of authentication methods once available on private networks.
 
   Cloud Analysis
-    considering the multiple cloud service options when impleementing a cloud solution is important, must understanding long and short term organizational goals.
+    considering the multiple cloud service options when implementing a cloud solution is important, must understanding long and short term organizational goals.
     once organization understand basics of cloud services along with goals, an analysis can begin.
     reasons an organization may seek a cloud service solution: IT staffing, Reducing costs, Platform independence, Growing demand for services, and Improving system scalability/flexibility.
 
-  Cloud Analysis: Contractual Aggreements
-    organizations must ensure that service agreements include clear, enforcable terms. these elements define expections, protect data, and maintain performance standards:
+  Cloud Analysis: Contractual Agreements
+    organizations must ensure that service agreements include clear, enforceable terms. these elements define expectations, protect data, and maintain performance standards:
       Backup Frequency, Encryption Requirements, Uptime Requirements, Application response time, Data Storage Location, Support Accessibility and hours, Disaster recovery plans.
 
   Cloud Analysis: Regulation Requirements
     when considering cloud solutions evaluate how well the service provider align with key regulatory requirements: 
-      Sarbanes Oxley, Payment Card Industry Data Security Standard (PCI DSS), Health Insurance Portability and accountability act (HIPAA)
+      Sarbanes Oxley, Payment Card Industry Data Security Standard (PCI DSS), Health Insurance Portability and Accountability Act (HIPAA)
     laws and standards ensure data is handled securely, responsibly and in compliance with industry rules.
 
   Complying with Regulations
-    providers use multilayered security practes to protect customers' data:
+    providers use multilayered security practices to protect customers' data:
       Facilities: 
-        Double wall construction, Biometric and video surveillance security, on-site securtiy guards, raised floors and seismically protected equipment, dry-pipe fire protection tech, for damage control(earthquakes, flooding, fire, and natural disasters), visitors escorted, dual redundant power supplies
+        Double wall construction, Biometric and video surveillance security, on-site security guards, raised floors and seismically protected equipment, dry-pipe fire protection tech, for damage control (earthquakes, flooding, fire, and natural disasters), visitors escorted, dual redundant power supplies
       Data Transmission
-        senders must upload files to servers in datacenters, an email is automatically generated to the recipients wwho can download the file:
-          Secure Socket Layer (SSL) protocol is used to protect data integrity during file transfer (for online payments and user registration)
+        senders must upload files to servers in datacenters, an email is automatically generated to the recipients who can download the file:
+          Secure Sockets Layer (SSL) protocol is used to protect data integrity during file transfer (for online payments and user registration)
           industry-standard 128-bit SSL encryption deployed using Class 3 certificates and server-gated cryptography (SGC)
           authentic delivery is used requiring a file recipient to be registered with an account, they must login with username and password before allowed to download files.
       Payment Card Industry Data Security Standard
-        PCI DSS 4.0 introduces requirements that impact how organizations handle and protect paymet card data, making compliance more complex and critical.
-          PCI is not a federal regulation, adherence is mandatory for any business that processes credit card transactions and failure to copmly can result in financial and reputational concequences.
+        PCI DSS 4.0 introduces requirements that impact how organizations handle and protect payment card data, making compliance more complex and critical.
+          PCI is not a federal regulation, adherence is mandatory for any business that processes credit card transactions and failure to comply can result in financial and reputational consequences.
             providers implement multilayered security strategies, combining technical controls, policies, and monitoring practices to safeguard customer data.
       Network Access Control
         Network and ISP grade firewalls providing IP filtering and intrusion detection protection.
         servers are constantly upgraded with leading firewall products
-        regular vulnerability scans of internal networks are conducted to practively detect and prevent security threats.
+        regular vulnerability scans of internal networks are conducted to proactively detect and prevent security threats.
       Credentials
         users register via valid email address and strong password
-        credentials are encrypted during transmission and storeage via one-way hash.
+        credentials are encrypted during transmission and storage via one-way hash.
         password requests are verified by requiring the user to validate their email address prior to password reset.
       Data Retention
-        uploade files are managed and retained in accordance with organization and site-specific data retention requirements, constistent with applicable laws, regulations, and operational needs.
-          in alignment with NIST SP 800-53, control SI 12 (Information Management and Retention), info is "managed and retained ... in accordance with applicable laws, executive orders, directives, regulations, policies, standards, guidelines, and operational requirements"
+        uploaded files are managed and retained in accordance with organization and site-specific data retention requirements, consistent with applicable laws, regulations, and operational needs.
+          in alignment with NIST SP 800-53, control SI-12 (Information Management and Retention), info is "managed and retained ... in accordance with applicable laws, executive orders, directives, regulations, policies, standards, guidelines, and operational requirements"
             retention periods are determined based on data classification and records management policies, and data is retained only for as long as it is required to support administrative, legal, audit, or operational purposes, consistent with NIST SP 800-53, control AU-11 (Audit Record Retention)
               upon reaching the end of its approved retention period, data is securely disposed of in accordance with established deletion and sanitization procedures.
-                to support system availability and resilience, server redundancy is implemented so data may be replicated accross multiple systems to mitigate the impact of server failures.
+                to support system availability and resilience, server redundancy is implemented so data may be replicated across multiple systems to mitigate the impact of server failures.
       Data Storage
-        stored files are encoded and scrambled to make it impossible for a network intruder to identifyh a file by its original name or to read its content.
+        stored files are encoded and scrambled to make it impossible for a network intruder to identify a file by its original name or to read its content.
         file download require authentication of a user's complete credentials.
       Auditing
         Tracking tools are provided to customers enabling them to monitor the number of times a file has been downloaded, the time downloaded, and who downloaded it.
-        Audit trails enable customers assurance that cloud service provider is in compliance with government regulations regarding the traceability of information privacy and accidential disclosures
-        PCI compliance is necessary to require with the privacy provisions of the Gramm-Leach-Biley (GLB) Act which is the governing agency that regulates the activities of the financial services indurstry.
+        Audit trails enable customers assurance that cloud service provider is in compliance with government regulations regarding the traceability of information privacy and accidental disclosures
+        PCI compliance is necessary to require with the privacy provisions of the Gramm-Leach-Bliley (GLB) Act which is the governing agency that regulates the activities of the financial services industry.
 
   Vulnerabilities
     cloud providers layer security across many levels, leaving a number of issues and vulnerabilities that must be considered before deciding to deploy to a cloud environment:
@@ -242,22 +242,22 @@ Securing Cloud-Based Applications.
           will you be able to access data when you need it? 
             what are hurdles you may face if obtaining data in the event of an earthquake, fire, hurricane, flood, or other natural disasters?
       Required Regulations:
-        what regulatory requirements are you required to have in place if yor store data at your business? 
+        what regulatory requirements are you required to have in place if you store data at your business? 
           does your cloud provider offer you the same requirements?
       Auditing Services:
-        Does the service provider use imdependent auditing services? 
+        Does the service provider use independent auditing services? 
           If so who? 
-            Will they provide outside refrence information so you can obtain information from their auditors about their security and policy practices?
+            Will they provide outside reference information so you can obtain information from their auditors about their security and policy practices?
       Data protection Policies:
         what policies does the cloud service provider use to protect your data? 
-          Are these policies clearly written out and provieded to you in a service agreement? 
+          Are these policies clearly written out and provided to you in a service agreement? 
             is this agreement non-negotiable or do you have some room for negotiation to ensure your particular situational needs will be covered?
       Vulnerability Scanning:
-        what type of security and vulnerability canning does the provider have in place?
+        what type of security and vulnerability scanning does the provider have in place?
           how often are security threat issues addressed in a 24-hour period?
             what are their proactive security policies and practices in order to prevent data breaches?
       Incident Response Policies:
-        what policies does the cloud provider havce in place for incident reporting, handling and response in case of security breach?
+        what policies does the cloud provider have in place for incident reporting, handling and response in case of security breach?
           will you be notified?
             do any federal regulations require that the provider notify you for information is lost, stolen, or disseminated?
       Risk Management Policies
@@ -275,4 +275,3 @@ Securing Cloud-Based Applications.
       Certifications
         does the cloud provider have any accreditations or certifications like BBB or security Certifications?
           if the provider does not have any of these, why not?
-          

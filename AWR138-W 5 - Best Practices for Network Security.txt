@@ -9,31 +9,31 @@
       Defense in depth - a concept where multiple security measures are set in place in order to provide a better system of successful attack prevention.
       Buffer Overflow - where an attacker deliberately feeds more data into a program's memory buffer than it can handle, causing the excess to overwrite adjacent memory.
         this can corrupt data, crash the system, or allow the attacker to run malicious code.
-        other stratigies include SQL injection and similar direct exploits designed to target the victim's systems outright.
-      if hackers could bypass the perimeter, through overlooked vulnerabilities or alternative entry points, could  reach the target (database or server) with little resistance.
-      attackers shift from frontal assults to exploiting side channels for access.
+        other strategies include SQL injection and similar direct exploits designed to target the victim's systems outright.
+      if hackers could bypass the perimeter, through overlooked vulnerabilities or alternative entry points, could reach the target (database or server) with little resistance.
+      attackers shift from frontal assaults to exploiting side channels for access.
 
     Network Client Security: Malware
       client workstations on corporate network are the common points of entry for hackers seeking to get in an organization's network.
         through a variety of means to get malware installed on employee computers, hackers can use the software as a launching pad for further attacks.
-        where traditional malware was used for distruction or gaining fame, modern hackers developed malware that could be as part of a larger coordinated attack.
+        where traditional malware was used for destruction or gaining fame, modern hackers developed malware that could be as part of a larger coordinated attack.
         Malware
           Egress - Egress (outbound) filtering is the protection that ensures a network does not transmit invalid or malicious traffic to another network.
           malware is an effective attack vector because most computer networks are configured.
           most networks feature SPI firewall, a fairly robust form of defense.
             SPI firewalls weakness is the lack of filtering on outgoing network traffic.
               on networks the outgoing network traffic is completely unfiltered.
-            networks that employ egresss filtering is usually a simple inspection of the requested port.
+            networks that employ egress filtering is usually a simple inspection of the requested port.
           Malware Ex.
             if hackers could get a program installed on the systems inside the firewall, the software would almost certainly be able to "phone home" for more instructions from the hacker.
               communication between infected system and hacker's control server would be over TCP connection, bypassing traditional firewalls.
-              since its a TCP connection hat the protected system initiated, SPI firewall would have no way to recognize it as malicious.
+              since its a TCP connection that the protected system initiated, SPI firewall would have no way to recognize it as malicious.
                 how messages move from infected system allowing attackers to bypass the protective firewall.:
                   Attacker Server > The Internet > SPI Firewall > Intranet.
 
     Blended Malware Threats
       malware offering have utilized blended threats, using a combination of malware types to access their target and carry out their malicious intent
-      these threats enable hackers to disrupt key services, steal money, and obtain confidential personal information, combining 3 or more of the folling malware:
+      these threats enable hackers to disrupt key services, steal money, and obtain confidential personal information, combining 3 or more of the following malware:
         Viruses
         Worms
         Rootkits
@@ -44,29 +44,29 @@
         Spyware
       Blended Malware Threat Advantages
         Blended threat style worm advantages:
-          No single control can effectively combad blended threats
-          networks where virus scanners and firrewalls can halt traditional worms, 
-            blended threats might still gain entry because of social engineering tactics (infected emails, Trojan downlaods, Etc.)
+          No single control can effectively combat blended threats
+          networks where virus scanners and firewalls can halt traditional worms, 
+            blended threats might still gain entry because of social engineering tactics (infected emails, Trojan downloads, etc.)
           when an attackers goal is to gain entry to as many networks as possible, blended threats represent the best chance for success.
         with the help of anti-virus packages and firewalls (network and host-based), blended threats are not as successful.
 
     Browser Exploits
-      atackers have begun targeting the single most frequently used application on a computer: the internet browser.
+      attackers have begun targeting the single most frequently used application on a computer: the internet browser.
       browsers have vulnerabilities that can be exploited, allowing attackers to execute program code on the victim's system.
         the goal of attacker utilizing a browser exploit to distribute malware is to lure unsuspecting users to malicious websites.
           Framework of an attack:
             basic frameworks of such an attack:
               1st. attacker constructs a malicious webpage, crafted to take advantage of a flaw (vulnerability) in a browser
                 Ex. vulnerability was discovered in JavaScript interpreter for browser X. 
-                  attacker constructs a page that includes JS code that exploits that vulnerability, infecting the systems of any visitor  with an unpatched browser.
+                  attacker constructs a page that includes JS code that exploits that vulnerability, infecting the systems of any visitor with an unpatched browser.
               2nd. attacker must find some way to lure visitors to the crafted webpage.
               3rd. after user with vulnerable browser visits the webpage, attacker issues commands to be downloaded remotely by the malware that is installed on the visitor's system.
           Cross-Site Scripting
-            attackers who wanted to distribute malware via browser exploits attampted to lure victims to infected websites. typically featuring claims of free downloads of software, music, movies, and other (adult) content.
-              users looking to download were highly motivated and frequently ignored error messages displayed by their browsers that should have served as a warnining for bad things.
+            attackers who wanted to distribute malware via browser exploits attempted to lure victims to infected websites. typically featuring claims of free downloads of software, music, movies, and other (adult) content.
+              users looking to download were highly motivated and frequently ignored error messages displayed by their browsers that should have served as a warning for bad things.
             after "warez" sites failed to lure people, attackers began to use a techniques known as cross-site scripting to infect traditional users on otherwise safe websites.
             Cross-site scripting occurs when an attacker posts HTML code redirecting users to an infected website on an innocent or non malicious site.
-            Cross Site Scripting Ex. - atacker access the message board of the local newspaper and post a discussion topic. 
+            Cross Site Scripting Ex. - attacker access the message board of the local newspaper and post a discussion topic. 
               <iframe src="http://malicious.website.cn/browser.exploit.page.html" width="1" height="1">
               visitors to the discussion board would download the attacker's message, victim's browser would execute the line, instructing the browser to visit the specified URL
                 executing any browser exploits that page might feature.
@@ -74,16 +74,16 @@
               websites automatically remove most HTML from posts prior to posting them to discussion boards.
           Hijack Websites
             attackers seeking to execute browser exploits would hijack innocent websites and use them as a means of distribution.
-              attackers would target innocent websites and attampt to break into them, if gain entry they would modify the HTML of pages served from that site.
+              attackers would target innocent websites and attempt to break into them, if gain entry they would modify the HTML of pages served from that site.
             attacker's action might go unnoticed by owners of website for long periods of time.
               meanwhile any visitor to that site would be directed to the malicious site.
 
     Defending Against Attacks on Network Clients
-      Best Methods of defencse against attacks that target network clients grouped in 2 categories: Technology controls nad policies.
+      Best Methods of defense against attacks that target network clients grouped in 2 categories: Technology controls and policies.
       Technical controls used to secure clients from attack: Patch Management, use of Firewalls, and Anti-Virus Software.
-        each offers a different layer of defence:
-          Patch Management  most reliable and best control against the trhreats to clients is the judicious use of patch management.
-            many current generation of attacks against clients are predicated upon software vulnerabilities, applying patches from venders is the best way to remove these vulnerabilities.
+        each offers a different layer of defense:
+          Patch Management  most reliable and best control against the threats to clients is the judicious use of patch management.
+            many current generation of attacks against clients are predicated upon software vulnerabilities, applying patches from vendors is the best way to remove these vulnerabilities.
             applying patches from vendors is the best way to remove vulnerabilities. once patched, a vulnerability can no longer be exploited, making that workstation impervious to that type of attack.
           Firewalls
             with traditional firewalls, complexity of modern threats requires a more advanced approach.
@@ -92,83 +92,83 @@
               NGFWs provide advanced threat protection by operating at the application layer, Key Capabilities include:
                 Deep Packet Inspection (DPI): Examining the actual content of data packets for malicious code, not just the headers.
                 Intrusion Prevention Systems (IPS): proactively detecting and blocking known cyberattacks.
-                Application& User Awareness: Enforcing security policies based on specific applications and user identities, not IP addresses.
+                Application & User Awareness: Enforcing security policies based on specific applications and user identities, not IP addresses.
             Zero-Trust Architecture
               Zero-Trust Architecture (ZTA) is a strategic shift that assumes the network is always hostile, " never trust, always verify" a philosophy that is built on several key principles:
                 Continuous Verification: Every Access request is authenticated and authorized, regardless of whether it originates from inside or outside the network.
                 Least Privilege Access: Users are only given access to the resources absolutely necessary for their roles, minimizing the potential damage from compromised account
                 Microsegmentation: the network is broken down into small, isolated zones to prevent attackers from moving freely within the network if a breach occurs.
           Endpoint and Extended Detection Response
-            Endpoint Detection and Response (EDR) and Extended Detection and Response (XDR), analyze behavior to find and stop malicious activity from bhoth known and unknown malware.
+            Endpoint Detection and Response (EDR) and Extended Detection and Response (XDR), analyze behavior to find and stop malicious activity from both known and unknown malware.
               necessary because attackers constantly develop new ways to bypass older, signature-based defenses. Antivirus is not longer a sufficient strategy to secure client workstations.
 
     Policy Controls
       policies combined with some way of enforcing them can cut down on number of ways in which a user's computer is vulnerable to attack.
-    FilterAdministrator Privileges
+    Filter Administrator Privileges
       organizations with little IT support funding may enable computer users to possess admin level privileges over personal computers. can lead to wide variety of problems.
-      implementing strict controls to filter or limit administrator privileges helps reduce the risk of accidental misconfigurations, malware installations, and aunauthorized software changes.
+      implementing strict controls to filter or limit administrator privileges helps reduce the risk of accidental misconfigurations, malware installations, and unauthorized software changes.
       by ensuring elevated privileges are granted when absolutely necessary, organizations can maintain stronger system integrity and security.
-      Vulnerabilities mitigated by this poilicy
+      Vulnerabilities mitigated by this policy
         users with admin privileges may choose to install dangerous software, disable firewalls, anti-virus, or other security packages due to incompatibilities with other applications like video games.
-        well-meaning users change computer settings in a effort to fix problems or to optimize performance and/or security. removing admin privileges, admin can prevent system changes from occuring.
+        well-meaning users change computer settings in a effort to fix problems or to optimize performance and/or security. removing admin privileges, admin can prevent system changes from occurring.
           users without admin privileges are unable to install software, preventing them from installing applications that might pose legal or operational problems for organization.
-            also unable to change sensitive system settings and are unable to disable or alter security software thats been installed by admin.
+            also unable to change sensitive system settings and are unable to disable or alter security software that's been installed by admin.
       Why the Policy Isn't Always Enforced
-        by ensuring users cant modify sensitive settings on their systems, organizations are placing grater burden on IT department.
+        by ensuring users cant modify sensitive settings on their systems, organizations are placing greater burden on IT department.
           if employee has a legitimate need for a new application to be installed on their system, IT department is responsible for installing it.
             some large organizations with understaffed IT departments choose to place employees on the honor system, providing written policies that are not enforced with technological controls.
               Employees are told not to perform actions on the system, but are still given the authority to do so.
-            organizations view the computer as an employment benefit and permit the employee to use the computer in whatever maner the wish, provided no laws are broken.
-              organizations are making a value judgment wher they feel the cost of maintaining/repairing security incidents are outweighed by the benefit of providing this service to their employees.
+            organizations view the computer as an employment benefit and permit the employee to use the computer in whatever manner they wish, provided no laws are broken.
+              organizations are making a value judgment where they feel the cost of maintaining/repairing security incidents are outweighed by the benefit of providing this service to their employees.
 
     Filter Employee Internet Access
       Web Filtering, most employees immediately think of a control put in place by managers seeking to ensure that everyone is constantly working.
         being one application of a web filter, another security-related advantage is blocking malware.
           filtering employee internet access, organization can prevent visits to malicious or high-risk websites that may host harmful content, reducing the chances of infections and data breaches.
           Vulnerabilities Mitigated by this Policy
-            Malware targeting desktop computers often be delivered through websites. employees visit these sites without realizing theyr dangerous, downloading pages designed to exploit weaknesses in web browsers.
-              if browser hasnt been updates with security patches, malware can install itself on the computer 
+            Malware targeting desktop computers often be delivered through websites. employees visit these sites without realizing they're dangerous, downloading pages designed to exploit weaknesses in web browsers.
+              if browser hasn't been updates with security patches, malware can install itself on the computer 
                 unless antivirus program stops it, which does not always happen. limiting websites employees can visit helps reduce the risk because attackers often compromise legitimate sites to spread malware.
-            web filtering doesnt have to be all or nothing; organizations allow safe recreationsl sites through to maintain trust and avoid appearing overly restrictive.
-            some web filtering tools block access at the DNS level, wher others rely on blacklists (banned sites) or whitelists (approved sites)
-            advanced systems use artificial intelligence to scan pages in real time as they load, blkocking harmful content before it reaches the user.
-            theses tools must be placed either logically or physically between company computers and the internet to be effective.
+            web filtering doesn't have to be all or nothing; organizations allow safe recreational sites through to maintain trust and avoid appearing overly restrictive.
+            some web filtering tools block access at the DNS level, where others rely on blacklists (banned sites) or whitelists (approved sites)
+            advanced systems use artificial intelligence to scan pages in real time as they load, blocking harmful content before it reaches the user.
+            these tools must be placed either logically or physically between company computers and the internet to be effective.
           Why the Policy Isn't Always Enforced
-            most managers experiecne some concern that the filtering could harm the employer/employee relationship.
+            most managers experience some concern that the filtering could harm the employer/employee relationship.
               administrative burden: legitimate sites that become blacklisted must be dealt with, a process that typically requires manual intervention from the administrator.
 
     Disallow Unauthorized Use of Computer Equipment
-      employees use their computers in an unauthorized way, becomming difficult to predict exactly how each employee use the computer, mking it hard to assess the security of this unauthorized use.
-      organizations should have clear policies in place that explicitly disallow unauthorized use of computer equipment, ensuring employees understand that such actions may lead to disiplinary measures
+      employees use their computers in an unauthorized way, becoming difficult to predict exactly how each employee use the computer, making it hard to assess the security of this unauthorized use.
+      organizations should have clear policies in place that explicitly disallow unauthorized use of computer equipment, ensuring employees understand that such actions may lead to disciplinary measures
         helping maintain control over system access and reduces potential security risks.
       Vulnerabilities Mitigated by this Policy
         its impossible to construct a list of vulnerabilities mitigated by the enforcement of this policy, its mostly a defense against the unknown.
-          Ex. its easy to anticipate an employee watching movies or TV shows from computer, didnt occur to management that another employee might utilize this computer to run an illegal gambling ring.
+          Ex. its easy to anticipate an employee watching movies or TV shows from computer, didn't occur to management that another employee might utilize this computer to run an illegal gambling ring.
           admin see this policy as a control against both technical and legal vulnerabilities. by enforcing strict guidelines on computer usage, the organization protects itself from any wrong doing by its employees, that could expose it to liability if organizational equipment is used.
-      Why the Policy Isnt Always Enforced
+      Why the Policy Isn't Always Enforced
         Most Organizations have an Acceptable Use Policy (AUP) in place.
           Employees are required to read the policy and sign a statement acknowledging it before they can use a company computer, these policies often fail when it comes to enforcement.
         technical and automated controls help, but cannot guarantee compliance with rules on computer usage.
           to ensure policies are followed periodic audits of employee computers are necessary, but these audits require significant time and effort from the IT team.
 
   Automatic Software Patching
-    software products can have the capability to check for downoad and install software updates, provided by the software vendor. 
-      many offer automatic patching, applying these updates un the background without requiring user intervention.
+    software products can have the capability to check for download and install software updates, provided by the software vendor. 
+      many offer automatic patching, applying these updates in the background without requiring user intervention.
         ensuring systems remain protected against newly discovered vulnerabilities as quickly as possible.
     Vulnerabilities Mitigated by this Policy
       in this age of zero-day exploits and malware that avoids traditional anti-virus detection, patch management is the most crucial activity necessary to avoid compromise by an attacker.
         these defects make the system running that software vulnerable to attack.
         the best way to ensure systems are kept as secure as possible is to diligently apply software patches as quickly as possible following release by the software vendor. 
-          in order to help with that, the majority of software (Windows, macOS, Un*x, Etc.) feature "Automatic Updates", which will automatically downlaod and install all relevant patches for a computer.
-            applications like web browsers, office productivity suites (Microsoft Office, Open Office, Lotus, Etc.) feature automatic update fucntionality.
+          in order to help with that, the majority of software (Windows, macOS, Un*x, etc.) feature "Automatic Updates", which will automatically download and install all relevant patches for a computer.
+            applications like web browsers, office productivity suites (Microsoft Office, Open Office, Lotus, etc.) feature automatic update functionality.
     Why the Policy Isn't Always Enforced
       smaller organizations whose networks are relatively simple, the best course of action is to allow automatic updates to function. this is an issue for organizations with more complex network configurations.
         plenty of examples where a patch caused more problems than it solved
-          many companies have altered their policies, dictating that patches should not be deployed on the network at large until they have been throughly tested internally.
+          many companies have altered their policies, dictating that patches should not be deployed on the network at large until they have been thoroughly tested internally.
             unfortunately by blocking the automatic update process, some products must be updated manually, representing yet another investment of time and energy for IT staff.
-      Many OS found in enterprise environements (windows and Un*x OSs) feature the ability to override updates downloaded from the server.
+      Many OS found in enterprise environments (windows and Un*x OSs) feature the ability to override updates downloaded from the server.
         instead of checking with the update server, the computer checks the internally hosted downloaded server.
-          allowing the automatic update functionality to operate normally, downloading new updatees as they are added to the (internal) server. 
+          allowing the automatic update functionality to operate normally, downloading new updates as they are added to the (internal) server. 
             allowing IT staff to test and verify patches prior to installing to systems.
 
     Limit Remote Equipment Use
@@ -176,71 +176,71 @@
         blocking any potentially troubling items before they can reach the network.
           an employee who takes a company laptop home and places it on home network, effectively bypassing these controls.
             malware that infects the laptop while on home network will be able to spread to other systems on the organization's network as soon as the employee returns to work with the systems.
-              policies should be put in place to minimizae the number of ways that information can bypass existing security controls.
+              policies should be put in place to minimize the number of ways that information can bypass existing security controls.
                 Ex. disabling the USB ports on a computer seems drastic but such a measure can increase security.
       Vulnerabilities mitigated by this policy
-        the goal of any policy concerning "remote computing" or "files transmitted from home" is designed to prevent malware from entering an organization's network throuh side channels.
-        countless instances of employees unknowingly transmitting malware on flash drives, SD cards and other soldid state memory devices,
+        the goal of any policy concerning "remote computing" or "files transmitted from home" is designed to prevent malware from entering an organization's network through side channels.
+        countless instances of employees unknowingly transmitting malware on flash drives, SD cards and other solid state memory devices,
         crafting a policy that does not overly interfere with an employee's ability to get work done can be difficult, through the goal is to close any side doors that malware can skip through to infect the network.
       Why the Policy Isn't Always Enforced
         Ex: little point in purchasing laptops if corporate policy prevents them from leaving the building. the same token (while fewer reasons to use USB flash drives) many people find them to be convenient.
         organizations use "sanitized" laptops", rather than having one laptop that's issued to a single employee, they maintain a pool of laptops. 
           Ex. employee checks out a laptop to work remotely, when employee returns, the laptop is returned to IT department where its re-imaged, removing any harmful malware that might infected the system.
-        another way to mitigate the risks is to configure laptop computers to always access the internet trhough the use of corporate VPN:
-          routing all internet traffic through VPN connection back to Headquarters, you can be sure that inline security devices (malware filters, Spam filters, Etc.) maintain effectiveness.
+        another way to mitigate the risks is to configure laptop computers to always access the internet through the use of corporate VPN:
+          routing all internet traffic through VPN connection back to Headquarters, you can be sure that inline security devices (malware filters, Spam filters, etc.) maintain effectiveness.
 
 *******************************************************************************************
   Router Security
-    networked software systems needed secure network pathways, its easy to intercept( and alter ) sensitive traffic as it passes over the network. 
-    router security should be considered during the overall  security assessment of Information Systems.
+    networked software systems needed secure network pathways, its easy to intercept (and alter) sensitive traffic as it passes over the network. 
+    router security should be considered during the overall security assessment of Information Systems.
     Maintaining a system or device is extremely important for security purposes.
-      router software can contain flaws that may be discovered and exploited. attacks can be issued on a netowork, and a compromised router could result in a damaging attack.
-        routinely keep routers updated with the latest patches to help protect the network, systems and anyrelated data.
+      router software can contain flaws that may be discovered and exploited. attacks can be issued on a network, and a compromised router could result in a damaging attack.
+        routinely keep routers updated with the latest patches to help protect the network, systems and any related data.
 
     Planes of Operation
       router operation is traditionally partitioned (or segmented) into 3 planes of operation:
         Control Plane - Responsible for managing traffic to/from the device; including functions such as: Routing protocol, State notification, Packet filtering
           Control plane uses the management plane for remote communication. (not actually transporting data)
-        Management Plane - the designation for traffic to and from the device. to direct management of the routing device (Protocols like telnet, ssh, http, https, snmp, Etc.) 
+        Management Plane - the designation for traffic to and from the device. to direct management of the routing device (Protocols like telnet, ssh, http, https, snmp, etc.) 
           Management Plane is responsible for access to, monitoring, and configuring the device.
         Data Plane - responsible for managing the traffic that flows through the device and is usually intended for a remote device (workstation, another router).
           logical separation of communication roles will help an admin identify traffic for the purpose of policy creation and traffic management.
 
   Role-Based IP Addressing
-    An ACL(access control list) is a list of permissions that are associated with the access of an object; when routing, these access lists filter traffic in both inbound and outbound directions.
+    An ACL (access control list) is a list of permissions that are associated with the access of an object; when routing, these access lists filter traffic in both inbound and outbound directions.
       ACLs that are applied to Management traffic are referred to as Infrastructure Access Control Lists (iACLs) and are leveraged to both identify and control direct device access.
-        iACLs in a large network has difficulty distinguishing legitimate management traffic from transigressive traffic.
+        iACLs in a large network has difficulty distinguishing legitimate management traffic from transgressive traffic.
           use a policy that inherently segments the network's address space by specific role of the device or group of devices, otherwise called Role-Based IP Addressing.
-    Ex. - organization with 3 departments: Sales, Human Resources, and Information Technology. each department would be assigned separate IP addres space, or subnet, and the machines residing in that department would be assigned addresses in that space only.
-      network would be segmented into 4 distinct subnest, 
+    Ex. - organization with 3 departments: Sales, Human Resources, and Information Technology. each department would be assigned separate IP address space, or subnet, and the machines residing in that department would be assigned addresses in that space only.
+      network would be segmented into 4 distinct subnets, 
         the network equipment itself should reside on a completely different Subnet in order to Identify and Isolate the Management Traffic from that of the Operational Traffic of the device.
           this segmentation allows Generic ACLs to be applied to the devices that will either allow or deny traffic between subnets without the need for individual rules applied to specific hosts in the entire network.
-            this separation of network segments allows admin to controll access both to outside networks as well as between the separate departments.
+            this separation of network segments allows admin to control access both to outside networks as well as between the separate departments.
 
   Ingress and Egress Filtering
-    proper filtering of inbound and outbound traffic ensures that a networks is functioning as intended in a secure and efficient manner.
-      Inbound, or ingress filtering protects a network from invalid traffic originating from outside the network by blociking this traffic when it enters the network.
+    proper filtering of inbound and outbound traffic ensures that a network is functioning as intended in a secure and efficient manner.
+      Inbound, or ingress filtering protects a network from invalid traffic originating from outside the network by blocking this traffic when it enters the network.
       outbound, or Egress filtering, ensures that your network does not transmit invalid traffic to remote networks
       Proper Filtering
         Proper filtering can reduce the ability for a remote attacker to easily use spoofed packets and Man-in-the-Middle attacks across the network edge by disallowing traffic that meets certain specifications.
           Ex. attacker will attempt to spoof a trusted host on target network in order to abuse a trusted relationship between 2 machines on your network.
             Proper Ingress filtering causes the attacker's packets to never reach their intended target as the spoofed network address should never attempt to connect to the target machine from outside interface.
-            Alternativaly "un-routable" network spaces reserved for private use can be used to circumvent certain firewall implementations.
-              for the purpose of information retrieval and network mapping, and as a precaution, should be filtered on al edge routers.
+            Alternatively "un-routable" network spaces reserved for private use can be used to circumvent certain firewall implementations.
+              for the purpose of information retrieval and network mapping, and as a precaution, should be filtered on all edge routers.
       Bogons
         these abused address spaces are generally called bogons
-          defined as martian blocks [Private (reserved for non-Internet usage) and reserved address spaces (multicast, experminental, future use) RFCs 1918, 3330]
-          and blocks that arnt currently assigned to a designated registry organization
+          defined as martian blocks [Private (reserved for non-Internet usage) and reserved address spaces (multicast, experimental, future use) RFCs 1918, 3330]
+          and blocks that aren't currently assigned to a designated registry organization
         Bogons should be filtered on both Inbound and Outbound directions on all network interfaces that are open to the internet.
         bogons should be filtered in all network devices regardless of location or function, as such filtering when applied on a widespread scale will reduce the total amount of abusive Internet traffic.
-        bogon List is dynamic and regularly changes as new block spaces are assignedand released, so regular updates will be required for comprehensive coverage.
-        publicly available Bogon lists are  are a great place to begin when identifying troublesome address spaces during the creation and deployment of any filtering solution
+        bogon List is dynamic and regularly changes as new block spaces are assigned and released, so regular updates will be required for comprehensive coverage.
+        publicly available Bogon lists are a great place to begin when identifying troublesome address spaces during the creation and deployment of any filtering solution
 
   Authentication, Authorization, and Accounting
     Authentication, Authorization, and Accounting (AAA) are very important to the operation and maintenance of network devices.
       Authentication to network devices should be based on a centralized database of user records. 
-        alleviating the need for a network admin to manually enter user information on all network devices each time there is a pertient user change.
-        a centralized user database can disallow network use without first identifying (authentication) the user and ensure that they have the access rights (authorizaiont) to use networking resources
+        alleviating the need for a network admin to manually enter user information on all network devices each time there is a pertinent user change.
+        a centralized user database can disallow network use without first identifying (authentication) the user and ensure that they have the access rights (authorization) to use networking resources
         accounting will allow admin to view the activities of each authenticated user, and keep meaningful records of such activities for the help of troubleshooting and incident analysis.
 
   Traffic Flows
@@ -248,47 +248,47 @@
       every packet that is considered a part of the flow contains the exact same values for each of the following keys:
         Source IP Address.
         Destination IP Address.
-        Source port for UDP, TCP and o for ICPM or other protocols.
-        Destination port for UDP,TCP, and o for ICMP or other protocols.
-        IP ProtocolsIncoming (Ingress) interface
+        Source port for UDP, TCP and 0 for ICMP or other protocols.
+        Destination port for UDP, TCP, and 0 for ICMP or other protocols.
+        IP Protocols Incoming (Ingress) interface
         Type of Service
       Monitoring Network Traffic
         Cisco Systems created a protocol called NetFlow that allows Cisco routers to send flow data to a collection agent for the purpose of identifying network flows.
-          each Netflow-enabled router sends flow information to a central collection agent, analyzed to produce meaningful representations of the collected data.
-            once parsed by the collecter, can show network adminsistrators exactly the quantity of bandwidth that clients have consumed, and the amount of bandwidth that is still available to the network.
+          each NetFlow-enabled router sends flow information to a central collection agent, analyzed to produce meaningful representations of the collected data.
+            once parsed by the collector, can show network administrators exactly the quantity of bandwidth that clients have consumed, and the amount of bandwidth that is still available to the network.
       Standardizing Network Flow Collection
-        NetFlow is a proprietary protocol thats officially supported only by Cisco Equipment; many open-source POSIX systems have implemented support for sending NetFlow data to legitimate collection agent.
-        IETF has recently submitted a proposal for standarized open protocol called IPFIX (IP Flow Information eXchange) 
-          in attempts to provide the same functionality to a generic audience in attmept to standarize flow record colection
+        NetFlow is a proprietary protocol that's officially supported only by Cisco Equipment; many open-source POSIX systems have implemented support for sending NetFlow data to legitimate collection agent.
+        IETF has recently submitted a proposal for standardized open protocol called IPFIX (IP Flow Information eXchange) 
+          in attempts to provide the same functionality to a generic audience in attempt to standardize flow record collection
         IPFIX is based off the latest version of the NetFlow (version 9) protocol and is almost an exact implementation of the original proprietary protocol.
         Network flow information can be leveraged to Identify troublesome hosts that abuse network access (port scanning, peer-to-peer file sharing, connected hosts and/or network usage history)
-          identifying thes troublesome flows is useful when dealing with larg networks. 
-            combined with Role-Based IP Addressing, this capability can allow network admin to pinpoint troublesome connections and provide meaningul info for issue resolution
+          identifying these troublesome flows is useful when dealing with large networks. 
+            combined with Role-Based IP Addressing, this capability can allow network admin to pinpoint troublesome connections and provide meaningful info for issue resolution
 
   Bandwidth Implications
     early streaming content was simple to manage as the available sources were easy to target and either block or rate limit
       With Internet Radio, Internet Television, and Video on Demand (VOD) services this has become an overwhelming challenge
         the ability to produce live content streams has become affordable and access to content delivery networks have become household names.
     Implications of Media Streaming
-      Network admin arnt able to prevent or rate limit a few single sources, 
+      Network admin aren't able to prevent or rate limit a few single sources, 
         have to learn to deal with the expected behavior of computer users and build systems resilient enough to deal with the bandwidth concerns
       in securing a network, handling media streaming becomes about preventing resource exhaustion.
-        resource is the network itself, the network admin should beable to create methods to reduce the impacts of streaming content and learn to prepare as much as possible to developments and changes to the type of content being seen.
-      first concept is to understand the implications of a stream and just how impactful a single view can be. streaming media badwidth calculations are based on numerous factors:
+        resource is the network itself, the network admin should be able to create methods to reduce the impacts of streaming content and learn to prepare as much as possible to developments and changes to the type of content being seen.
+      first concept is to understand the implications of a stream and just how impactful a single view can be. streaming media bandwidth calculations are based on numerous factors:
         Bitrate of the media
         frame rate of the media
         frame size of the media
         the quality of the sound distributed with the media.
 
   Bandwidth Strategies
-    organization have mission critical applications that require internet bandwidth. forcing network admins to develop stratigies to deal whith streaming content:
+    organization have mission critical applications that require internet bandwidth. forcing network admins to develop strategies to deal with streaming content:
       Administrative policy
         many organizations turn to administrative policy as a way to discourage streaming use by their end users.
         Impacted by an organization's willingness to enforce violations of their policy.
-        web filtering and web proxy servers are a very real part of modern networks and andminstrators typically turn to them to help identify employees that are worst offenders in an effort to preserve netowrk resources.
+        web filtering and web proxy servers are a very real part of modern networks and administrators typically turn to them to help identify employees that are worst offenders in an effort to preserve network resources.
       Rate Limiting
         rate limit end users of a network. performed on a individual instance or to groups of users.
-          network admin can assign a more predictable high end bandwidth usage by understandig what the aggregate of all users at a specified rate limit would be. the challenge iwth rate limiting is handling the exceptions.
+          network admin can assign a more predictable high end bandwidth usage by understanding what the aggregate of all users at a specified rate limit would be. the challenge with rate limiting is handling the exceptions.
       Network Division
         Network admin create multiple outbound Internet pathways and isolate the critical or important business applications to a pathway that can remain more consistent and guaranteed.
           works by identifying traffic sources and establishing routes or firewall rules that force traffic to use one connection or another.
@@ -296,7 +296,7 @@
       Filtering 
         organizations resort to a filtering strategy in combination with or in lieu of enforcing administrative policy.
         filtering works best when accompanied by clear administrative policies that have a clear path for administrative enforcement.
-        admin attampt to perform filtering at the network perimeter with routers and firewalls. (effective against sites like YouTube, Spotify, or Netflix.
+        admin attempt to perform filtering at the network perimeter with routers and firewalls. (effective against sites like YouTube, Spotify, or Netflix.
           not as effective at preventing streaming from all sources, or one of the many methods users can use to bypass filtering attempts.
           most strategies center on a webfilter appliance and/or client software that allows filtering content by type.
           update constantly for effectiveness of these products.
@@ -310,65 +310,65 @@
 *******************************************************************************************
 Voice Services Security
 
-  the client software used with these services (Skype, Zoom, Webex, Google, Talk, or GoToMeeting) provide easy to use options for features such as:
+  the client software used with these services (Skype, Zoom, Webex, Google Talk, or GoToMeeting) provide easy to use options for features such as:
     Remote Screen Sharing, Remote Control of a Computer, File Transfers, Publishing Video Content, Chat Sessions, Recording and Logging of Sessions
   Security Risks
-    principle reason applications used to carry real-time commmunications present a security risk to the organization. voice services do not present a security risk because these applications usually traverse firewalls.
-      concept of traversal meaning theat the application communicates with 3rd party via central source using standard ports common to most internet traffic.
-        realtime communication services use a decentralized model for comunicaion, relies on peer-to-peer networks rather than single central source for routing all communications.
+    principle reason applications used to carry real-time communications present a security risk to the organization. voice services do not present a security risk because these applications usually traverse firewalls.
+      concept of traversal meaning that the application communicates with 3rd party via central source using standard ports common to most internet traffic.
+        realtime communication services use a decentralized model for communication, relies on peer-to-peer networks rather than single central source for routing all communications.
           Ex. all networks allow users to connect to 3rd party entities using TCP port 80.
-            if the voice chat service also sends communication to a server via TCP port 80, than it becomes difficult for a network administrator to filter tha ttraffic based on the destination address.
-              the use of a random process to select which port the applicaion uses as a source port and prevents tha administrator from easily blocking the source application as well.
+            if the voice chat service also sends communication to a server via TCP port 80, then it becomes difficult for a network administrator to filter that traffic based on the destination address.
+              the use of a random process to select which port the application uses as a source port and prevents that administrator from easily blocking the source application as well.
             this ability for an end user to quickly initiate a session with anyone on the outside of an organization and participate in file transfers, sharing of content and remote control sessions make this a method for bypassing a corporate firewall, 
               and even more importantly increasing the potential for intellectual property loss
   User Privacy
     most internet voice services are performed outside of, or as an exception to, access policies a network administrator has control over.
-    another threat is accessing or abusing features of the software with purpose of invading privace using capruring, recording, or masquerading techniquest.
-    these services are designed to work in NAT evnironments, if the user want to use these voice services, is behind a firewall and that firewall is concealing the IP address of the user's computer.
+    another threat is accessing or abusing features of the software with purpose of invading privacy using capturing, recording, or masquerading techniques.
+    these services are designed to work in NAT environments, if the user want to use these voice services, is behind a firewall and that firewall is concealing the IP address of the user's computer.
       attacker is able to gain access to the service and participate in a session.
 
   Strategies for Securing Voice Services
-    many real-time communicaion software packages caused network administrators to consider many techniques to protect their end users from these threats:
+    many real-time communication software packages caused network administrators to consider many techniques to protect their end users from these threats:
       User Education
         a way to secure real-time communication is to control the application the end user utilizes during the communication session.
         applications have the ability to restrict certain features. 
          a good feature to disable would be the file transfer capability. 
           forcing end users to transfer files through means such as email. 
-            can prevent a file from entering the network that could be a trojean horse for a later attack
+            can prevent a file from entering the network that could be a trojan horse for a later attack
         a way to attack a network is to get an unsuspecting user to install an application that allows a hacker to get remote access into the system while bypassing the corporate firewall.
       Better tools
         provide improved and more accessible tools.
-        a network administrater can deploy tools similar to the free ools available on the internet. end users will use the tools  their organization provides as long as tool is easy to use and meets needs.
-          allowing the network administrator to have better control of the voice services or confrencing application the organization's users are using.
-      Canging Defaults
+        a network administrator can deploy tools similar to the free tools available on the internet. end users will use the tools their organization provides as long as tool is easy to use and meets needs.
+          allowing the network administrator to have better control of the voice services or conferencing application the organization's users are using.
+      Changing Defaults
         wise network admin that wants to protect employees from threat can choose to change the default communication behavior of the voice or conference application
           one way is to configure the TCP or UDP ports that the application uses.
-        Ex. - appication could be set to use TCP port 80 or TCP port 443 for encrypted communication.
-          by using a different port the applicaionwill be more secure because it will be less predictable by the potential assilant.
-            any settigns including the install path of the application should be altered if possible sto avoid one of the many potential exploits of the software.
+        Ex. - application could be set to use TCP port 80 or TCP port 443 for encrypted communication.
+          by using a different port the application will be more secure because it will be less predictable by the potential assailant.
+            any settings including the install path of the application should be altered if possible to avoid one of the many potential exploits of the software.
       Implementing Modern Security Standards
         organizations should implement protocol such as Secure Real-Time Transport protocol (SRTP) for encrypting voice traffic and TLS 1.3 for signaling security.
-          these measures protect against evesdropping and man-in-the-middle attacks.
+          these measures protect against eavesdropping and man-in-the-middle attacks.
           best practices include:
             enforcing multi-factor authentication for administrative access
-            using session borer controllers (SBCs) to monitor and control VoIP traffic
+            using session border controllers (SBCs) to monitor and control VoIP traffic
             applying zero trust principles to segment voice networks.
-          regular updates and vulnerability assessments ensure that Voip systems remain resilient against evolving threats.
+          regular updates and vulnerability assessments ensure that VoIP systems remain resilient against evolving threats.
       Restrict Features
         internet voice services are performed outside of or as an exception to, access policies a network administrator has control over.
         accessing or abusing features of the software with the purpose of invading privacy using capturing, recording, or masquerading techniques.
-        these services are designed to work in NAT environments. if the user who want to use these fove services is behind a firewall and that firewall is concealing the IP address of the users computer.
-          attacker is able to gain acces to the service and participate in a session.
+        these services are designed to work in NAT environments. if the user who want to use these voice services is behind a firewall and that firewall is concealing the IP address of the users computer.
+          attacker is able to gain access to the service and participate in a session.
 
 *******************************************************************************************
 Best Practices
 
   Best Practices for Safe Network Operations
-    before 2000s most of the efforts of security professionsals focused on the maintenance of virus definition files.
+    before 2000s most of the efforts of security professionals focused on the maintenance of virus definition files.
     as long as a reliable anti-virus product had been purchased, installed and kept up to date, systems could be maintained with relatively high level of assurance
-      in the early 2000s countless worms (Slammer, Blaster, and Sasser) quickly spread, illustrating why this practice was no longer sufficient to product networks.
+      in the early 2000s countless worms (Slammer, Blaster, and Sasser) quickly spread, illustrating why this practice was no longer sufficient to protect networks.
       other principles and best practices for safe network operations are:
-        Separation of dudties, Policies vs. Procedures, and Acceptable Use Policies
+        Separation of duties, Policies vs. Procedures, and Acceptable Use Policies
 
   Separation of Duties
     power and authority should be distributed among as many people as is practical.
@@ -380,7 +380,7 @@ Best Practices
         Ex. Basic guideline:
           make sure that auditing and managing are done by two different people
             auditor is responsible for the examination of data (usually log files) that may contain evidence of wrongdoing.
-              if the person responsible for auditing aso has the authourity to configure the network, there is undeniably a potential for abuse.
+              if the person responsible for auditing also has the authority to configure the network, there is undeniably a potential for abuse.
           it would also be ill-advised to make the same person an administrator as well as the auditor.
 
   Policy and Procedures
@@ -402,81 +402,81 @@ Best Practices
       well written acceptable use policy used in conjunction with available technology is considered a best practice in network protection.
 
   Goals for Acceptable Use Policies
-    most technical controls used to secure clients from atack are well known to administrators (patch anagement, user of firewalls, and anti-virus software).
-      each offers a differnt layer of defense, with every layer representing another obstacle that an attacker must overcome in order to infect the system.
+    most technical controls used to secure clients from attack are well known to administrators (patch management, user of firewalls, and anti-virus software).
+      each offers a different layer of defense, with every layer representing another obstacle that an attacker must overcome in order to infect the system.
     Protection of Personnel
-      it is important for AUP to ensure there are forms of protection afforded to useers.
-      Ex. - libel and slander are 2 damaging forms of attack that dont impact technology assets at all, but can have devastating impacts on people.
+      it is important for AUP to ensure there are forms of protection afforded to users.
+      Ex. - libel and slander are 2 damaging forms of attack that don't impact technology assets at all, but can have devastating impacts on people.
         Identity theft may be another item spelled out by the AUP, though this topic is often addressed in other policies regarding personal safety and professional conduct
       it is important to be sure employees adhere to regulations. an employee who is injured as a result of employment may try to take legal action against the organization.
     Protection of Resources
-      most end users understand physical computers there using constitute resources, so the y dont damage them.
+      most end users understand physical computers they're using constitute resources, so they don't damage them.
       users do not recognize a computer's software as a resource.
       Successful AUP must be written in such a way to ensure users understand and can identify all of the resources within the organization, both hidden and physical.
-      administrators remember the following resources. there valuable and require protection just as a piece of hardware does:
+      administrators remember the following resources. they're valuable and require protection just as a piece of hardware does:
         Bandwidth, Time ("CPU" and "wall clock"), Storage Space
     Protection of Reputation
       its important to ensure that employees and other staff understand ramifications of what they do 
-        realize that the organization could be held liable if a representative (employee, staff member, Etc.) uses the organization's equipment to harm another person or group.
-      organization could be held liable, for viruses and DDoS atacks that might be launched from your network, but also potentially for any slander or libel that is distributed using your systems.
+        realize that the organization could be held liable if a representative (employee, staff member, etc.) uses the organization's equipment to harm another person or group.
+      organization could be held liable, for viruses and DDoS attacks that might be launched from your network, but also potentially for any slander or libel that is distributed using your systems.
 
-  Patch Management - the process of gegulating the installation of patches on a system
-    tools are available to assist proper management of system patches.early 2000s show the need for effective and timely patch management.
+  Patch Management - the process of regulating the installation of patches on a system
+    tools are available to assist proper management of system patches. early 2000s show the need for effective and timely patch management.
       large amounts of time lost due to incompatible patches being carelessly deployed demonstrated the need for careful patch management.
     competing priorities, security urgency and operational stability must be balanced when determining which patches to deploy.
       NIST SP 800-40
         emphasize the importance of clearly defined organizational roles in this process.
-      Security Personell or Information System Security Officers (ISSOs)
+      Security Personnel or Information System Security Officers (ISSOs)
         assess the risk of priority of patches, system administrators are responsible for testing, deploying, and monitoring updates with established procedures.
       these roles help minimize operational impact while reducing exposure to emerging threats, including Zero-Day Vulnerabilities.
 
   Windows Operating Systems
-    all supported windows OS are configured to download and install software updates from a microsoft maintained contral repository of updates.
-      systems conect to the update server (Windows Update). the system will scan for available updates that have not been installed locally. if any ar efound they are downloaded and (depending on the configuration of the local system) are installed
+    all supported windows OS are configured to download and install software updates from a microsoft maintained central repository of updates.
+      systems connect to the update server (Windows Update). the system will scan for available updates that have not been installed locally. if any are found they are downloaded and (depending on the configuration of the local system) are installed
       updates may be downloaded by prompting the user to start the install procedure in the case of large updates like Service Packs.
     Windows Server Updates
-      not always effective for larger organizations beacuse:
+      not always effective for larger organizations because:
         they are forced to allow each system on the network to connect to the internet.
-        they have reduced control over the downloadeing and installation of software updates.
+        they have reduced control over the downloading and installation of software updates.
       on-premises solutions (Windows Server Update Service (WSUS) gave organizations control over software updates by functioning as a private update server.
-        modern cybersecurity needs have let the development of dynamic, cloud-based solutions.
+        modern cybersecurity needs have led the development of dynamic, cloud-based solutions.
       instead of using a local server to distribute patches, organizations are turning to services like Azure Update Manager and Microsoft Intune for more comprehensive and flexible patch management.
-    Azure Update Manager provideds a unified platform to manage updates for both Windows and Linux machines across on-premises, Azure, even multi-cloud environments.
-      offers a centralized dashboard to monitor update compliance, deploy updates, and schedule automated patch deployments, reducing the manual effor tand potential for human error.
+    Azure Update Manager provides a unified platform to manage updates for both Windows and Linux machines across on-premises, Azure, even multi-cloud environments.
+      offers a centralized dashboard to monitor update compliance, deploy updates, and schedule automated patch deployments, reducing the manual effort and potential for human error.
         streamlines the process by removing the dependency on a Log Analytics workspace that was previously required, offering a more integrated experience.
       organizations embracing a modern, mobile workforce, Microsoft Intune offers a cloud-based endpoint management solution.
     Intune manages updates for a variety of devices including those running Windows, iOS and Android, a significant advantage for companies with diverse range of endpoints.
       allowing the configuration of update policies to control how and when updates are applied, 
-        crucial for managing remote and mobile devices without requiring them to connect to a on-premises network.
+        crucial for managing remote and mobile devices without requiring them to connect to an on-premises network.
     Azure Update Manager and Intune provide the scalability, automation, and broader device support necessary for a modern cybersecurity strategy.
 
   Windows Deployment
-    Windows Server Update Service (WSUS) is designed to server a wide variey of updates to an organization's systems,
+    Windows Server Update Service (WSUS) is designed to serve a wide variety of updates to an organization's systems,
       Operating System updates, as well as updates for client software (Office) and infrastructure servers (web or mail servers) can be served by the WSUS.
     WSUS can be configured and run in countless ways WSUS can be connected to an Active Directory deployment, or is capable of operating in a stand-alone fashion.
     WSUS can be deployed in many ways, 2 common types of deployment: Simple and Computer Groups.
       "Simple" WSUS Development
         1st. most basic form of deployment is referred to by Microsoft as "simple." WSUS server functions as a replacement for the normal Windows Update service provided by Microsoft.
           WSUS server resides in the Corporate Firewall, meaning that computers that should not have access to the internet can still download and install software updates.
-          WSUS server will connect to the windows update site at regular interval (as little as once per hour, up to once per day) and download any available upadtes.
+          WSUS server will connect to the windows update site at regular interval (as little as once per hour, up to once per day) and download any available updates.
             Microsoft refers to this process as synchronizing
             after synchronization, WSUS automatically serves the necessary updates to client computers (or other servers) when requested.
       "Computer Group" WSUS Development
         other common alternative for patch deployment is to organize systems into what Microsoft refers to as "Computer Groups."
         Computer groups are collections or logically related systems with similar update needs.
-          Ex. organization might have the following computer groups: Desktop Computers, Internal Servers (Databases, Intranet, Etc.), Public servers (Web, Mail, Etc.)
+          Ex. organization might have the following computer groups: Desktop Computers, Internal Servers (Databases, Intranet, etc.), Public servers (Web, Mail, etc.)
           each group clearly has different roles and different update needs.
-            organization might choose to be aggressive when deploying patches for public servers, thes servers can be reached by anyone over the internet.
-            organizations, when deploying updates for internal servers, recognize that the se systems have reduced vulnerability due to inaccessibility from the internet.
+            organization might choose to be aggressive when deploying patches for public servers, these servers can be reached by anyone over the internet.
+            organizations, when deploying updates for internal servers, recognize that these systems have reduced vulnerability due to inaccessibility from the internet.
           Ex. Microsoft Update > Cloud > Firewall > WSUS > Clients
         All Computers and Unassigned Group
           after installation WSUS launches with 2 preconfigured groups: All Computers Group and the Unassigned Group.
             Computers that contact the WSUS server will be placed in both groups by default.
-          should take care when assingning patches and updates to the All Computers group as "All Computers" means exactly what it says: all computers
+          should take care when assigning patches and updates to the All Computers group as "All Computers" means exactly what it says: all computers
           Ex. Microsoft Update > Cloud > Firewall > WSUS > All Computers Group/Unassigned Group
 
   Cloud-Native Update Deployment
-    Microsoft Intune and Azure Update Manager are designed to server a wide variety of updates to an organization's systems.
+    Microsoft Intune and Azure Update Manager are designed to serve a wide variety of updates to an organization's systems.
     Client device updates for Windows, iOS, and Android, as well as OS and software updates for servers, can be managed by these cloud-native services.
     Intune and Azure Update Manager can be configured in numerous ways. 
       designed to integrate with Microsoft Entra ID (formerly Azure Active Directory) but also capable of managing standalone and hybrid environments.
@@ -485,80 +485,80 @@ Best Practices
     Patch management strategies in Linux can be divided in 2 different categories: Free and Commercial
     Free patch management strategies take advantage of open source and freely available utilities. utilities seen in commercial update packages (linux and Windows) can be replicated using these utilities,
       may be more overhead involved.
-    Commercial patch management approaches, on the other hand, offer many "bells nad whistles," though they come at a price.
+    Commercial patch management approaches, on the other hand, offer many "bells and whistles," though they come at a price.
     Linux Free Patch Management
       Windows workstations feature an update client, so does Linux Systems:
-        going by different names (YUM, APT, Etc.) 
-        work in slightly different manners (packages, debs, Etc.)
+        going by different names (YUM, APT, etc.) 
+        work in slightly different manners (packages, debs, etc.)
         Basic Operation is the same: they download software from repositories and install it automatically.
       linux users may be familiar with these utilities as a way to install new software, they are also used to update existing packages.
       these utilities can scan for any other software packages that must accompany the new software. required packages are known as dependencies.
       common update managers can be configured (Cron, or some other service) to scan the update server on regular intervals and download updated software.
-        all major packages can be configured to download updates from a specific update server, rather than the default srever.
+        all major packages can be configured to download updates from a specific update server, rather than the default server.
       Linux Free Patch Management: Updates
         its possible to configure a linux update client to run on regular intervals, automatically downloading and installing updates that are found.
         Local Update Server is a vital feature for many of the commercial products (Windows, macOS, and commercial Linux offerings). most popular distributions provide ways to easily set up your own repository on local network.
           repository will on a regularly scheduled interval, download updates from the main repository and make available on local network.
             same with update client, precise steps for doing this are distribution-specific
-              recommended to consult the documention of particular Linux distribution for more information.
+              recommended to consult the documentation of particular Linux distribution for more information.
                 dependencies within a software release for Linux can be quite complex and difficult to map by hand.
-                  failure to post all required dependencies wil lcause an update to fail.
+                  failure to post all required dependencies will cause an update to fail.
           for administrators who will try to selectively publish updates to their private repositories
-            updates must always be throughly tested to ensure that alll of the required dependencies have also been posted.
+            updates must always be thoroughly tested to ensure that all of the required dependencies have also been posted.
       Linux Free Patch Management: Dependencies
-        developers of Linux try to reuse code whenever possible with hopes of increasing reiability and reducing development time and cost.
-          a developer believes other programers might have a need for this code.
+        developers of Linux try to reuse code whenever possible with hopes of increasing reliability and reducing development time and cost.
+          a developer believes other programmers might have a need for this code.
             when constructed in this way the developer is creating a link between their program and the library; 
-              without the library, the developer's application has no hope of fucntioning correctly. known as Dependency
-          Managing dependencies can become a very diffecult and time-consuming task in linux, particularly when done by hand.
+              without the library, the developer's application has no hope of functioning correctly. known as Dependency
+          Managing dependencies can become a very difficult and time-consuming task in linux, particularly when done by hand.
           newly released patches for applications will require updates to other dependent libraries (or the installation of new libraries) in order to work properly.
-          automated management, installation and updating of dependencies awre among the original motivators behind YUM and APT.
+          automated management, installation and updating of dependencies were among the original motivators behind YUM and APT.
       Commercial Patching Alternatives
         organizations that run Linux as desktop operating systems will invest in a commercial version of Linux.
           vendors offer commercial flavors of Linux including Red Hat Enterprise Linux (sold by Red Hat), SUSE Enterprise Linux (sold by Novell), and Mandriva Linux (sold by Mandriva).
-        commercial Linus Distributions feature some sort of patch or upgrade management systems; particularly for offerings by Red Hat and Novel.
-        the purchase of advanced update and management functionality may cost additional money, unlike offereing for Windows and macOS.
+        commercial Linux Distributions feature some sort of patch or upgrade management systems; particularly for offerings by Red Hat and Novell.
+        the purchase of advanced update and management functionality may cost additional money, unlike offering for Windows and macOS.
 
-  Berkely Software Distribution
-    Perkely Software distribution (BSD) patch distributions generally seek to provide the most stable and secure operating system possible.
+  Berkeley Software Distribution
+    Berkeley Software Distribution (BSD) patch distributions generally seek to provide the most stable and secure operating system possible.
       stability and security have come at the expense of usability. why BSD today finds itself deployed in server situations.
-    nework adminstrators are protective and conservative with server patching than thay are with patching of desktop workstations.
-      automatic update functionality found in Windows and many Linux Distributions is not nearly as evolved in BSD environemtns.
-        like Linux, there is may differnt versions of BSD (FreeBSD, OpenBSD, NetBSD, Etc.), making a comprehensive one-size-fits-all description of updating BSD next to impossible.
+    network administrators are protective and conservative with server patching than they are with patching of desktop workstations.
+      automatic update functionality found in Windows and many Linux Distributions is not nearly as evolved in BSD environments.
+        like Linux, there is many different versions of BSD (FreeBSD, OpenBSD, NetBSD, etc.), making a comprehensive one-size-fits-all description of updating BSD next to impossible.
 
-  Berkely Software Distribution vs. Linux
+  Berkeley Software Distribution vs. Linux
     BSD Differs from linux:
       Ports - where linux might refer to software packages as RPMs or debs, BSD refers to these as "ports" (not confused with TCP ports). 
-        Ports on BSD are exclusively downloaded as source code, must be compiled prior to instalation, accomplished thourhg a shell script that is distributed with the software known as makefile.
-      Patching Stratiges
+        Ports on BSD are exclusively downloaded as source code, must be compiled prior to installation, accomplished through a shell script that is distributed with the software known as makefile.
+      Patching Strategies
         Similar approaches in linux can be applied to BSD. a variety of distribution specific update clients that can be used to replicate Yum or APT functionality.
         IT administrators prefer to manage their BSD systems manually, as to be completely sure of current state of servers.
-          best option for keeping BSD systems up-to-date. subscribing to appropritate email mailing list is necessary when adopting this strategy.
+          best option for keeping BSD systems up-to-date. subscribing to appropriate email mailing list is necessary when adopting this strategy.
 
   Apple macOS
-    amacOS is derived from BSD, merits special attention. macOS is a highly common desktop operating system.
-      apple has added significant functionality onto the OS to provide administrators the ability to manage updates in simalar ways to windows WSUS.
-      Applie's version of WSUS is known as Software Update Server (SUS). free of charge but requires a licensed copy of macOS Server.
-      apple SUS allows administrators to decide if and when updates are published to local clients, allowing through testing of patches prior to deploment.
+    macOS is derived from BSD, merits special attention. macOS is a highly common desktop operating system.
+      apple has added significant functionality onto the OS to provide administrators the ability to manage updates in similar ways to windows WSUS.
+      Apple's version of WSUS is known as Software Update Server (SUS). free of charge but requires a licensed copy of macOS Server.
+      apple SUS allows administrators to decide if and when updates are published to local clients, allowing thorough testing of patches prior to deployment.
 
 *******************************************************************************************
 Business Continuity
   Business Continuity
     every organization should develop a business continuity or continuity of operations plan (COOP)
       business continuity plan provides processes and procedures for an organization to recover operations and continue providing services to its customers after an incident or disaster
-        by helping to ensure the mission-critical or essential business operations are minimally interupted.
-      modern ransomware target backup systems, organizations must incorporate protections suchas immutable backups, offline (cold) storage, and other safeguards to maintain the Integrity element of the CIA triad.
+        by helping to ensure the mission-critical or essential business operations are minimally interrupted.
+      modern ransomware target backup systems, organizations must incorporate protections such as immutable backups, offline (cold) storage, and other safeguards to maintain the Integrity element of the CIA triad.
         ensuring backup integrity is now a central priority in any effective continuity and recovery strategy.
 
   Business Continuity Plan
-    business continuity pland should include:
+    business continuity plan should include:
       Determination of threats, risks and hazards
-      list of essential or critical business fucntions.
+      list of essential or critical business functions.
       inventory of processes, assets and resources that support essential functions.
       list of essential personnel and contact information.
       roles and responsibilities.
       activation plan.
-      delegantion of authorities.
+      delegation of authorities.
       alternate procedures.
       alternate facilities.
       supplier and customer information.
@@ -566,18 +566,17 @@ Business Continuity
       plan for employee training and exercise.
       IT disaster recovery plan.
 
-    ID Disaster Recovery
-      organizations hould also develop a plan for IT disaster recovery
+    IT Disaster Recovery
+      organizations should also develop a plan for IT disaster recovery
       IT Disaster Recovery plan focuses on the IT aspect of the organization and provides processes and procedures for protecting and recovering disrupted systems and networks as well as lost or corrupted data.
       Disaster Recovery plans
         IT Disaster Recovery Plan should include:
-          List of Essential It personnel and contact information
-          Roles and reesponsibilities.
+          List of Essential IT personnel and contact information
+          Roles and responsibilities.
           Activation plan.
           List of critical software, hardware, and networks.
           Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO) for data, software, hardware, and networks.
-          back-up, redundancy and recovery staregies
+          back-up, redundancy and recovery strategies
           Alternate facilities (hot site warm site or cold site)
           Plan for employee training and exercise.
           ransomware recovery strategies, including immutable and offline backups.
-          
